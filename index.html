@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Protection Security | ADT Authorized Dealer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        :root {
+            --adt-blue: #0057b8;
+            --accent-cyan: #06b6d4;
+            --bg-dark: #0a0e1a;
+            --bg-darker: #050810;
+        }
+        
+        body {
+            background: var(--bg-darker);
+            color: white;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media (max-width: 1024px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo-subtext {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, var(--adt-blue), var(--accent-cyan));
+            color: white;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 87, 184, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 50%, #0a0e1a 100%);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 87, 184, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        
+        .offer-banner {
+            display: inline-block;
+            padding: 24px 32px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .offer-label {
+            font-size: 14px;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .offer-text {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        /* Stats Section */
+        section {
+            padding: 80px 24px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: #9ca3af;
+        }
+        
+        /* Packages Section */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #9ca3af;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 48px;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-popular {
+            border: 2px solid var(--accent-cyan);
+            position: relative;
+        }
+        
+        .card-popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--adt-blue), var(--accent-cyan));
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .card-label {
+            color: var(--accent-cyan);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .card-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 900;
+            margin: 24px 0;
+        }
+        
+        .price-period {
+            font-size: 16px;
+            color: #9ca3af;
+            font-weight: 400;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        
+        .feature-list li {
+            display: flex;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .checkmark {
+            color: var(--accent-cyan);
+            font-size: 20px;
+        }
+        
+        /* Technology Cards */
+        .tech-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 32px;
+            transition: transform 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tech-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .tech-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .tech-description {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
+        /* Contact Form */
+        .form-section {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 64px 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #d1d5db;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #374151;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 64px 24px;
+            border-top: 1px solid #374151;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin: 8px 0;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                        <circle cx="25" cy="25" r="23" stroke="url(#gradient)" stroke-width="2"/>
+                        <path d="M25 10 L25 25 L35 25" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0057b8"/>
+                                <stop offset="100%" style="stop-color:#06b6d4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div>
+                        <div class="logo-text">Direct Protection Security</div>
+                        <div class="logo-subtext">ADT Authorized Dealer</div>
+                    </div>
+                </div>
+                
+                <nav>
+                    <a href="#home">Home</a>
+                    <a href="#packages">Packages</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#contact">Contact</a>
+                    <a href="dps_dealer_portal.html" class="btn btn-premium">Dealer Portal</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span style="color: var(--accent-cyan);">⚡</span> Trusted Since 1874 - 145+ Years of Protection
+                </div>
+                
+                <h1>
+                    America's Most<br/>
+                    <span class="gradient-text">Trusted Security</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Professional ADT monitoring with cutting-edge smart home technology.<br/>
+                    Protect what matters most with intelligent, 24/7 security.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#packages" class="btn btn-premium" style="font-size: 18px; padding: 16px 32px;">View Packages</a>
+                    <a href="tel:+14089094484" class="btn btn-secondary" style="font-size: 18px; padding: 16px 32px;">📞 (408) 909-4484</a>
+                </div>
+                
+                <div class="offer-banner">
+                    <div class="offer-label">LIMITED TIME OFFER</div>
+                    <div class="offer-text">
+                        FREE Installation + <span style="color: var(--accent-cyan);">FREE Smart Device</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section>
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="stat-item">
+                    <div class="stat-number">145+</div>
+                    <div class="stat-label">Years of Trust</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Monitoring Centers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">&lt;5s</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Protection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">
+                    <span style="color: var(--accent-cyan);">🛡️</span> Security Solutions
+                </div>
+                <h2 class="section-title">
+                    Choose Your <span class="gradient-text">Protection Level</span>
+                </h2>
+                <p class="section-subtitle">
+                    From essential security to complete smart home automation
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <!-- Basic Package -->
+                <div class="card">
+                    <div class="card-label">ESSENTIAL</div>
+                    <h3 class="card-title">Basic Protection</h3>
+                    <div class="price">
+                        $42.99<span class="price-period">/month</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>24/7 Professional Monitoring</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Door & Window Sensors</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Motion Detection</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Mobile App Control</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Battery Backup System</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-premium" style="width: 100%;">Get Started</a>
+                </div>
+
+                <!-- Smart Home Package -->
+                <div class="card card-popular">
+                    <div class="card-label">RECOMMENDED</div>
+                    <h3 class="card-title">Pulse Smart Home</h3>
+                    <div class="price">
+                        $52.99<span class="price-period">/month</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Everything in Basic</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>HD Video Surveillance</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Smart Door Locks</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Smart Thermostat</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Voice Control Integration</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-premium" style="width: 100%;">Get Started</a>
+                </div>
+
+                <!-- Complete Package -->
+                <div class="card">
+                    <div class="card-label">PREMIUM</div>
+                    <h3 class="card-title">Total Intelligence</h3>
+                    <div class="price">
+                        $64.99<span class="price-period">/month</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Everything in Pulse</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Multi-Camera System (4+)</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Advanced AI Detection</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Priority Support</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>30-Day Cloud Storage</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-premium" style="width: 100%;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">
+                    <span style="color: var(--accent-cyan);">🔬</span> Innovation
+                </div>
+                <h2 class="section-title">
+                    <span class="gradient-text">Next-Gen Technology</span>
+                </h2>
+                <p class="section-subtitle">
+                    Powered by artificial intelligence and machine learning
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3 class="tech-title">AI-Powered Detection</h3>
+                    <p class="tech-description">
+                        Advanced algorithms distinguish between people, pets, and packages for accurate alerts.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">📱</div>
+                    <h3 class="tech-title">Smart Control</h3>
+                    <p class="tech-description">
+                        Control your entire security system from anywhere with our intuitive mobile app.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔐</div>
+                    <h3 class="tech-title">Smart Locks</h3>
+                    <p class="tech-description">
+                        Grant access remotely, receive alerts, and never worry about lost keys again.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">📹</div>
+                    <h3 class="tech-title">4K Video Quality</h3>
+                    <p class="tech-description">
+                        Crystal-clear footage with night vision and 160° field of view.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌡️</div>
+                    <h3 class="tech-title">Climate Control</h3>
+                    <p class="tech-description">
+                        Smart thermostats that learn your preferences and save energy automatically.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3 class="tech-title">Instant Alerts</h3>
+                    <p class="tech-description">
+                        Real-time notifications sent directly to your phone the moment activity is detected.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Stats & False Alarm Prevention -->
+    <section style="background: linear-gradient(to bottom, transparent, rgba(30, 58, 138, 0.1));">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">
+                    <span style="color: var(--accent-cyan);">📊</span> Trusted Nationwide
+                </div>
+                <h2 class="section-title">
+                    <span class="gradient-text">Industry-Leading Performance</span>
+                </h2>
+            </div>
+
+            <div class="glass" style="padding: 48px; margin-bottom: 48px;">
+                <div class="grid grid-4" style="margin-bottom: 48px;">
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="font-size: 48px; font-weight: 900; color: var(--accent-cyan); margin-bottom: 8px;">6.5M+</div>
+                        <div style="color: #9ca3af; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Homes Protected</div>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="font-size: 48px; font-weight: 900; color: var(--accent-cyan); margin-bottom: 8px;">520K+</div>
+                        <div style="color: #9ca3af; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Businesses Secured</div>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="font-size: 48px; font-weight: 900; color: var(--accent-cyan); margin-bottom: 8px;">850K+</div>
+                        <div style="color: #9ca3af; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Customer Reviews</div>
+                    </div>
+                    <div style="text-align: center; padding: 24px;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">
+                            <span style="color: #fbbf24;">★★★★</span><span style="color: #4b5563;">★</span>
+                        </div>
+                        <div style="color: #9ca3af; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Average Rating (4.2/5)</div>
+                    </div>
+                </div>
+
+                <div style="border-top: 2px solid rgba(6, 182, 212, 0.3); padding-top: 32px;">
+                    <h3 style="text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 32px; color: var(--accent-cyan);">
+                        🛡️ Professional Installation Makes the Difference
+                    </h3>
+                    
+                    <div class="grid grid-3" style="gap: 24px;">
+                        <div style="background: rgba(6, 182, 212, 0.1); border: 2px solid rgba(6, 182, 212, 0.3); border-radius: 16px; padding: 32px; text-align: center;">
+                            <div style="font-size: 56px; font-weight: 900; color: #22c55e; margin-bottom: 12px;">96%</div>
+                            <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">False Alarm Prevention</div>
+                            <p style="color: #9ca3af; font-size: 14px; line-height: 1.6;">
+                                ADT's professional installation and monitoring prevents false alarms, ensuring our team responds to <strong>real emergencies</strong> when families need us most.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(239, 68, 68, 0.1); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 16px; padding: 32px; text-align: center;">
+                            <div style="font-size: 56px; font-weight: 900; color: #ef4444; margin-bottom: 12px;">94%</div>
+                            <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">DIY System False Alarms</div>
+                            <p style="color: #9ca3af; font-size: 14px; line-height: 1.6;">
+                                Self-installed systems trigger false alarms at alarming rates due to improper setup, low-quality sensors, and user error.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(251, 191, 36, 0.1); border: 2px solid rgba(251, 191, 36, 0.3); border-radius: 16px; padding: 32px; text-align: center;">
+                            <div style="font-size: 56px; font-weight: 900; color: #fbbf24; margin-bottom: 12px;">2.8M</div>
+                            <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">Hours Lost Annually</div>
+                            <p style="color: #9ca3af; font-size: 14px; line-height: 1.6;">
+                                Law enforcement and emergency services spend millions of hours responding to preventable false alarms each year.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding: 24px; background: rgba(6, 182, 212, 0.05); border-radius: 12px; border-left: 4px solid var(--accent-cyan);">
+                        <p style="font-size: 16px; line-height: 1.8; color: #d1d5db;">
+                            <strong style="color: white;">💡 Why Professional Installation Matters:</strong> Our certified technicians ensure every sensor, camera, and device is properly calibrated and positioned. This precision, combined with 24/7 professional monitoring, means when your alarm triggers, it's a real emergency—and we're ready to help immediately.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Get Your <span class="gradient-text">Free Quote</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        No obligation consultation with local ADT experts
+                    </p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); alert('✅ Thank you! We will contact you within 24 hours.');">
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" required placeholder="(408) 555-1234">
+                        </div>
+                        <div class="form-group">
+                            <label>Zip Code</label>
+                            <input type="text" placeholder="94513" maxlength="5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Package</label>
+                        <select>
+                            <option>Basic Protection - $42.99/mo</option>
+                            <option selected>Pulse Smart Home - $52.99/mo</option>
+                            <option>Total Intelligence - $64.99/mo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Notes</label>
+                        <textarea rows="4" placeholder="Tell us about your security needs..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-premium" style="width: 100%; font-size: 18px; padding: 16px;">
+                        Request Free Consultation
+                    </button>
+                    
+                    <p style="text-align: center; font-size: 14px; color: #9ca3af; margin-top: 16px;">
+                        We'll contact you within 24 hours
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="footer-title">Direct Protection Security</h4>
+                    <p style="font-size: 14px; color: #9ca3af;">
+                        Authorized ADT Dealer<br/>
+                        Protecting homes since 1874
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.adt.com/about-adt">About ADT</a></li>
+                        <li><a href="https://www.adt.com/help">Support</a></li>
+                        <li><a href="https://www.adt.com/privacy-policy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="font-size: 14px; color: #9ca3af;">
+                        📞 (408) 909-4484<br/>
+                        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d34333b321d392d2e702e383e282f342924733e3230">[email&#160;protected]</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 202</p?>
+              
+</body>
+</html>
+        
