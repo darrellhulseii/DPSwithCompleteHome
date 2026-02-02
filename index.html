@@ -16,22 +16,18 @@
             --bg-darker: #050810;
         }
         
-        /* Performance optimizations */
         body { 
             background: var(--bg-darker); 
             color: white; 
-            will-change: scroll-position;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Smooth scrolling with GPU acceleration */
         html { 
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
         }
         
-        /* Reduce layout shifts */
         img, video { max-width: 100%; height: auto; }
         
         .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
@@ -42,7 +38,6 @@
         @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
         
-        /* Optimized header with GPU acceleration */
         header { 
             position: fixed; 
             top: 0; 
@@ -51,12 +46,10 @@
             background: rgba(10, 14, 26, 0.95); 
             backdrop-filter: blur(20px); 
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateZ(0);
-            will-change: transform;
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
         .logo-container { display: flex; align-items: center; gap: 16px; }
-        .logo-text { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-text { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .logo-subtext { font-size: 12px; color: #9ca3af; }
         nav { display: flex; align-items: center; gap: 32px; }
         nav a { 
@@ -66,7 +59,6 @@
         }
         nav a:hover { color: var(--accent-cyan); }
         
-        /* Optimized buttons with GPU acceleration */
         .btn { 
             padding: 12px 24px; 
             border-radius: 8px; 
@@ -74,16 +66,14 @@
             text-decoration: none; 
             border: none; 
             cursor: pointer; 
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.2s ease;
             display: inline-block;
-            transform: translateZ(0);
-            will-change: transform;
         }
         .btn-premium { background: linear-gradient(135deg, var(--adt-blue), var(--accent-cyan)); color: white; }
         .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 87, 184, 0.4); }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
         
-        /* Optimized hero section */
         .hero { 
             min-height: 100vh; 
             display: flex; 
@@ -92,7 +82,6 @@
             padding-top: 80px; 
             background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 50%, #0a0e1a 100%); 
             position: relative;
-            transform: translateZ(0);
         }
         .hero::before { 
             content: ''; 
@@ -107,7 +96,7 @@
         .hero-content { text-align: center; position: relative; z-index: 10; }
         .badge { display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 14px; margin-bottom: 24px; }
         h1 { font-size: 64px; font-weight: 900; margin-bottom: 24px; line-height: 1.2; }
-        .gradient-text { background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text { background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-subtitle { font-size: 24px; color: #d1d5db; margin-bottom: 32px; }
         .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
         .offer-banner { display: inline-block; padding: 24px 32px; border-radius: 16px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); }
@@ -116,24 +105,21 @@
         
         section { padding: 80px 24px; }
         .stat-item { text-align: center; }
-        .stat-number { font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .stat-number { font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
         .stat-label { color: #9ca3af; }
         
         .section-header { text-align: center; margin-bottom: 64px; }
         .section-title { font-size: 48px; font-weight: 900; margin-bottom: 16px; }
         .section-subtitle { font-size: 20px; color: #9ca3af; }
         
-        /* Optimized cards with GPU acceleration */
         .card { 
             background: rgba(255, 255, 255, 0.08); 
             border: 1px solid rgba(255, 255, 255, 0.15); 
             border-radius: 24px; 
             padding: 48px; 
             transition: transform 0.2s ease;
-            transform: translateZ(0);
-            will-change: transform;
         }
-        .card:hover { transform: translateY(-10px) translateZ(0); }
+        .card:hover { transform: translateY(-10px); }
         .card-popular { border: 2px solid var(--accent-cyan); position: relative; }
         .card-popular::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--adt-blue), var(--accent-cyan)); padding: 8px 24px; border-radius: 50px; font-size: 12px; font-weight: 700; }
         .card-label { color: var(--accent-cyan); font-size: 14px; font-weight: 700; margin-bottom: 8px; }
@@ -144,22 +130,18 @@
         .feature-list li { display: flex; gap: 12px; margin: 16px 0; }
         .checkmark { color: var(--accent-cyan); font-size: 20px; }
         
-        /* Optimized tech cards */
         .tech-card { 
             background: rgba(255, 255, 255, 0.08); 
             border: 1px solid rgba(255, 255, 255, 0.15); 
             border-radius: 24px; 
             padding: 32px; 
             transition: transform 0.2s ease;
-            transform: translateZ(0);
-            will-change: transform;
         }
-        .tech-card:hover { transform: translateY(-10px) translateZ(0); }
+        .tech-card:hover { transform: translateY(-10px); }
         .tech-icon { font-size: 48px; margin-bottom: 16px; }
         .tech-title { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
         .tech-description { color: #9ca3af; line-height: 1.6; }
         
-        /* Form section */
         .form-section { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 64px 48px; max-width: 900px; margin: 0 auto; }
         .form-group { margin-bottom: 24px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #d1d5db; }
@@ -175,7 +157,6 @@
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-cyan); }
         
-        /* Success message */
         .success-message {
             display: none;
             background: linear-gradient(135deg, #059669, #10b981);
@@ -185,8 +166,20 @@
             margin-bottom: 24px;
             text-align: center;
             font-weight: 600;
+            animation: slideDown 0.3s ease-out;
         }
         .success-message.show { display: block; }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
         footer { padding: 64px 24px; border-top: 1px solid #374151; }
         .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }
@@ -199,7 +192,6 @@
         
         .glass { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); }
         
-        /* Optimized modal */
         .modal { 
             display: none; 
             position: fixed; 
@@ -212,7 +204,7 @@
             justify-content: center; 
             align-items: center; 
             z-index: 2000;
-            transform: translateZ(0);
+            animation: fadeIn 0.2s ease-out;
         }
         .modal.active { display: flex; }
         .modal-content { 
@@ -223,18 +215,60 @@
             padding: 48px; 
             max-width: 400px; 
             width: 90%;
-            transform: translateZ(0);
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
         }
         
         @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; }
             h1 { font-size: 36px; }
             .section-title { font-size: 32px; }
+            .offer-text { font-size: 20px; }
             nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .card { padding: 32px; }
+            .form-section { padding: 32px 24px; }
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--adt-blue), var(--accent-cyan));
+            z-index: 100;
+            transition: width 0.1s ease-out;
         }
     </style>
 </head>
 <body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
     <header>
         <div class="container">
             <div class="header-content">
@@ -255,23 +289,25 @@
                     </div>
                 </div>
                 
-                <nav>
+                <nav id="mainNav">
                     <a href="#home">Home</a>
                     <a href="#packages">Packages</a>
                     <a href="#technology">Technology</a>
                     <a href="#contact">Contact</a>
                     <button onclick="showLoginModal()" class="btn btn-premium">Dealer Portal</button>
                 </nav>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
     </header>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
+    <div id="loginModal" class="modal" onclick="handleModalClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
             <h2 style="margin-bottom: 24px;">Dealer Portal Login</h2>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" id="dealerPassword" onkeypress="if(event.key==='Enter') checkPassword()">
+                <input type="password" id="dealerPassword" onkeypress="handlePasswordKeypress(event)">
             </div>
             <p id="errorMsg" style="color: #ef4444; margin-bottom: 16px; display: none;">❌ Incorrect password</p>
             <div style="display: flex; gap: 12px;">
@@ -411,7 +447,39 @@
         </div>
     </section>
 
-                     <p>24/7/365 protection. Average 45-second emergency response time to alerts.
+    <section id="technology" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Advanced <span class="gradient-text">Security Technology</span>
+                </h2>
+                <p class="section-subtitle">
+                    Industry-leading systems protecting your home
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="tech-card">
+                    <div class="tech-icon">📱</div>
+                    <h3 class="tech-title">Smart App Control</h3>
+                    <p class="tech-description">
+                        Monitor and control your entire security system from anywhere. Real-time alerts, live video streaming, and instant emergency response at your fingertips.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🎥</div>
+                    <h3 class="tech-title">HD Video Monitoring</h3>
+                    <p class="tech-description">
+                        Crystal-clear 4K cameras with night vision, motion detection, and AI-powered analytics to identify people, vehicles, and potential threats.
+                    </p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔔</div>
+                    <h3 class="tech-title">24/7 Monitoring</h3>
+                    <p class="tech-description">
+                        24/7/365 protection. Average 45-second emergency response time to alerts.
                     </p>
                 </div>
 
@@ -436,19 +504,19 @@
                         <ul style="list-style: none; padding: 0;">
                             <li style="display: flex; gap: 12px; margin: 12px 0; font-size: 16px;">
                                 <span style="color: var(--accent-cyan);">✓</span>
-                                <strong>Zero False Alarms:</strong> Professional installation eliminates 95% of false triggers
+                                <span><strong>Zero False Alarms:</strong> Professional installation eliminates 95% of false triggers</span>
                             </li>
                             <li style="display: flex; gap: 12px; margin: 12px 0; font-size: 16px;">
                                 <span style="color: var(--accent-cyan);">✓</span>
-                                <strong>Faster Response:</strong> Direct connection to police, fire, and medical dispatch
+                                <span><strong>Faster Response:</strong> Direct connection to police, fire, and medical dispatch</span>
                             </li>
                             <li style="display: flex; gap: 12px; margin: 12px 0; font-size: 16px;">
                                 <span style="color: var(--accent-cyan);">✓</span>
-                                <strong>Lower Insurance:</strong> Save up to 20% on homeowners insurance premiums
+                                <span><strong>Lower Insurance:</strong> Save up to 20% on homeowners insurance premiums</span>
                             </li>
                             <li style="display: flex; gap: 12px; margin: 12px 0; font-size: 16px;">
                                 <span style="color: var(--accent-cyan);">✓</span>
-                                <strong>Proven Deterrent:</strong> Homes with ADT are 300% less likely to be targeted
+                                <span><strong>Proven Deterrent:</strong> Homes with ADT are 300% less likely to be targeted</span>
                             </li>
                         </ul>
                     </div>
@@ -869,13 +937,7 @@
                     ✅ Thank you! Your request has been sent. We'll contact you within 24 hours.
                 </div>
 
-                <form id="contactForm" action="https://formsubmit.co/darrellhulseii@gmail.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Security Quote Request - Direct Protection Security">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
-                    
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
                     <div class="grid grid-2">
                         <div class="form-group">
                             <label>Full Name *</label>
@@ -945,9 +1007,9 @@
                 <div>
                     <h4 class="footer-title">Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.adt.com/about-adt">About ADT</a></li>
-                        <li><a href="https://www.adt.com/help">Support</a></li>
-                        <li><a href="https://www.adt.com/privacy-policy">Privacy</a></li>
+                        <li><a href="https://www.adt.com/about-adt" target="_blank">About ADT</a></li>
+                        <li><a href="https://www.adt.com/help" target="_blank">Support</a></li>
+                        <li><a href="https://www.adt.com/privacy-policy" target="_blank">Privacy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -967,43 +1029,121 @@
         const DEALER_PASSWORD = 'ADT2025';
         
         function showLoginModal() {
-            document.getElementById('loginModal').classList.add('active');
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('active');
             document.getElementById('dealerPassword').focus();
             document.getElementById('errorMsg').style.display = 'none';
+            document.body.style.overflow = 'hidden';
         }
         
         function closeLoginModal() {
-            document.getElementById('loginModal').classList.remove('active');
+            const modal = document.getElementById('loginModal');
+            modal.classList.remove('active');
             document.getElementById('dealerPassword').value = '';
             document.getElementById('errorMsg').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        function handleModalClick(event) {
+            if (event.target.id === 'loginModal') {
+                closeLoginModal();
+            }
+        }
+        
+        function handlePasswordKeypress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
         }
         
         function checkPassword() {
             const password = document.getElementById('dealerPassword').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
             if (password === DEALER_PASSWORD) {
                 window.location.href = 'dps_dealer_portal.html';
             } else {
-                document.getElementById('errorMsg').style.display = 'block';
+                errorMsg.style.display = 'block';
                 document.getElementById('dealerPassword').value = '';
                 document.getElementById('dealerPassword').focus();
             }
         }
 
-        // Handle form submission success
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            document.getElementById('successMessage').classList.add('show');
-            document.getElementById('contactForm').reset();
-            // Scroll to form section
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            // Clear URL parameter
-            window.history.replaceState({}, document.title, window.location.pathname);
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            const successMessage = document.getElementById('successMessage');
+            
+            successMessage.classList.add('show');
+            form.reset();
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
         }
 
-        // Performance optimization: Passive event listeners for scroll
-        document.addEventListener('scroll', function() {
-            // Placeholder for any scroll-based animations
-        }, { passive: true });
+        function updateScrollIndicator() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollIndicator.style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollIndicator, { passive: true });
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.right = '24px';
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.padding = '20px';
+                nav.style.borderRadius = '12px';
+                nav.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+        }
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('mainNav').style.display = 'none';
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('loginModal');
+                if (modal.classList.contains('active')) {
+                    closeLoginModal();
+                }
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            updateScrollIndicator();
+        });
     </script>
 </body>
 </html>
