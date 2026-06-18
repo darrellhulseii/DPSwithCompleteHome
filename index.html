@@ -1,0 +1,3441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Home Today – DPS, an ADT Authorized Dealer | Home Security</title>
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --steel: #1B3A5C;
+    --ice: #D6E8F5;
+    --white: #FFFFFF;
+    --accent: #E8A020;
+    --silver: #8A9BB0;
+    --light-bg: #F0F5FA;
+    --text: #1A2733;
+    --success: #2A7A4B;
+    --border: #CDD8E3;
+    --hire-bg: #0A2218;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  .topbar {
+    background: var(--navy);
+    color: var(--ice);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: var(--accent); text-decoration: none; }
+
+  header {
+    background: var(--steel);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .logo-block { display: flex; flex-direction: column; gap: 4px; }
+  .logo-name {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .logo-badge {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: var(--ice);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(214,232,245,0.4);
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .header-cta {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: var(--white);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .header-cta strong { font-size: 20px; color: var(--accent); display: block; }
+  .hire-nav-btn {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--accent);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 18px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+  .hire-nav-btn:hover { opacity: 0.88; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 60%, #1a4a7a 100%);
+    color: var(--white);
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: rgba(232,160,32,0.08);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 240px; height: 240px;
+    background: rgba(214,232,245,0.05);
+    border-radius: 50%;
+  }
+  .hero-eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 50px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero p {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: var(--ice);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .hero-badge {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ice);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-badge::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+  /* ── SECTION WRAPPER ── */
+  .section { padding: 60px 40px; }
+  .section-inner { max-width: 1080px; margin: 0 auto; }
+  .section-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section h2 {
+    font-size: clamp(22px, 3.5vw, 34px);
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .section-sub {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: var(--silver);
+    margin-bottom: 40px;
+  }
+
+  /* ── PACKAGES ── */
+  .packages-bg { background: var(--light-bg); }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+  .pkg-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+  .pkg-card:hover { border-color: var(--steel); transform: translateY(-2px); }
+  .pkg-card.selected { border-color: var(--accent); }
+  .pkg-card.popular { border-color: var(--steel); }
+  .popular-tag {
+    background: var(--steel);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+  }
+  .pkg-header {
+    padding: 20px 20px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pkg-tier {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-bottom: 4px;
+  }
+  .pkg-name { font-size: 26px; font-weight: 700; color: var(--navy); }
+  .pkg-price-row { display: flex; align-items: baseline; gap: 4px; margin-top: 10px; }
+  .pkg-install { font-family: Arial, sans-serif; font-size: 13px; color: var(--text); margin-top: 4px; }
+  .pkg-install span { color: var(--success); font-weight: 700; }
+  .pkg-price-dollar { font-size: 32px; font-weight: 700; color: var(--navy); font-family: Arial, sans-serif; }
+  .pkg-price-cents { font-size: 18px; font-weight: 700; color: var(--navy); font-family: Arial, sans-serif; }
+  .pkg-price-label { font-family: Arial, sans-serif; font-size: 13px; color: var(--silver); }
+  .pkg-value { font-family: Arial, sans-serif; font-size: 12px; color: var(--silver); margin-top: 6px; }
+  .pkg-features { padding: 16px 20px 20px; }
+  .pkg-features ul { list-style: none; }
+  .pkg-features li {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    padding: 5px 0;
+    border-bottom: 1px solid #F0F5FA;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pkg-features li:last-child { border-bottom: none; }
+  .pkg-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .pkg-select-btn {
+    display: block;
+    margin: 0 20px 20px;
+    padding: 11px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+  .pkg-select-btn:hover { background: var(--steel); }
+  .pkg-card.selected .pkg-select-btn { background: var(--accent); color: var(--navy); }
+
+  /* ── ADD-ONS ── */
+  .addons-section-bg { background: #F7F3FF; }
+
+  .addon-category { margin-bottom: 36px; }
+  .addon-category-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .addon-category-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    opacity: 0.25;
+    background: currentColor;
+  }
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .addon-card {
+    border-radius: 10px;
+    padding: 16px 16px 14px;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .addon-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.13); }
+  .addon-card.selected { box-shadow: 0 0 0 3px #fff, 0 0 0 5px currentColor; }
+
+  /* Safety — reds/oranges */
+  .addon-card.cat-safety { background: linear-gradient(135deg,#FFF1F0,#FFE4E0); border: 1.5px solid #FFC5BC; --cat: #D9472B; }
+  .addon-card.cat-safety .addon-icon-wrap { background: #D9472B; }
+  .addon-card.cat-safety .addon-name { color: #7A1A0A; }
+  .addon-card.cat-safety.selected { color: #D9472B; }
+
+  /* Life safety — ambers */
+  .addon-card.cat-life { background: linear-gradient(135deg,#FFFBEB,#FEF3C7); border: 1.5px solid #FCD34D; --cat: #B45309; }
+  .addon-card.cat-life .addon-icon-wrap { background: #D97706; }
+  .addon-card.cat-life .addon-name { color: #78350F; }
+  .addon-card.cat-life.selected { color: #D97706; }
+
+  /* Access — blues */
+  .addon-card.cat-access { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); border: 1.5px solid #93C5FD; --cat: #1D4ED8; }
+  .addon-card.cat-access .addon-icon-wrap { background: #1D4ED8; }
+  .addon-card.cat-access .addon-name { color: #1E3A8A; }
+  .addon-card.cat-access.selected { color: #1D4ED8; }
+
+  /* Cameras — purples */
+  .addon-card.cat-camera { background: linear-gradient(135deg,#F5F3FF,#EDE9FE); border: 1.5px solid #C4B5FD; --cat: #6D28D9; }
+  .addon-card.cat-camera .addon-icon-wrap { background: #6D28D9; }
+  .addon-card.cat-camera .addon-name { color: #3B0764; }
+  .addon-card.cat-camera.selected { color: #6D28D9; }
+
+  /* Smart home — greens */
+  .addon-card.cat-smart { background: linear-gradient(135deg,#F0FDF4,#DCFCE7); border: 1.5px solid #86EFAC; --cat: #15803D; }
+  .addon-card.cat-smart .addon-icon-wrap { background: #15803D; }
+  .addon-card.cat-smart .addon-name { color: #14532D; }
+  .addon-card.cat-smart.selected { color: #15803D; }
+
+  .addon-card-top { display: flex; align-items: center; gap: 10px; }
+  .addon-icon-wrap {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    color: #fff;
+  }
+  .addon-check {
+    width: 22px; height: 22px;
+    border: 2px solid rgba(0,0,0,0.18);
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.6);
+    margin-left: auto;
+    color: transparent;
+  }
+  .addon-card.selected .addon-check {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+  }
+  .addon-info { flex: 1; }
+  .addon-name { font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 0; }
+  .addon-desc { font-family: Arial, sans-serif; font-size: 12px; color: #666; line-height: 1.45; }
+
+  /* ── QUOTE FORM (JotForm) ── */
+  .form-bg { background: var(--navy); }
+  .form-bg .section-label { color: var(--accent); }
+  .form-bg h2 { color: var(--white); }
+  .form-bg .section-sub { color: var(--ice); }
+
+  .quote-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .quote-layout { grid-template-columns: 1fr; } }
+
+  .form-summary {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(214,232,245,0.2);
+    border-radius: 8px;
+    padding: 28px;
+    position: sticky;
+    top: 20px;
+  }
+  .form-summary h3 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .summary-line {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ice);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(214,232,245,0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .summary-line:last-child { border-bottom: none; }
+  .summary-empty { font-family: Arial, sans-serif; font-size: 14px; color: var(--silver); font-style: italic; }
+  .summary-price-row { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(214,232,245,0.3); }
+  .summary-price-row .label { font-family: Arial, sans-serif; font-size: 13px; color: var(--ice); }
+  .summary-price-row .price {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: Arial, sans-serif;
+    display: block;
+    margin-top: 4px;
+  }
+  .summary-install { font-family: Arial, sans-serif; font-size: 13px; color: var(--ice); margin-top: 8px; }
+
+  .jotform-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(214,232,245,0.15);
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden;
+  }
+  .jotform-wrap iframe,
+  .jotform-wrap > div { width: 100% !important; }
+
+  /* ── HIRING SECTION ── */
+  .hiring-section { background: var(--hire-bg); }
+  .hiring-section .section-label { color: #4ADE80; }
+  .hiring-section h2 { color: var(--white); }
+  .hiring-section .section-sub { color: #86EFAC; }
+
+  .hiring-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .hiring-layout { grid-template-columns: 1fr; } }
+
+  .hiring-pitch {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 8px;
+    padding: 28px;
+  }
+  .hiring-pitch h3 {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .hiring-pitch p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #86EFAC;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .perks-list { list-style: none; margin-bottom: 24px; }
+  .perks-list li {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #D1FAE5;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(74,222,128,0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .perks-list li:last-child { border-bottom: none; }
+  .perk-icon { color: #4ADE80; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .earn-box {
+    background: rgba(74,222,128,0.1);
+    border: 1px solid rgba(74,222,128,0.25);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+  }
+  .earn-box .earn-label { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #4ADE80; margin-bottom: 4px; }
+  .earn-box .earn-range { font-family: Arial, sans-serif; font-size: 28px; font-weight: 700; color: var(--white); }
+  .earn-box .earn-sub { font-family: Arial, sans-serif; font-size: 12px; color: #86EFAC; margin-top: 4px; }
+
+  .hiring-form-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(74,222,128,0.15);
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden;
+  }
+  .hiring-form-wrap iframe,
+  .hiring-form-wrap > div { width: 100% !important; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 28px 40px;
+  }
+  .trust-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .trust-item {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--silver);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trust-item strong { color: var(--navy); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E16;
+    color: rgba(214,232,245,0.5);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 36px 40px;
+    line-height: 1.75;
+  }
+  .footer-inner { max-width: 1080px; margin: 0 auto; }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(214,232,245,0.1);
+  }
+  .footer-brand .footer-name {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .footer-brand .footer-dealer-badge {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .footer-licenses {
+    font-size: 12px;
+    color: rgba(214,232,245,0.6);
+    line-height: 1.8;
+    text-align: right;
+  }
+  .footer-licenses strong { color: var(--ice); }
+  footer .disclaimer-text { font-size: 11px; line-height: 1.75; }
+  footer .disclaimer-text strong { color: rgba(214,232,245,0.75); }
+  footer .disclaimer-block { margin-bottom: 10px; }
+
+  @media (max-width: 600px) {
+    .section { padding: 40px 20px; }
+    header { padding: 16px 20px; }
+    .hero { padding: 44px 20px 36px; }
+    .trust-bar, footer { padding: 24px 20px; }
+    .topbar { padding: 8px 20px; }
+    .footer-licenses { text-align: left; }
+  }
+
+  /* ══════════════════════════════════════════════════════
+     COMPREHENSIVE RESPONSIVE SYSTEM
+     Breakpoints: 1200 · 1024 · 768 · 480 · 360
+  ══════════════════════════════════════════════════════ */
+
+  /* ── Large desktop: cap inner widths ── */
+  @media (min-width: 1400px) {
+    .section-inner { max-width: 1200px; }
+    .packages-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── Medium desktop / laptop ── */
+  @media (max-width: 1200px) {
+    .packages-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .addons-grid   { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+    .section { padding: 50px 32px; }
+  }
+
+  /* ── Tablet landscape / small laptop ── */
+  @media (max-width: 1024px) {
+    header { padding: 16px 24px; gap: 14px; }
+    .logo-name { font-size: 18px; }
+    .header-right { gap: 14px; }
+    .header-cta { font-size: 13px; }
+    .header-cta strong { font-size: 17px; }
+
+    .hero { padding: 56px 32px 48px; }
+    .hero h1 { font-size: clamp(26px, 5vw, 44px); }
+    .hero p  { font-size: 15px; }
+
+    .section { padding: 48px 24px; }
+    .packages-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .addons-grid   { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+    .quote-layout  { grid-template-columns: 1fr; }
+    .hiring-layout { grid-template-columns: 1fr; }
+
+    .trust-inner { gap: 24px; }
+    .trust-bar { padding: 22px 24px; }
+    footer { padding: 32px 24px; }
+  }
+
+  /* ── Tablet portrait ── */
+  @media (max-width: 768px) {
+    /* Topbar */
+    .topbar { font-size: 12px; padding: 7px 16px; flex-direction: column; align-items: center; gap: 3px; text-align: center; }
+
+    /* Header */
+    header { padding: 14px 16px; flex-direction: row; justify-content: space-between; flex-wrap: nowrap; }
+    .logo-name { font-size: 16px; }
+    .logo-badge { font-size: 10px; letter-spacing: 0.06em; }
+    .header-right { gap: 10px; flex-wrap: nowrap; }
+    .header-cta { display: none; } /* hide price CTA on mobile — visible in hero */
+    .hire-nav-btn { font-size: 11px; padding: 8px 12px; }
+    /* Dealer Portal btn */
+    .header-right .btn-p { font-size: 11px !important; padding: 8px 12px !important; }
+
+    /* Hero */
+    .hero { padding: 48px 20px 36px; text-align: center; }
+    .hero h1 { font-size: clamp(24px, 7vw, 38px); letter-spacing: -0.5px; }
+    .hero p  { font-size: 14px; margin-bottom: 24px; }
+    .hero-badges { gap: 12px; }
+    .hero-badge { font-size: 12px; }
+    .hero-eyebrow { font-size: 11px; }
+
+    /* Sections */
+    .section { padding: 40px 16px; }
+    .section h2 { font-size: clamp(20px, 5vw, 28px); }
+    .section-sub { font-size: 14px; margin-bottom: 28px; }
+
+    /* Packages */
+    .packages-grid { grid-template-columns: 1fr; gap: 16px; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .pkg-name { font-size: 22px; }
+    .pkg-price-dollar { font-size: 28px; }
+
+    /* Addons */
+    .addons-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .addon-card { padding: 12px; }
+    .addon-icon-wrap { width: 30px; height: 30px; font-size: 15px; border-radius: 6px; }
+    .addon-name { font-size: 13px; }
+    .addon-desc { font-size: 11px; }
+    .addon-category-label { font-size: 10px; }
+
+    /* Quote layout */
+    .quote-layout { grid-template-columns: 1fr; gap: 20px; }
+    .form-summary { position: static; padding: 20px; }
+
+    /* Hiring */
+    .hiring-layout { grid-template-columns: 1fr; gap: 20px; }
+    .hiring-pitch { padding: 20px; }
+    .earn-box .earn-range { font-size: 22px; }
+
+    /* Trust bar */
+    .trust-inner { flex-direction: column; gap: 14px; text-align: center; }
+    .trust-bar { padding: 20px 16px; }
+    .trust-item { justify-content: center; }
+
+    /* Footer */
+    footer { padding: 28px 16px; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-licenses { text-align: left; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 480px) {
+    /* Topbar */
+    .topbar { font-size: 11px; }
+
+    /* Header — stack logo and buttons */
+    header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
+    .header-right { width: 100%; justify-content: flex-start; gap: 8px; }
+    .hire-nav-btn { font-size: 11px; padding: 7px 10px; }
+
+    /* Hero */
+    .hero { padding: 40px 14px 32px; }
+    .hero h1 { font-size: clamp(22px, 8vw, 34px); }
+    .hero p  { font-size: 13px; }
+    .hero-badges { flex-direction: column; align-items: center; gap: 8px; }
+
+    /* Packages — single column */
+    .packages-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .pkg-card { width: 100%; }
+    .pkg-header { padding: 14px 14px 10px; }
+    .pkg-features { padding: 12px 14px 14px; }
+    .pkg-features li { font-size: 13px; }
+    .pkg-select-btn { margin: 0 14px 14px; padding: 10px; font-size: 13px; }
+
+    /* Addons — 1 column on very small screens */
+    .addons-grid { grid-template-columns: 1fr; }
+    .addon-card-top { gap: 8px; }
+
+    /* Section labels and headings */
+    .section { padding: 32px 14px; }
+    .section h2 { font-size: clamp(19px, 6vw, 26px); }
+    .section-label { font-size: 10px; }
+
+    /* Quote summary */
+    .form-summary { padding: 16px; }
+    .summary-price-row .price { font-size: 22px; }
+
+    /* Hiring */
+    .hiring-pitch { padding: 16px; }
+    .hiring-pitch h3 { font-size: 17px; }
+    .perks-list li { font-size: 13px; padding: 6px 0; }
+
+    /* Trust bar */
+    .trust-item { font-size: 12px; }
+
+    /* Footer */
+    footer { padding: 24px 14px; font-size: 10.5px; }
+    .footer-brand .footer-name { font-size: 13px; }
+
+    /* Portal calc on mobile */
+    .cust-grid { grid-template-columns: 1fr !important; }
+    .cust-grid-2 { grid-template-columns: 1fr !important; }
+    .p-row { grid-template-columns: 1fr !important; }
+    .p-wrap { padding: 14px; }
+  }
+
+  /* ── Tiny mobile ── */
+  @media (max-width: 360px) {
+    .logo-name { font-size: 14px; }
+    .logo-badge { font-size: 9px; }
+    .hero h1 { font-size: 20px; }
+    .section h2 { font-size: 18px; }
+    .pkg-price-dollar { font-size: 24px; }
+    .earn-box .earn-range { font-size: 20px; }
+    .addons-grid { grid-template-columns: 1fr; }
+    header { padding: 10px 12px; }
+  }
+
+  /* ── JotForm iframes: force full width on all screens ── */
+  .jotform-wrap iframe,
+  .jotform-wrap > div,
+  .jotform-wrap > div > iframe,
+  .hiring-form-wrap iframe,
+  .hiring-form-wrap > div,
+  .hiring-form-wrap > div > iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* ── Prevent horizontal scroll site-wide ── */
+  html, body { max-width: 100%; overflow-x: hidden; }
+  img, iframe, video, canvas { max-width: 100%; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* ADT Official Brand Colors */
+  --adt-blue:#0061AA;       /* ADT Blue - primary */
+  --alert-blue:#24BCFF;     /* Alert Blue - accent/highlight */
+  --safety-dark:#000342;    /* Safety Blue - darkest */
+  --safety-mid:#000782;     /* Safety Blue - mid */
+  --safety-lt:#3148D8;      /* Safety Blue - light */
+  --hover-blue:#007EDD;     /* Hover state blue */
+  --white:#FFFFFF;
+  /* Semantic aliases */
+  --blue:#0061AA;--blue-lt:#007EDD;--blue-dp:#000342;
+  --cyan:#24BCFF;--cyan-lt:#90E6FF;
+  --green:#22c55e;--red:#ef4444;--amber:#fbbf24;
+  --bg:#000005;
+  --card:rgba(0,97,170,0.10);--card-hv:rgba(0,97,170,0.18);
+  --border:rgba(255,255,255,0.13);--border-c:rgba(36,188,255,0.35);
+  --txt:#FFFFFF;--muted:#8A9BB5;--dim:#B0C4DE;
+  --grad:linear-gradient(135deg,#000782,#0061AA,#24BCFF);
+  --gtxt:linear-gradient(135deg,#fff 0%,#24BCFF 100%);
+  --glow:0 0 40px rgba(36,188,255,0.18);
+  --shadow:0 24px 64px rgba(0,0,0,0.45);
+}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:'DM Sans',Calibri,'Trebuchet MS',Arial,sans-serif;background:#000005;color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
+
+body>*{position:relative}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--cyan)}
+#scrollBar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0061AA,#24BCFF);z-index:9999;transition:width .08s linear}
+.container{max-width:1340px;margin:0 auto;padding:0 28px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.gt{color:#24BCFF;text-shadow:0 0 30px rgba(36,188,255,0.55),0 0 8px rgba(144,230,255,0.30);background:none}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-26px) scale(1.05)}66%{transform:translate(-14px,16px) scale(0.96)}}
+@keyframes pulseRing{0%{width:0;height:0;opacity:.65}100%{width:900px;height:900px;opacity:0}}
+@keyframes spinGlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.fade{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;will-change:opacity,transform}
+.fade.in{opacity:1;transform:translateY(0)}
+header{position:fixed;top:0;width:100%;z-index:9000;background:rgba(0,3,18,.88);backdrop-filter:blur(32px) saturate(180%);border-bottom:1px solid rgba(0,97,170,0.28)}
+.hd-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1340px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:13px;text-decoration:none}
+.logo-name{font-family:“DM Sans”,“Syne”,sans-serif;font-size:17px;font-weight:700;color:#FFFFFF;white-space:nowrap;letter-spacing:-.2px}
+.logo-tag{font-size:11px;color:var(--alert-blue);font-weight:500;letter-spacing:.04em}
+nav{display:flex;align-items:center;gap:32px}
+nav a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:500;position:relative;transition:color .2s;min-height:36px;display:flex;align-items:center}
+nav a::after{content:””;position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#0061AA;border-radius:2px;transition:width .22s}
+nav a:hover{color:#fff}
+nav a:hover::after{width:100%}
+.mob-btn{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 24px;border-radius:6px;font-family:‘DM Sans’,Calibri,Arial,sans-serif;font-weight:600;font-size:14px;letter-spacing:.01em;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,opacity .2s;white-space:nowrap}
+.btn-p{background:#0061AA;color:#fff;box-shadow:0 4px 20px rgba(0,97,170,.55),0 2px 6px rgba(0,3,66,.40)}
+.btn-p:hover{background:#007EDD;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,126,221,.65),0 4px 12px rgba(0,3,66,.50)}
+.btn-p:disabled{opacity:.6;transform:none;cursor:not-allowed}
+.btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.40) !important}
+.btn-o:hover{background:rgba(0,97,170,.20);border-color:#0061AA !important}
+.btn-lg{padding:14px 32px;font-size:15px;border-radius:8px;font-weight:600}
+.btn-w{width:100%}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(90px,15vh,140px) 22px 60px;position:relative;overflow:hidden;background:transparent}
+.hero::after{content:””;position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 15% 45%,rgba(0,7,130,.45) 0%,transparent 58%),radial-gradient(ellipse 50% 40% at 85% 65%,rgba(0,97,170,.22) 0%,transparent 52%),linear-gradient(180deg,rgba(0,3,42,.72) 0%,rgba(0,0,5,.82) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(88px);pointer-events:none;z-index:1}
+.orb1{width:700px;height:700px;background:rgba(0,7,130,.20);top:-200px;left:-180px;animation:orbDrift 14s ease-in-out infinite}
+.orb2{width:450px;height:450px;background:rgba(0,97,170,.15);bottom:-120px;right:-90px;animation:orbDrift 11s ease-in-out infinite reverse;animation-delay:-4s}
+.orb3{width:340px;height:340px;background:rgba(36,188,255,.08);top:38%;left:52%;animation:orbDrift 16s ease-in-out infinite;animation-delay:-7s}
+.pulse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;pointer-events:none}
+.pulse span{display:block;position:absolute;border:1px solid rgba(0,97,170,.14);border-radius:50%;transform:translate(-50%,-50%);animation:pulseRing 7s ease-out infinite}
+.pulse span:nth-child(2){animation-delay:2s}
+.pulse span:nth-child(3){animation-delay:4s}
+.hero-content{text-align:center;position:relative;z-index:10;max-width:880px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:4px;background:rgba(0,97,170,.22);border:1px solid rgba(0,97,170,.55);font-size:12px;font-weight:600;color:#90E6FF;text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px;animation:fadeDown .7s ease both;will-change:opacity,transform}
+.hero h1{font-family:“Syne”,sans-serif;font-size:clamp(34px,6.5vw,78px);font-weight:800;line-height:1.06;letter-spacing:-1.5px;margin-bottom:20px;animation:fadeUp .7s .12s ease both;will-change:opacity,transform}
+.hero-sub{font-size:clamp(15px,2.1vw,19px);font-family:“DM Sans”,sans-serif;font-weight:400;color:rgba(176,196,222,.90);margin-bottom:36px;max-width:620px;margin-left:auto;margin-right:auto;animation:fadeUp .7s .22s ease both}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:50px;animation:fadeUp .7s .32s ease both}
+.offer-card{display:inline-block;padding:16px 24px;border-radius:6px;background:rgba(0,7,66,.75);border:1px solid rgba(0,97,170,.40);backdrop-filter:blur(16px);animation:fadeUp .7s .42s ease both;position:relative;overflow:hidden}
+.offer-card::before{content:””;position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(0,87,184,.14),rgba(6,182,212,.08))}
+.offer-pill{display:inline-block;padding:4px 12px;border-radius:3px;background:#0061AA;border:none;font-size:10px;font-weight:700;color:#fff;letter-spacing:.10em;text-transform:uppercase;margin-bottom:10px}
+.offer-text{font-size:clamp(16px,2.4vw,23px);font-weight:700;line-height:1.4}
+.stats-band{padding:48px 28px;border-top:1px solid rgba(0,97,170,.30);border-bottom:1px solid rgba(0,97,170,.30);background:rgba(0,3,42,.65);position:relative;overflow:hidden}
+.stats-band::before{content:””;position:absolute;inset:0;pointer-events:none;background:none}
+.stat{text-align:center;padding:8px;position:relative;z-index:1}
+.stat-n{font-family:“Syne”,sans-serif;font-size:clamp(28px,4vw,54px);font-weight:800;color:#24BCFF;text-shadow:0 0 28px rgba(36,188,255,0.45);line-height:1.1;margin-bottom:6px}
+.stat-l{font-size:13px;color:rgba(176,196,222,.75);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+section{padding:90px 28px}
+.sec-hd{text-align:center;margin-bottom:60px}
+.sec-title{font-family:“Syne”,sans-serif;font-size:clamp(26px,5vw,50px);font-weight:800;letter-spacing:-.6px;margin-bottom:16px;line-height:1.10;color:#FFFFFF}
+.sec-sub{font-size:16px;color:rgba(176,196,222,.85);max-width:560px;margin:0 auto;font-family:“DM Sans”,sans-serif;font-weight:400;line-height:1.7}
+.sec-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:3px;background:rgba(0,97,170,.18);border:1px solid rgba(0,97,170,.45);font-size:11px;font-weight:700;color:#24BCFF;text-transform:uppercase;letter-spacing:.10em;margin-bottom:20px}
+.sec-alt{background:rgba(0,3,42,.55)}
+.card{background:rgba(0,5,30,.82);border:1px solid rgba(0,97,170,.28);border-radius:8px;padding:36px;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s;position:relative;overflow:hidden}
+.card::before{content:””;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);opacity:0;transition:opacity .25s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow),0 0 32px rgba(0,97,170,.22);border-color:rgba(36,188,255,.45);background:rgba(0,7,50,.88)}
+.card:hover::before{opacity:1}
+.card-pop{border:2px solid #0061AA;background:linear-gradient(155deg,rgba(0,7,130,.20),rgba(0,97,170,.10));box-shadow:0 0 0 1px rgba(0,97,170,.18),0 0 40px rgba(36,188,255,.12)}
+.card-pop::after{content:””;position:absolute;inset:-2px;border-radius:10px;z-index:-1;background:conic-gradient(from 0deg,transparent 60%,rgba(0,97,170,.55) 80%,transparent 90%);animation:spinGlow 8s linear infinite;opacity:.35}
+.pop-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#0061AA;padding:6px 20px;border-radius:0 0 8px 8px;font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;white-space:nowrap}
+.c-tag{font-size:10px;font-weight:700;color:#24BCFF;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;font-family:“DM Sans”,sans-serif}
+.c-name{font-family:“Syne”,sans-serif;font-size:23px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px;color:#FFFFFF}
+.c-desc{font-size:14px;color:rgba(176,196,222,.80);font-family:“DM Sans”,sans-serif}
+.price-wrap{padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:18px 0}
+.price-amt{font-family:“Syne”,sans-serif;font-size:44px;font-weight:800;letter-spacing:-1px;color:#FFFFFF}
+.price-per{font-size:14px;color:var(--muted);font-weight:400}
+.feat-list{list-style:none;margin:18px 0 24px;font-family:“DM Sans”,sans-serif}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:14px;color:var(--dim);border-bottom:1px solid rgba(255,255,255,.045)}
+.feat-list li:last-child{border-bottom:none}
+.feat-chk{color:var(--cyan);font-size:15px;flex-shrink:0;margin-top:2px}
+.tech-card{background:rgba(0,5,30,.82);border:1px solid rgba(0,97,170,.25);border-radius:8px;padding:30px;transition:transform .25s,box-shadow .25s,border-color .25s;backdrop-filter:blur(8px)}
+.tech-card:hover{transform:translateY(-6px);box-shadow:var(--shadow),var(--glow);border-color:var(--border-c)}
+.tech-icon{width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:14px;font-size:24px;margin-bottom:18px;background:linear-gradient(135deg,rgba(0,87,184,.28),rgba(6,182,212,.18));border:1px solid rgba(6,182,212,.2)}
+.tech-title{font-family:“DM Sans”,sans-serif;font-size:18px;font-weight:700;margin-bottom:10px;color:#FFFFFF}
+.tech-desc{font-size:14px;color:var(--muted);line-height:1.75}
+.info-panel{padding:46px;border-radius:8px;border:1px solid rgba(0,97,170,.28);background:rgba(0,5,30,.80);position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.info-panel::before{content:””;position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(0,87,184,.07),rgba(6,182,212,.04))}
+.why-pt{display:flex;gap:14px;margin-bottom:18px;font-size:15px;color:var(--dim)}
+.why-pt:last-child{margin-bottom:0}
+.why-pt strong{color:#fff}
+.callout{padding:22px 28px;border-radius:0 6px 6px 0;border-left:4px solid #0061AA;background:rgba(0,5,30,.75);font-size:15px;line-height:1.75;color:rgba(176,196,222,.90);backdrop-filter:blur(8px);font-family:“DM Sans”,sans-serif}
+.callout strong{color:#fff}
+.perf-card{border-radius:18px;padding:36px;text-align:center}
+.perf-g{background:rgba(10,40,20,.80);border:1.5px solid rgba(34,197,94,.30)}
+.perf-r{background:rgba(40,10,10,.80);border:1.5px solid rgba(239,68,68,.30)}
+.perf-a{background:rgba(40,32,5,.80);border:1.5px solid rgba(251,191,36,.30)}
+.perf-n{font-family:“Syne”,sans-serif;font-size:clamp(32px,6vw,56px);font-weight:800;line-height:1;margin-bottom:10px}
+.perf-t{font-size:15px;font-weight:700;margin-bottom:10px}
+.perf-b{font-size:13px;color:var(--muted);line-height:1.65}
+.cert{text-align:center;padding:28px 24px;border-radius:8px;background:rgba(0,5,30,.82);border:1.5px solid rgba(0,97,170,.30);min-width:210px;transition:transform .22s,box-shadow .22s;backdrop-filter:blur(8px)}
+.cert:hover{transform:translateY(-5px);box-shadow:var(--glow)}
+.cert-c{border-color:rgba(6,182,212,.35)}
+.cert-b{border-color:rgba(0,87,184,.45)}
+.cert-g{border-color:rgba(16,185,129,.35)}
+.cert-icon{font-size:40px;margin-bottom:14px;display:block}
+.cert-name{font-family:“Syne”,sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
+.cert-sub{font-size:12px;color:var(--muted)}
+.mc{padding:22px;border-radius:8px;background:rgba(0,5,30,.82);border:1px solid rgba(0,97,170,.25);transition:border-color .22s,background .22s,transform .22s;backdrop-filter:blur(8px)}
+.mc:hover{border-color:var(--border-c);background:var(--card-hv);transform:translateY(-3px)}
+.mc-hd{display:flex;align-items:center;gap:13px;margin-bottom:10px}
+.mc-em{font-size:24px}
+.mc-city{font-size:15px;font-weight:700}
+.mc-role{font-size:12px;color:var(--cyan);font-weight:600;margin-top:2px}
+.mc-body{font-size:13px;color:var(--muted);line-height:1.6}
+.form-wrap{background:rgba(0,5,30,.88);border:1px solid rgba(0,97,170,.30);border-radius:8px;padding:56px 52px;max-width:860px;margin:0 auto;position:relative;overflow:hidden;backdrop-filter:blur(14px)}
+.form-wrap::before{content:””;position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#000342,#0061AA,#24BCFF)}
+.form-wrap::after{content:””;position:absolute;bottom:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(0,87,184,.10);filter:blur(70px);pointer-events:none}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f-grp{margin-bottom:20px;position:relative;z-index:1}
+.f-grp label{display:block;margin-bottom:8px;font-size:13px;font-weight:600;color:var(--dim)}
+.f-ctrl{width:100%;padding:13px 17px;border:1.5px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(0,0,0,.22);color:#fff;font-size:15px;font-family:Calibri,“Calibri Light”,“Trebuchet MS”,Arial,sans-serif;transition:border-color .2s,box-shadow .2s}
+.f-ctrl:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(6,182,212,.12)}
+.f-ctrl::placeholder{color:#2d3748}
+.f-ctrl option{background:#0c1120}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.90);backdrop-filter:blur(14px);justify-content:center;align-items:center;z-index:9999}
+.modal.on{display:flex;animation:fadeIn .2s ease}
+.modal-box{background:#0c1226;border:1px solid rgba(6,182,212,.22);border-radius:22px;padding:48px;width:90%;max-width:400px;animation:slideUp .28s ease;position:relative;overflow:hidden}
+.modal-box::before{content:””;position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.modal-title{font-family:“Syne”,sans-serif;font-size:22px;font-weight:800;margin-bottom:26px}
+.modal-label{display:block;margin-bottom:8px;font-size:13px;font-weight:600;color:var(--dim)}
+.modal-input{width:100%;padding:13px 17px;border:1.5px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(0,0,0,.35);color:#fff;font-size:15px;font-family:Calibri,“Calibri Light”,“Trebuchet MS”,Arial,sans-serif;margin-bottom:11px;transition:border-color .2s,box-shadow .2s}
+.modal-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(6,182,212,.12)}
+.modal-err{display:none;font-size:13px;color:#fca5a5;margin-bottom:14px}
+.modal-btns{display:flex;gap:12px;margin-top:4px}
+footer{padding:70px 28px 38px;border-top:1px solid rgba(0,97,170,.30);background:rgba(0,2,14,.96);position:relative;overflow:hidden}
+footer::before{content:””;position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,rgba(6,182,212,.3),transparent)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:52px}
+.ft-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-about{font-size:14px;color:var(--muted);line-height:1.75;max-width:250px}
+.ft-col-t{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:16px}
+.ft-links{list-style:none}
+.ft-links li{margin-bottom:9px}
+.ft-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:#24BCFF}
+.ft-bot{border-top:1px solid var(--border);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy{font-size:12px;color:var(--muted)}
+#mainSite.hidden{display:none !important}
+#portal{display:none;min-height:100vh;background:#000008}
+#portal.on{display:block}
+.p-hd{background:linear-gradient(135deg,#000342,#000782,#0061AA);border-bottom:1px solid rgba(0,97,170,.35);padding:22px 28px;position:sticky;top:0;z-index:100}
+.p-hd-inner{max-width:1540px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.p-title{font-family:“Syne”,sans-serif;font-size:24px;font-weight:800;margin-bottom:3px}
+.p-sub{font-size:13px;color:rgba(255,255,255,.65)}
+.p-wrap{max-width:1540px;margin:0 auto;padding:28px}
+.cust-card{background:rgba(0,97,170,.07);border:1.5px solid rgba(0,97,170,.28);border-radius:8px;padding:22px 24px;margin-bottom:22px;position:relative;overflow:hidden}
+.cust-card::before{content:””;position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#000342,#0061AA,#24BCFF)}
+.cust-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.cust-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.cg{margin-bottom:0}
+.cg label{display:block;margin-bottom:5px;font-size:11px;font-weight:700;color:#90E6FF;text-transform:uppercase;letter-spacing:.05em}
+.cg input{width:100%;padding:9px 12px;border:1.5px solid rgba(0,97,170,.30);border-radius:5px;background:rgba(0,3,20,.40);color:#fff;font-size:13px;font-family:“DM Sans”,Calibri,Arial,sans-serif;transition:border-color .2s,box-shadow .2s}
+.cg input:focus{outline:none;border-color:#0061AA;box-shadow:0 0 0 3px rgba(0,97,170,.18)}
+.cg input::placeholder{color:#334155}
+.p-layout{display:grid;grid-template-columns:1fr 358px;gap:26px;align-items:start}
+.p-glass{background:rgba(255,255,255,.038);border:1px solid var(--border);border-radius:18px;padding:30px}
+.p-sec-t{font-family:“DM Sans”,sans-serif;font-size:15px;font-weight:700;color:#24BCFF;margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em}
+.p-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:4px}
+.pfg{margin-bottom:16px}
+.pfg label{display:block;margin-bottom:6px;font-size:11px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.pfg input,.pfg select{width:100%;padding:10px 13px;border:1.5px solid rgba(255,255,255,.09);border-radius:8px;background:rgba(0,0,0,.28);color:#fff;font-size:13px;font-family:Calibri,“Calibri Light”,“Trebuchet MS”,Arial,sans-serif;transition:border-color .2s,box-shadow .2s}
+.pfg input:focus,.pfg select:focus{outline:none;border-color:#0061AA;box-shadow:0 0 0 3px rgba(0,97,170,.16)}
+.pfg select option{background:#0f1525}
+.cbox{margin-top:12px;padding:14px;background:rgba(255,255,255,.04);border-radius:8px;display:none}
+.cbox.on{display:block}
+.eq-cat{font-size:12px;font-weight:700;color:#24BCFF;padding:9px 0;border-bottom:1px solid rgba(0,97,170,.25);margin:26px 0 12px;text-transform:uppercase;letter-spacing:.08em}
+.eq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(198px,1fr));gap:9px}
+.eq-card{border:1.5px solid rgba(255,255,255,.07);border-radius:10px;padding:12px;background:rgba(15,30,80,.12);transition:border-color .2s,background .2s}
+.eq-card:hover{border-color:rgba(6,182,212,.35)}
+.eq-card.sel{border-color:#0061AA;background:rgba(0,97,170,.14)}
+.eq-name{font-size:12px;font-weight:600;min-height:32px;margin-bottom:4px;line-height:1.35}
+.eq-price{font-size:14px;font-weight:700;color:#24BCFF;margin-bottom:2px}
+.eq-model{font-size:11px;color:var(--muted);margin-bottom:8px;display:block}
+.eq-qty{display:flex;align-items:center;gap:6px}
+.eq-qty button{width:26px;height:26px;border-radius:4px;border:1.5px solid #0061AA;background:transparent;color:#24BCFF;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .18s,color .18s}
+.eq-qty button:hover{background:#0061AA;color:#fff}
+.eq-qty input{width:42px;text-align:center;padding:5px;border:1.5px solid rgba(255,255,255,.09);border-radius:5px;background:rgba(0,0,0,.28);color:#fff;font-size:13px;font-family:Calibri,“Calibri Light”,“Trebuchet MS”,Arial,sans-serif}
+.eq-qty input:focus{outline:none;border-color:var(--cyan)}
+.res-sticky{position:sticky;top:84px;max-height:calc(100vh - 112px);overflow-y:auto}
+.res-sticky::-webkit-scrollbar{width:4px}
+.bundle-chip{background:rgba(34,197,94,.09);border:1.5px solid rgba(34,197,94,.28);border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center}
+.b-sup{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.55);margin-bottom:4px}
+.b-name{font-family:“Syne”,sans-serif;font-size:19px;font-weight:700;color:var(--green);margin-bottom:4px}
+.b-sub{font-size:12px;color:rgba(255,255,255,.72);line-height:1.4}
+.res-panel{background:linear-gradient(135deg,#000342,#0061AA);border-radius:8px;padding:20px;margin-bottom:12px}
+.r-item{background:rgba(255,255,255,.10);border-radius:8px;padding:12px;margin-bottom:8px;text-align:center}
+.r-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.72);margin-bottom:4px}
+.r-val{font-family:“Syne”,sans-serif;font-size:21px;font-weight:800}
+.net-box{background:rgba(34,197,94,.22);border:2px solid rgba(34,197,94,.45);border-radius:10px;padding:16px;text-align:center;margin-top:6px}
+.net-box .r-val{font-size:32px;color:#4ade80}
+.exp-box{background:rgba(255,255,255,.08);border-radius:10px;padding:14px;margin-top:8px;font-size:13px}
+.exp-box h4{font-weight:700;margin-bottom:10px;font-size:13px}
+.e-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px}
+.e-tot{display:flex;justify-content:space-between;padding:9px 0 0;border-top:1.5px solid rgba(255,255,255,.22);margin-top:4px;font-weight:700;font-size:13px}
+#laborDetail{padding-left:10px;font-size:11px;margin-top:5px;opacity:.82}
+.ord-box{background:rgba(0,97,170,.07);border:1.5px solid rgba(0,97,170,.28);border-radius:8px;padding:16px;margin-top:12px}
+.ord-hd{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700;color:#24BCFF;margin-bottom:12px}
+.ord-list{max-height:340px;overflow-y:auto;margin-bottom:12px}
+.ord-line{display:flex;justify-content:space-between;padding:8px;background:rgba(255,255,255,.04);border-radius:7px;margin-bottom:5px;font-size:12px}
+.o-name{font-weight:600;margin-bottom:2px}
+.o-sub{color:var(--muted);font-size:11px}
+.o-price{color:#24BCFF;font-weight:700;flex-shrink:0;padding-left:8px}
+.btn-clr{background:rgba(220,38,38,.75);color:#fff;width:100%;border:none !important;border-radius:8px;font-family:Calibri,“Calibri Light”,“Trebuchet MS”,Arial,sans-serif;font-size:13px}
+.btn-clr:hover{background:var(--red)}
+.btn-cpy{background:#0061AA;color:#fff;width:100%;border:none !important;border-radius:5px;font-family:“DM Sans”,Calibri,Arial,sans-serif;font-size:13px}
+.btn-cpy:hover{background:#007EDD}
+.btn-copied{background:var(--green) !important}
+@media(max-width:1280px){.p-layout{grid-template-columns:1fr}.res-sticky{position:static;max-height:none}}
+@media(max-width:1024px){.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}.p-row{grid-template-columns:1fr}.cust-grid{grid-template-columns:1fr 1fr}.cust-grid-2{grid-template-columns:1fr}nav{display:none}.mob-btn{display:block}nav.open{display:flex;flex-direction:column;position:absolute;top:72px;right:16px;background:rgba(0,3,22,.97);border:1px solid rgba(0,97,170,.35);border-radius:6px;padding:18px 22px;gap:14px;backdrop-filter:blur(28px);z-index:200;box-shadow:0 16px 48px rgba(0,0,0,.75)}.form-wrap{padding:36px 22px}.info-panel{padding:28px 22px}.hero h1{letter-spacing:-1px}.ft-bot{flex-direction:column;text-align:center}section{padding:56px 18px}.stats-band{padding:36px 18px}.container{padding:0 18px}}
+@media(max-width:480px){.g4{grid-template-columns:1fr 1fr}.eq-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}.p-hd-inner{flex-direction:column;align-items:flex-start}.p-tabs{overflow-x:auto;gap:0}.p-tab-btn{font-size:12px;padding:10px 14px;white-space:nowrap}.ord-box{padding:12px}.res-panel{padding:14px}.bundle-chip{padding:12px 14px}.cust-grid{grid-template-columns:1fr!important}}
+@media(max-width:360px){.g4{grid-template-columns:1fr}.eq-grid{grid-template-columns:1fr 1fr}}
+
+/* ── ADT Octagon Moment Grid Pattern ──────────────────────────────────── */
+@keyframes octPulse{0%,100%{opacity:.022}50%{opacity:.042}}
+.oct-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.oct-grid::before{
+content:””;position:absolute;inset:-10%;
+background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘80’ height=‘80’%3E%3Cpolygon points=‘24,4 56,4 76,24 76,56 56,76 24,76 4,56 4,24’ fill=‘none’ stroke=‘rgba(0,97,170,0.22)’ stroke-width=‘1’/%3E%3C/svg%3E”);
+background-size:80px 80px;
+animation:octPulse 8s ease-in-out infinite;
+}
+/* Hero section get the brighter octagon grid */
+.hero .oct-grid::before{stroke:rgba(0,97,170,0.30)}
+/* Subtle octagon supergraphic in hero corner */
+.hero-oct{position:absolute;right:-8%;bottom:-12%;width:600px;height:600px;pointer-events:none;z-index:1;opacity:.06}
+.hero-oct svg{width:100%;height:100%}
+/* ADT section dividers */
+.sec-divider{width:48px;height:3px;background:#0061AA;margin:0 auto 22px;border-radius:1px}
+
+/* ── Portal Tabs ─────────────────────────────────────────────────── */
+.p-tabs{display:flex;gap:0;border-bottom:1px solid rgba(0,97,170,.25);padding:0 28px;background:rgba(0,3,18,.60)}
+.p-tab-btn{padding:12px 22px;font-family:‘DM Sans’,Calibri,sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.55);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap;letter-spacing:.02em}
+.p-tab-btn:hover{color:#fff}
+.p-tab-btn.active{color:#24BCFF;border-bottom-color:#0061AA}
+.p-tab-content{display:none}
+.p-tab-content.active{display:block}
+
+/* ── Presentation Viewer ─────────────────────────────────────────── */
+.pres-wrap{max-width:1100px;margin:0 auto;padding:24px}
+.pres-viewer{background:#000;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.6)}
+.pres-viewer.pv-fullscreen{position:fixed;inset:0;z-index:99999;border-radius:0;max-width:none;margin:0;display:flex;flex-direction:column}
+.pres-viewer.pv-fullscreen .slide-img-wrap{flex:1;min-height:0}
+.pres-viewer.pv-fullscreen .slide-img-wrap img{height:100%;width:100%;object-fit:contain}
+.slide-img-wrap{position:relative;background:#111;line-height:0;aspect-ratio:16/9;overflow:hidden}
+.slide-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .18s ease}
+.slide-img-wrap img.loading{opacity:0}
+.pres-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(0,3,18,.95);border-top:1px solid rgba(0,97,170,.20);gap:12px;flex-shrink:0}
+.pres-nav-btn{background:rgba(0,97,170,.20);border:1px solid rgba(0,97,170,.40);color:#fff;padding:8px 18px;border-radius:5px;font-family:‘DM Sans’,sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0}
+.pres-nav-btn:hover{background:rgba(0,97,170,.50)}
+.pres-nav-btn:disabled{opacity:.28;cursor:not-allowed}
+.pres-nav-center{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;min-width:0}
+.slide-dots{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.slide-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;transition:background .2s;flex-shrink:0}
+.slide-dot.active{background:#0061AA}
+.slide-dot:hover{background:rgba(0,97,170,.60)}
+.slide-counter{font-size:12px;color:rgba(255,255,255,.45);font-family:‘DM Sans’,sans-serif}
+.pres-fs-btn{background:rgba(36,188,255,.12);border:1px solid rgba(36,188,255,.30);color:#24BCFF;padding:8px 14px;border-radius:5px;font-family:‘DM Sans’,sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0}
+.pres-fs-btn:hover{background:rgba(36,188,255,.28)}
+/* Thumbnail strip */
+.thumb-strip{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;background:rgba(0,0,0,.80);border-top:1px solid rgba(0,97,170,.15);scrollbar-width:thin;scrollbar-color:rgba(0,97,170,.4) transparent}
+.thumb-strip::-webkit-scrollbar{height:3px}
+.thumb-strip::-webkit-scrollbar-thumb{background:rgba(0,97,170,.5);border-radius:2px}
+.thumb{flex-shrink:0;width:80px;border-radius:4px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .18s,opacity .18s;opacity:.55}
+.thumb:hover{opacity:.85;border-color:rgba(36,188,255,.40)}
+.thumb.active{border-color:#0061AA;opacity:1}
+.thumb img{width:100%;display:block}
+/* Old slide classes no longer used but keep for compat */
+.feat-chip{background:rgba(0,97,170,.14);border:1px solid rgba(0,97,170,.30);border-radius:5px;padding:7px 12px;font-size:12px;color:rgba(255,255,255,.88);font-family:‘DM Sans’,sans-serif;font-weight:500}
+
+/* ── Product Catalog ─────────────────────────────────────────────── */
+.cat-wrap{max-width:1400px;margin:0 auto;padding:28px}
+.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.cat-btn{padding:8px 16px;border-radius:5px;border:1px solid rgba(0,97,170,.30);background:rgba(0,5,30,.60);color:rgba(176,196,222,.80);font-family:‘DM Sans’,sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.06em}
+.cat-btn:hover{border-color:#24BCFF;color:#fff}
+.cat-btn.active{background:#0061AA;border-color:#0061AA;color:#fff}
+.cat-section{display:none}
+.cat-section.active{display:block}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:20px}
+.prod-card{background:rgba(0,5,30,.82);border:1px solid rgba(0,97,170,.25);border-radius:8px;padding:24px;transition:border-color .22s,transform .22s}
+.prod-card:hover{border-color:rgba(36,188,255,.45);transform:translateY(-3px)}
+.prod-card-icon{font-size:40px;margin-bottom:14px;display:block}
+.prod-card-cat{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#24BCFF;margin-bottom:6px;font-family:‘DM Sans’,sans-serif}
+.prod-card-name{font-family:‘DM Sans’,sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.3}
+.prod-feats{list-style:none}
+.prod-feats li{font-size:12px;color:rgba(176,196,222,.82);padding:4px 0;display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,.05);font-family:‘DM Sans’,sans-serif}
+.prod-feats li::before{content:”·”;color:#24BCFF;font-weight:700;flex-shrink:0}
+.cat-title{font-family:‘Syne’,sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+.cat-desc{font-size:13px;color:rgba(176,196,222,.75);font-family:‘DM Sans’,sans-serif;margin-bottom:18px}
+
+
+/* ── END PORTAL CSS ── */
+</style>
+</head>
+<body>
+<canvas id="starCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
+<div id="scrollBar"></div>
+
+<div id="mainSite">
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Serving All of California</span>
+  <span>Questions? Call <a href="tel:4089094484">(408) 909-4484</a></span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-block">
+    <div class="logo-name">Complete Home Today</div>
+    <div class="logo-badge">DPS, an ADT Authorized Dealer</div>
+  </div>
+  <div class="header-right" id="mainNav">
+    <button onclick="openModal()" class="btn btn-p" style="padding:10px 18px;font-size:13px;border-radius:4px;font-family:Arial,sans-serif;font-weight:700;cursor:pointer;border:none;background:#0061AA;color:#fff;letter-spacing:.04em">🔐 Dealer Portal</button>
+    <a href="#careers" class="hire-nav-btn">Now Hiring</a>
+    <div class="header-cta">
+      Get protected today
+      <strong>$99 Installation*</strong>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Professional Home Security · Statewide California</div>
+  <h1>Help Protect What<br>Matters Most</h1>
+  <p>ADT-monitored home security systems, professionally installed by your local team. Choose your package below and we'll reach out to schedule.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">24/7 ADT Monitoring</span>
+    <span class="hero-badge">Professional Installation</span>
+    <span class="hero-badge">6-Month Money-Back Guarantee**</span>
+    <span class="hero-badge">ADT Theft Protection Guarantee***</span>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="section packages-bg">
+  <div class="section-inner">
+    <div class="section-label">Step 1 — Choose Your Package</div>
+    <h2>ADT-Monitored Security Packages</h2>
+    <p class="section-sub">All packages include professional installation and 24/7 ADT monitoring. Select the one that fits your home.</p>
+
+    <div class="packages-grid">
+
+      <!-- BRONZE -->
+      <div class="pkg-card" id="pkg-bronze" onclick="selectPackage('bronze')">
+        <div class="pkg-header">
+          <div class="pkg-tier">The</div>
+          <div class="pkg-name">Bronze</div>
+          <div class="pkg-price-row">
+            <span class="pkg-price-dollar">$53</span>
+            <span class="pkg-price-cents">.99</span>
+            <span class="pkg-price-label">/mo</span>
+          </div>
+          <div class="pkg-install">Installation: <span>$99.00*</span></div>
+          <div class="pkg-value">Retail value $1,142 — You save over $1,000</div>
+        </div>
+        <div class="pkg-features">
+          <ul>
+            <li>7" ADT Command Panel</li>
+            <li>Door/Window Sensors</li>
+            <li>PIR Motion Sensor (pet-friendly)</li>
+            <li>Key Fob Remote</li>
+            <li>Loud Internal Siren</li>
+            <li>24-Hour Backup Battery</li>
+            <li>Cellular Connection (no landline needed)</li>
+            <li>Remote Arm &amp; Disarm</li>
+            <li>ADT Yard Sign &amp; Window Decals</li>
+          </ul>
+        </div>
+        <button class="pkg-select-btn" id="btn-bronze">Select Bronze</button>
+      </div>
+
+      <!-- SILVER -->
+      <div class="pkg-card popular" id="pkg-silver" onclick="selectPackage('silver')">
+        <div class="popular-tag">Most Popular</div>
+        <div class="pkg-header">
+          <div class="pkg-tier">The</div>
+          <div class="pkg-name">Silver</div>
+          <div class="pkg-price-row">
+            <span class="pkg-price-dollar">$59</span>
+            <span class="pkg-price-cents">.99</span>
+            <span class="pkg-price-label">/mo</span>
+          </div>
+          <div class="pkg-install">Installation: <span>$99.00*</span></div>
+          <div class="pkg-value">Retail value $1,321 — You save over $1,000</div>
+        </div>
+        <div class="pkg-features">
+          <ul>
+            <li>Everything in Bronze</li>
+            <li>Google Nest Camera (Battery)</li>
+            <li>Live Video Streaming 24/7</li>
+            <li>Two-Way Voice</li>
+            <li>Person, Animal &amp; Vehicle Detection</li>
+            <li>Infrared Night Vision</li>
+            <li>10-Day Cloud Video Storage</li>
+            <li>Text &amp; Email Alerts</li>
+            <li>Custom Arming Modes</li>
+          </ul>
+        </div>
+        <button class="pkg-select-btn" id="btn-silver">Select Silver</button>
+      </div>
+
+      <!-- GOLD -->
+      <div class="pkg-card" id="pkg-gold" onclick="selectPackage('gold')">
+        <div class="pkg-header">
+          <div class="pkg-tier">The</div>
+          <div class="pkg-name">Gold</div>
+          <div class="pkg-price-row">
+            <span class="pkg-price-dollar">$63</span>
+            <span class="pkg-price-cents">.99</span>
+            <span class="pkg-price-label">/mo</span>
+          </div>
+          <div class="pkg-install">Installation: <span>$99.00*</span></div>
+          <div class="pkg-value">Retail value $1,470 — You save over $1,000</div>
+        </div>
+        <div class="pkg-features">
+          <ul>
+            <li>Everything in Silver</li>
+            <li>Google Nest Doorbell Camera</li>
+            <li>See Who's at Your Door Remotely</li>
+            <li>Prerecorded Quick Responses</li>
+            <li>Night Vision Doorbell</li>
+            <li>Customizable Activity Zones</li>
+            <li>One-Hour Video Backup</li>
+            <li>Noise &amp; Echo Cancellation</li>
+          </ul>
+        </div>
+        <button class="pkg-select-btn" id="btn-gold">Select Gold</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ADD-ONS -->
+<div class="section addons-section-bg">
+  <div class="section-inner">
+    <div class="section-label">Step 2 — Customize Your System</div>
+    <h2>Add-On Devices &amp; Smart Home</h2>
+    <p class="section-sub">Tap any device you're interested in — your selections carry into the quote form so your specialist knows exactly what to discuss.</p>
+
+    <!-- INTRUSION SAFETY -->
+    <div class="addon-category">
+      <div class="addon-category-label" style="color:#D9472B;">🛡️ &nbsp;Intrusion Detection</div>
+      <div class="addons-grid">
+        <div class="addon-card cat-safety" onclick="toggleAddon(this,'Glassbreak Detector')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🪟</div>
+            <div class="addon-info">
+              <div class="addon-name">Glassbreak Detector</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">25ft radius detection — triggers alarm the moment glass breakage is detected.</div>
+        </div>
+        <div class="addon-card cat-safety" onclick="toggleAddon(this,'Motion Sensor (Additional)')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">👁️</div>
+            <div class="addon-info">
+              <div class="addon-name">Additional Motion Sensor</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Extra PIR coverage zone — pet-friendly, wide detection range, extended battery life.</div>
+        </div>
+        <div class="addon-card cat-safety" onclick="toggleAddon(this,'Extra Door/Window Sensors')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🚪</div>
+            <div class="addon-info">
+              <div class="addon-name">Extra Door/Window Sensors</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Wired and wireless options — instant alerts on every entry point.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIFE SAFETY -->
+    <div class="addon-category">
+      <div class="addon-category-label" style="color:#B45309;">🔥 &nbsp;Life Safety</div>
+      <div class="addons-grid">
+        <div class="addon-card cat-life" onclick="toggleAddon(this,'Smoke Detector')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🔴</div>
+            <div class="addon-info">
+              <div class="addon-name">Smoke Detector</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Rate-of-rise detection with monitored fire protection. Professional installation.</div>
+        </div>
+        <div class="addon-card cat-life" onclick="toggleAddon(this,'Carbon Monoxide Detector')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">💨</div>
+            <div class="addon-info">
+              <div class="addon-name">CO Detector</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Voice annunciation, one-go-all-go functionality, LED status indicators.</div>
+        </div>
+        <div class="addon-card cat-life" onclick="toggleAddon(this,'Flood Detector')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">💧</div>
+            <div class="addon-info">
+              <div class="addon-name">Flood Detector</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Senses water instantly — wireless, flexible placement, 24/7 monitoring.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESS CONTROL -->
+    <div class="addon-category">
+      <div class="addon-category-label" style="color:#1D4ED8;">🔑 &nbsp;Access Control</div>
+      <div class="addons-grid">
+        <div class="addon-card cat-access" onclick="toggleAddon(this,'Smart Door Lock (Kwikset)')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🔒</div>
+            <div class="addon-info">
+              <div class="addon-name">Smart Door Lock</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Kwikset — keyless entry, up to 30 codes, pick-resistant &amp; bump-proof.</div>
+        </div>
+        <div class="addon-card cat-access" onclick="toggleAddon(this,'Garage Door Security')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🏠</div>
+            <div class="addon-info">
+              <div class="addon-name">Garage Door Security</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Wide compatibility, instant alerts, remote &amp; voice control.</div>
+        </div>
+        <div class="addon-card cat-access" onclick="toggleAddon(this,'Secondary ADT Wireless Touchscreen')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">📱</div>
+            <div class="addon-info">
+              <div class="addon-name">2nd Wireless Panel</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Portable secondary touchscreen — centralized system control from anywhere in the home.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAMERAS -->
+    <div class="addon-category">
+      <div class="addon-category-label" style="color:#6D28D9;">📷 &nbsp;Cameras</div>
+      <div class="addons-grid">
+        <div class="addon-card cat-camera" onclick="toggleAddon(this,'Google Nest Indoor/Outdoor Camera')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">📷</div>
+            <div class="addon-info">
+              <div class="addon-name">Google Nest Camera</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Indoor or outdoor — 24/7 live view, two-way talk, familiar face alerts.</div>
+        </div>
+        <div class="addon-card cat-camera" onclick="toggleAddon(this,'Google Nest Camera with Floodlight')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">💡</div>
+            <div class="addon-info">
+              <div class="addon-name">Nest Cam + Floodlight</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">180° motion detection, smart LED floodlight, personalized activity zones.</div>
+        </div>
+        <div class="addon-card cat-camera" onclick="toggleAddon(this,'Google Nest Doorbell Camera')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🔔</div>
+            <div class="addon-info">
+              <div class="addon-name">Google Nest Doorbell</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Night vision, noise &amp; echo cancellation, customizable activity zones, 1-hr video backup.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMART HOME -->
+    <div class="addon-category">
+      <div class="addon-category-label" style="color:#15803D;">🌿 &nbsp;Smart Home &amp; Connectivity</div>
+      <div class="addons-grid">
+        <div class="addon-card cat-smart" onclick="toggleAddon(this,'Google Nest Thermostat')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🌡️</div>
+            <div class="addon-info">
+              <div class="addon-name">Google Nest Thermostat</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Energy Star certified. Saves avg. 10–12% on heating, 15% on cooling.</div>
+        </div>
+        <div class="addon-card cat-smart" onclick="toggleAddon(this,'Google Nest Learning Thermostat')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">🧠</div>
+            <div class="addon-info">
+              <div class="addon-name">Nest Learning Thermostat</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Programs itself to your schedule. HVAC monitoring &amp; remote control.</div>
+        </div>
+        <div class="addon-card cat-smart" onclick="toggleAddon(this,'ADT Smart Light Bulb')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">💡</div>
+            <div class="addon-info">
+              <div class="addon-name">Smart Light Bulb</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Alexa compatible — schedule timed events, dimmer control, scene creation.</div>
+        </div>
+        <div class="addon-card cat-smart" onclick="toggleAddon(this,'Google Nest Wifi System')">
+          <div class="addon-card-top">
+            <div class="addon-icon-wrap">📶</div>
+            <div class="addon-info">
+              <div class="addon-name">Google Nest Wifi</div>
+            </div>
+            <div class="addon-check">✓</div>
+          </div>
+          <div class="addon-desc">Mesh Wi-Fi — up to 200 devices, 4K streaming, added cyber security layer.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- QUOTE FORM -->
+<div class="section form-bg" id="get-quote">
+  <div class="section-inner">
+    <div class="section-label">Step 3 — Get Your Free Quote</div>
+    <h2>Schedule Your Installation</h2>
+    <p class="section-sub">A local specialist will contact you to confirm your package, answer questions, and schedule at your convenience.</p>
+
+    <div class="quote-layout">
+
+      <!-- SUMMARY SIDEBAR -->
+      <div class="form-summary">
+        <h3>Your Selection Summary</h3>
+        <div class="summary-line">
+          <span>Package</span>
+          <span id="summary-pkg-val" class="summary-empty">None selected</span>
+        </div>
+        <div id="summary-addons-label" class="summary-line" style="display:none;">
+          <span>Add-Ons Selected</span>
+        </div>
+        <div id="summary-addons-list"></div>
+        <div class="summary-price-row">
+          <span class="label">Monthly Monitoring (ADT-monitored)</span>
+          <span class="price" id="summary-monthly">—</span>
+        </div>
+        <div class="summary-install">$99.00 Customer Installation Charge*</div>
+      </div>
+
+      <!-- JOTFORM -->
+      <div class="jotform-wrap">
+        <script type="text/javascript" src="https://form.jotform.com/jsform/253484869950070"></script>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HIRING SECTION -->
+<div class="section hiring-section" id="careers">
+  <div class="section-inner">
+    <div class="section-label">Now Hiring — Statewide California</div>
+    <h2>Build Your Career in Home Security Sales</h2>
+    <p class="section-sub">Join Complete Home Today and earn uncapped commissions representing one of the most recognized names in home security. No experience required — we train you.</p>
+
+    <div class="hiring-layout">
+
+      <!-- PITCH -->
+      <div class="hiring-pitch">
+        <h3>Why Reps Choose Complete Home Today</h3>
+        <p>Independent contractor role — set your own schedule, own your territory, build your book of business anywhere across California.</p>
+        <ul class="perks-list">
+          <li><span class="perk-icon">✓</span> Uncapped commission — earn what you close</li>
+          <li><span class="perk-icon">✓</span> Weekly pay on every installed account</li>
+          <li><span class="perk-icon">✓</span> Full sales training provided from day one</li>
+          <li><span class="perk-icon">✓</span> D2D and referral-based sales model</li>
+          <li><span class="perk-icon">✓</span> Sell an established, trusted product</li>
+          <li><span class="perk-icon">✓</span> Advancement into team lead &amp; management</li>
+          <li><span class="perk-icon">✓</span> 1099 independent contractor — flexible schedule</li>
+          <li><span class="perk-icon">✓</span> Local team culture — not a call center</li>
+        </ul>
+        <div class="earn-box">
+          <div class="earn-label">Typical Rep Earnings</div>
+          <div class="earn-range">$3,000 – $8,000+</div>
+          <div class="earn-sub">per month based on performance · Independent contractor results vary</div>
+        </div>
+      </div>
+
+      <!-- JOTFORM HIRING -->
+      <div class="hiring-form-wrap">
+        <script type="text/javascript" src="https://form.jotform.com/jsform/253484755917168"></script>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><strong>140+ Years</strong> of ADT Monitoring</div>
+    <div class="trust-item"><strong>24/7/365</strong> Professional Monitoring</div>
+    <div class="trust-item"><strong>6-Month</strong> Money-Back Guarantee**</div>
+    <div class="trust-item"><strong>Statewide</strong> California Coverage</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-name">Complete Home Today</div>
+        <div class="footer-dealer-badge">DPS, an ADT Authorized Dealer</div>
+      </div>
+      <div class="footer-licenses">
+        <strong>CA ACE License No. 552544</strong><br>
+        BSIS ACO #6446<br>
+        (408) 909-4484<br>
+        Serving All of California
+      </div>
+    </div>
+
+    <div class="disclaimer-text">
+
+      <div class="disclaimer-block">
+        *<strong>$99.00 Customer Installation Charge.</strong> 24-Month Monitoring Agreement required at the applicable monthly rate. Early termination fee applies. Form of payment must be by credit card or electronic charge to your checking or savings account. Offer applies to homeowners only. Local permit fees may be required. Satisfactory credit history required. Certain restrictions may apply. Offer valid for new DPS, an ADT Authorized Dealer customers only and not on purchases from ADT LLC. Other rate plans available. Cannot be combined with any other offer. Photos are for illustrative purposes only and may not reflect the exact product/service actually provided.
+      </div>
+
+      <div class="disclaimer-block">
+        **<strong>Longest Money-Back Guarantee</strong> — in comparison to other national providers. Money-back guarantee only applies after ADT has made attempts to resolve a system-related issue and has not been able to resolve that issue within the first 6 months of your contract. Equipment must be fully removed before a refund will be processed. Conditions preventing normal system operation cannot be caused by the customer. Subject to terms and conditions of the Residential Services Contract. For full terms and conditions, visit ADT.com/about-adt/legal/residential-terms-and-conditions.
+      </div>
+
+      <div class="disclaimer-block">
+        ***<strong>ADT Theft Protection Guarantee</strong> — Customer may receive reimbursement of up to five hundred dollars ($500) of Customer's homeowner's insurance deductible (if any), if and only if all requirements for the Theft Protection Guarantee are met to ADT's reasonable satisfaction. Certain restrictions apply. Subject to terms and conditions of the Residential Services Contract.
+      </div>
+
+      <div class="disclaimer-block">
+        <strong>Google Nest Disclaimer:</strong> Google Nest products and services featured are designed to make life easier and were not designed specifically for life-sustaining or safety-critical use cases. These products and services depend upon working internet, Wi-Fi, and, in some cases, service availability from ADT and/or Google. Google, Nest Mini, Nest Cam, Nest Doorbell, Nest Hub and other marks are trademarks of Google LLC. This is not a Google promotion.
+      </div>
+
+      <div class="disclaimer-block">
+        <strong>Independent Dealer Notice:</strong> Complete Home Today is an independent sales representative of DPS, an ADT Authorized Dealer. DPS is not ADT LLC. ADT-monitored security systems are sold and installed through Direct Protection Security (DPS), an ADT Authorized Dealer. ADT and the ADT logo are registered trademarks of ADT LLC. All rights reserved. Complete Home Today is not an employee or franchisee of ADT LLC or DPS.
+      </div>
+
+      <div class="disclaimer-block">
+        <strong>Employment Disclaimer:</strong> Sales representative positions are independent contractor (1099) roles. Results and earnings vary based on individual performance. Compensation is commission-based. Complete Home Today does not guarantee minimum earnings for independent contractors.
+      </div>
+
+    </div>
+  </div>
+</footer>
+</div><!-- end mainSite -->
+
+<div id="loginModal" class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-title">&#128272; Dealer Portal</div>
+    <label class="modal-label" for="dealerPw">Password</label>
+    <input type="password" id="dealerPw" class="modal-input" placeholder="Enter dealer password" onkeydown="if(event.key==='Enter')doLogin()">
+    <div id="loginErr" class="modal-err">&#10060; Incorrect password &mdash; please try again.</div>
+    <div class="modal-btns">
+      <button onclick="doLogin()" class="btn btn-p" style="flex:1">Sign In</button>
+      <button onclick="closeModal()" class="btn btn-o" style="flex:1">Cancel</button>
+    </div>
+
+
+<div id="portal">
+  <div class="p-hd">
+    <div class="p-hd-inner">
+      <div><div class="p-title">&#128202; DPS Dealer Portal</div><div class="p-sub">Sales Presentation &bull; Product Catalog &bull; Commission Calculator</div></div>
+      <button onclick="closePortal()" class="btn btn-o" style="width:auto">&larr; Back to Website</button>
+    </div>
+    <div class="p-tabs">
+      <button class="p-tab-btn active" onclick="switchPortalTab('calc',this)">&#128202; Commission Calculator</button>
+      <button class="p-tab-btn" onclick="switchPortalTab('pres',this)">&#9654; Sales Presentation</button>
+      <button class="p-tab-btn" onclick="switchPortalTab('products',this)">&#128230; Product Catalog</button>
+    </div>
+  </div>
+  <div id="pTab-calc" class="p-tab-content active">
+  <div class="p-wrap">
+    <div class="p-layout">
+      <div>
+        <div class="p-glass">
+          <div class="cust-card">
+            <div class="p-sec-t" style="margin-bottom:16px">&#128100; Customer Information</div>
+            <div class="cust-grid">
+              <div class="cg"><label>First Name</label><input type="text" id="cFirst" placeholder="John"></div>
+              <div class="cg"><label>Last Name</label><input type="text" id="cLast" placeholder="Smith"></div>
+              <div class="cg"><label>Date of Birth</label><input type="date" id="cDob"></div>
+              <div class="cg"><label>Phone Number</label><input type="tel" id="cPhone" placeholder="(408) 555-1234"></div>
+              <div class="cg"><label>Email Address</label><input type="email" id="cEmail" placeholder="john@example.com"></div>
+              <div class="cg"><label>Best Appt. Date &amp; Time</label><input type="datetime-local" id="cAppt"></div>
+            </div>
+            <div class="cust-grid-2">
+              <div class="cg"><label>Service Address</label><input type="text" id="cAddr" placeholder="123 Main St, City, CA 94513"></div>
+              <div class="cg"><label>Nearest Cross Street</label><input type="text" id="cCross" placeholder="Oak Ave &amp; 5th St"></div>
+            </div>
+          </div>
+          <div class="p-sec-t">&#128176; Deal Configuration</div>
+          <div class="p-row">
+            <div class="pfg">
+              <label>Package Type</label>
+              <select id="pkgType" onchange="handlePkgChange()">
+                <option value="36.99-1">Res-Basic &mdash; $36.99/mo (1&times;)</option>
+                <option value="42.99-1.75" selected>Res-Bundle 2 &mdash; $42.99/mo (1.75&times;)</option>
+                <option value="44.99-4">Res-Bundle 2A &mdash; $44.99/mo (4&times;)</option>
+                <option value="47.99-4.5">Res-Bundle GSM &mdash; $47.99/mo (4.5&times;)</option>
+                <option value="49.99-4">Res-Pulse 1A &mdash; $49.99/mo (4&times;)</option>
+                <option value="52.99-4.5">Res-Pulse 1B &mdash; $52.99/mo (4.5&times;)</option>
+                <option value="53.99-4.5">Res-Pulse 1C &mdash; $53.99/mo (4.5&times;)</option>
+                <option value="58.99-4">Res-Pulse 2A &mdash; $58.99/mo (4&times;)</option>
+                <option value="59.99-4">Res-Pulse 2B &mdash; $59.99/mo (4&times;)</option>
+                <option value="60.99-4">Res-Pulse 3A &mdash; $60.99/mo (4&times;)</option>
+                <option value="63.99-4">Res-Pulse 3B &mdash; $63.99/mo (4&times;)</option>
+                <option value="64.99-4">Res-Pulse 3C &mdash; $64.99/mo (4&times;)</option>
+                <option value="39.99-1">Comm-Basic &mdash; $39.99/mo (1&times;)</option>
+                <option value="45.99-5">Comm-Bundle 4 &mdash; $45.99/mo (5&times;)</option>
+                <option value="51.99-5">Comm-Pulse 1C &mdash; $51.99/mo (5&times;)</option>
+                <option value="58.99-5">Comm-Pulse 2C &mdash; $58.99/mo (5&times;)</option>
+                <option value="59.99-5">Comm-Pulse 2D &mdash; $59.99/mo (5&times;)</option>
+                <option value="custom">&#9999; Custom Monthly Rate</option>
+              </select>
+              <div id="cbox" class="cbox">
+                <div class="pfg"><label>Custom Rate ($/mo)</label><input type="number" id="customRate" step="0.01" min="0" placeholder="0.00" oninput="calc()"></div>
+                <div class="pfg"><label>Pass-Through Multiple</label><input type="number" id="customPass" step="0.25" min="0" placeholder="0" oninput="calc()"></div>
+              </div>
+            </div>
+            <div class="pfg">
+              <label>Credit Class</label>
+              <select id="creditClass" onchange="calc()">
+                <option value="35">A+ (775+) &mdash; 35&times;</option>
+                <option value="34">A (725&ndash;774) &mdash; 34&times;</option>
+                <option value="33">B (675&ndash;724) &mdash; 33&times;</option>
+                <option value="30">B&minus; (650&ndash;674) &mdash; 30&times;</option>
+                <option value="28">D (625&ndash;649) &mdash; 28&times;</option>
+                <option value="27">E (600&ndash;624) &mdash; 27&times;</option>
+                <option value="24">BULK (575&ndash;599) &mdash; 24&times;</option>
+                <option value="28">Commercial (&gt;75 score) &mdash; 28&times;</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Base Install Fee (min $150)</label>
+              <input type="number" id="installFee" value="150" min="150" step="10" oninput="calc()">
+            </div>
+            <div class="pfg">
+              <label>Upsell Amount ($)</label>
+              <input type="number" id="upsellAmt" value="0" min="0" step="10" oninput="calc()">
+            </div>
+          </div>
+          <button onclick="clearEquip()" class="btn btn-clr" style="padding:10px 16px;margin-bottom:4px">&#128465; Clear All Equipment</button>
+          <div class="p-sec-t" style="margin-top:26px">&#128295; Equipment Selection</div>
+          <div id="equipCatalog"></div>
+        </div>
+      </div>
+      <div class="res-sticky">
+        <div class="bundle-chip">
+          <div class="b-sup">Recommended Package</div>
+          <div class="b-name" id="rBundleName">Basic Protection</div>
+          <div class="b-sub" id="rBundleDesc">Essential security monitoring</div>
+        </div>
+        <div class="res-panel">
+          <div class="r-item"><div class="r-lbl">Monthly Rate</div><div class="r-val" id="rRate">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Pass Through</div><div class="r-val" id="rPass">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Credit Multiple</div><div class="r-val" id="rBase">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Gross Commission</div><div class="r-val" id="rGross">&mdash;</div></div>
+          <div class="net-box">
+            <div class="r-lbl">&#128176; Net Commission</div>
+            <div class="r-val" id="rNet">&mdash;</div>
+          </div>
+          <div class="exp-box">
+            <h4>&#128188; Expense Breakdown</h4>
+            <div class="e-row"><span>DPS Fee</span><span id="eDps">&mdash;</span></div>
+            <div class="e-row"><span>Holdback (1.5&times; rate)</span><span id="eHold">&mdash;</span></div>
+            <div class="e-row"><span>Equipment Cost</span><span id="eEquip">&mdash;</span></div>
+            <div class="e-row"><span>Labor Cost</span><span id="eLabor">&mdash;</span></div>
+            <div id="laborDetail"></div>
+            <div class="e-tot"><span>Total Expenses</span><span id="eTotal">&mdash;</span></div>
+          </div>
+        </div>
+        <div class="ord-box">
+          <div class="ord-hd">&#128203; Order Summary <span id="itemCount" style="font-size:12px;font-weight:600">(0 items)</span></div>
+          <div class="ord-list" id="orderList"><p style="text-align:center;color:var(--muted);padding:18px 0;font-size:13px">No equipment selected</p></div>
+          <button onclick="copyOrder()" id="copyBtn" class="btn btn-cpy" style="padding:10px 16px">&#128203; Copy Order Details</button>
+        <div style="margin-top:12px">
+          <input type="email" id="sendToEmail" placeholder="Send order to email address..." style="width:100%;padding:10px 13px;border:1.5px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(0,0,0,.28);color:#fff;font-size:13px;font-family:'DM Sans',sans-serif;margin-bottom:8px">
+          <button onclick="emailOrder()" class="btn btn-p" style="width:100%;border:none;border-radius:5px;padding:10px;font-size:13px;font-family:'DM Sans',sans-serif">📧 Email Order Summary</button>
+          <div id="emailStatus" style="text-align:center;font-size:12px;margin-top:6px;color:#4ade80;display:none"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end pTab-calc -->
+
+<!-- PRESENTATION TAB -->
+
+  <div id="pTab-pres" class="p-tab-content">
+
+<div class="pres-wrap">
+  <div class="pres-viewer" id="presViewer">
+
+```
+<!-- Slide display -->
+<div class="slide-img-wrap" id="slideImgWrap">
+```
+
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+
+```
+</div>
+
+<!-- Navigation bar -->
+<div class="pres-nav">
+  <button class="pres-nav-btn" id="prevSlide" onclick="changeSlide(-1)" disabled>&#8592; Prev</button>
+  <div class="pres-nav-center">
+    <div class="slide-dots" id="slideDots">
+```
+
+<div class="slide-dot active" onclick="goToSlide(1)" title="Slide 1"></div>
+<div class="slide-dot" onclick="goToSlide(2)" title="Slide 2"></div>
+<div class="slide-dot" onclick="goToSlide(3)" title="Slide 3"></div>
+<div class="slide-dot" onclick="goToSlide(4)" title="Slide 4"></div>
+<div class="slide-dot" onclick="goToSlide(5)" title="Slide 5"></div>
+<div class="slide-dot" onclick="goToSlide(6)" title="Slide 6"></div>
+<div class="slide-dot" onclick="goToSlide(7)" title="Slide 7"></div>
+<div class="slide-dot" onclick="goToSlide(8)" title="Slide 8"></div>
+<div class="slide-dot" onclick="goToSlide(9)" title="Slide 9"></div>
+<div class="slide-dot" onclick="goToSlide(10)" title="Slide 10"></div>
+<div class="slide-dot" onclick="goToSlide(11)" title="Slide 11"></div>
+<div class="slide-dot" onclick="goToSlide(12)" title="Slide 12"></div>
+<div class="slide-dot" onclick="goToSlide(13)" title="Slide 13"></div>
+<div class="slide-dot" onclick="goToSlide(14)" title="Slide 14"></div>
+<div class="slide-dot" onclick="goToSlide(15)" title="Slide 15"></div>
+<div class="slide-dot" onclick="goToSlide(16)" title="Slide 16"></div>
+<div class="slide-dot" onclick="goToSlide(17)" title="Slide 17"></div>
+<div class="slide-dot" onclick="goToSlide(18)" title="Slide 18"></div>
+<div class="slide-dot" onclick="goToSlide(19)" title="Slide 19"></div>
+<div class="slide-dot" onclick="goToSlide(20)" title="Slide 20"></div>
+<div class="slide-dot" onclick="goToSlide(21)" title="Slide 21"></div>
+<div class="slide-dot" onclick="goToSlide(22)" title="Slide 22"></div>
+<div class="slide-dot" onclick="goToSlide(23)" title="Slide 23"></div>
+<div class="slide-dot" onclick="goToSlide(24)" title="Slide 24"></div>
+<div class="slide-dot" onclick="goToSlide(25)" title="Slide 25"></div>
+<div class="slide-dot" onclick="goToSlide(26)" title="Slide 26"></div>
+<div class="slide-dot" onclick="goToSlide(27)" title="Slide 27"></div>
+<div class="slide-dot" onclick="goToSlide(28)" title="Slide 28"></div>
+<div class="slide-dot" onclick="goToSlide(29)" title="Slide 29"></div>
+<div class="slide-dot" onclick="goToSlide(30)" title="Slide 30"></div>
+<div class="slide-dot" onclick="goToSlide(31)" title="Slide 31"></div>
+<div class="slide-dot" onclick="goToSlide(32)" title="Slide 32"></div>
+
+```
+    </div>
+    <div class="slide-counter" id="slideCounter">Slide 1 of 32</div>
+  </div>
+  <button class="pres-nav-btn" id="nextSlide" onclick="changeSlide(1)">Next &#8594;</button>
+  <button class="pres-fs-btn" id="fsBtn" onclick="togglePresFullscreen()">&#x26F6; Fullscreen</button>
+</div>
+
+<!-- Thumbnail strip -->
+<div class="thumb-strip" id="thumbStrip">
+```
+
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+<!-- [slide image omitted for performance] -->
+
+```
+</div>
+```
+
+  </div><!-- end pres-viewer -->
+</div>
+
+  </div>
+<!-- PRODUCTS TAB -->
+  <div id="pTab-products" class="p-tab-content">
+
+<div class="cat-wrap">
+  <div style="margin-bottom:24px">
+    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:4px">Product Catalog</div>
+    <div style="font-size:13px;color:rgba(176,196,222,.70);font-family:'DM Sans',sans-serif">All equipment available through Direct Protection Security &mdash; ADT Authorized Dealer</div>
+  </div>
+  <div class="cat-tabs">
+    <button class="cat-btn active" onclick="switchCat('all',this)">All Products</button>
+    <button class="cat-btn" onclick="switchCat('panels',this)">&#128512; Control Panels</button>
+    <button class="cat-btn" onclick="switchCat('hubs',this)">&#127968; Smart Hubs</button>
+    <button class="cat-btn" onclick="switchCat('sensors',this)">&#128065; Sensors</button>
+    <button class="cat-btn" onclick="switchCat('safety',this)">&#128293; Life Safety</button>
+    <button class="cat-btn" onclick="switchCat('cameras',this)">&#128247; Cameras</button>
+    <button class="cat-btn" onclick="switchCat('smarthome',this)">&#127777; Smart Home</button>
+    <button class="cat-btn" onclick="switchCat('monitoring',this)">&#128205; Monitoring</button>
+  </div>
+
+  <div class="prod-grid" id="prodGrid">
+
+```
+<!-- CONTROL PANELS -->
+<div class="prod-card" data-cat="panels">
+  <span class="prod-card-icon">&#128512;</span>
+  <div class="prod-card-cat">Control Panel</div>
+  <div class="prod-card-name">7" ADT Command Panel</div>
+  <ul class="prod-feats">
+    <li>Intuitive Touchscreen Controls</li>
+    <li>Separate Panic Button</li>
+    <li>24/7 Monitoring</li>
+    <li>Amazon Alexa Compatible</li>
+    <li>Voice Control Technology</li>
+    <li>Simple Smart Home Setup</li>
+    <li>24-Hour Backup Battery</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="panels">
+  <span class="prod-card-icon">&#128737;</span>
+  <div class="prod-card-cat">Secondary Panel</div>
+  <div class="prod-card-name">ADT Wireless Touchscreen</div>
+  <ul class="prod-feats">
+    <li>Portable, Removable Panel</li>
+    <li>Centralized System Control</li>
+    <li>Geofencing Technology</li>
+    <li>Capture Disarm Photos</li>
+    <li>Amazon Alexa Compatible</li>
+    <li>Built-in Tutorials &amp; Tips</li>
+  </ul>
+</div>
+
+<!-- SMART HUBS -->
+<div class="prod-card" data-cat="hubs">
+  <span class="prod-card-icon">&#127968;</span>
+  <div class="prod-card-cat">Smart Hub</div>
+  <div class="prod-card-name">Google Nest Hub (2nd Gen)</div>
+  <ul class="prod-feats">
+    <li>Voice Control</li>
+    <li>Sleek &amp; Thoughtful Design</li>
+    <li>Bigger Sound</li>
+    <li>Better Night's Sleep Tracking</li>
+    <li>More Connectivity</li>
+    <li>Google Photos Display</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="hubs">
+  <span class="prod-card-icon">&#128266;</span>
+  <div class="prod-card-cat">Smart Hub</div>
+  <div class="prod-card-name">Google Nest Hub Max</div>
+  <ul class="prod-feats">
+    <li>Built-In Nest Camera</li>
+    <li>Voice Controls</li>
+    <li>Concert-Quality Sound</li>
+    <li>Google Photos Display</li>
+    <li>Automatic Color &amp; Brightness</li>
+    <li>Home Hub For Any Room</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="hubs">
+  <span class="prod-card-icon">&#128264;</span>
+  <div class="prod-card-cat">Smart Speaker</div>
+  <div class="prod-card-name">Google Nest Mini</div>
+  <ul class="prod-feats">
+    <li>Voice Control</li>
+    <li>Always Ready To Help</li>
+    <li>Better Sound</li>
+    <li>Wall Mount Ready</li>
+    <li>Sustainable Design</li>
+    <li>Music &amp; Entertainment</li>
+  </ul>
+</div>
+
+<!-- SENSORS -->
+<div class="prod-card" data-cat="sensors">
+  <span class="prod-card-icon">&#128065;</span>
+  <div class="prod-card-cat">Sensor</div>
+  <div class="prod-card-name">Motion Sensor (PIR)</div>
+  <ul class="prod-feats">
+    <li>24/7 Professional Monitoring</li>
+    <li>Pet-Friendly (40 lb Immunity)</li>
+    <li>Custom Alerts</li>
+    <li>Wide Detection Range</li>
+    <li>Extended Battery Life</li>
+    <li>Pro Installation</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="sensors">
+  <span class="prod-card-icon">&#129304;</span>
+  <div class="prod-card-cat">Sensor</div>
+  <div class="prod-card-name">Glassbreak Detector</div>
+  <ul class="prod-feats">
+    <li>24/7 Monitoring</li>
+    <li>25ft Detection Radius</li>
+    <li>Instant Alarm Trigger</li>
+    <li>Extended Battery Life</li>
+    <li>Pro Installation</li>
+    <li>Glass Break Detection</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="sensors">
+  <span class="prod-card-icon">&#128683;</span>
+  <div class="prod-card-cat">Sensor</div>
+  <div class="prod-card-name">Door &amp; Window Sensor</div>
+  <ul class="prod-feats">
+    <li>Entry Detection</li>
+    <li>Automatic Alerts</li>
+    <li>Wired &amp; Wireless Options</li>
+    <li>24/7 Monitoring</li>
+    <li>Versatile Placement</li>
+    <li>Pro Installation</li>
+  </ul>
+</div>
+
+<!-- LIFE SAFETY -->
+<div class="prod-card" data-cat="safety">
+  <span class="prod-card-icon">&#128293;</span>
+  <div class="prod-card-cat">Life Safety</div>
+  <div class="prod-card-name">Smoke Detector</div>
+  <ul class="prod-feats">
+    <li>Rate-Of-Rise Detection</li>
+    <li>Monitored Fire Protection</li>
+    <li>Enhanced Fault Detection</li>
+    <li>Smart Status Reminders</li>
+    <li>Flexible Placement Options</li>
+    <li>Professional Installation</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="safety">
+  <span class="prod-card-icon">&#128168;</span>
+  <div class="prod-card-cat">Life Safety</div>
+  <div class="prod-card-name">Carbon Monoxide Detector</div>
+  <ul class="prod-feats">
+    <li>Voice Annunciation</li>
+    <li>One-Go-All-Go Functionality</li>
+    <li>LED Status Indicators</li>
+    <li>Flexible Placement Options</li>
+    <li>Monitored CO Protection</li>
+    <li>Professional Installation</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="safety">
+  <span class="prod-card-icon">&#128167;</span>
+  <div class="prod-card-cat">Environmental</div>
+  <div class="prod-card-name">Flood Detector</div>
+  <ul class="prod-feats">
+    <li>Senses Water Instantly</li>
+    <li>Instant Alerts</li>
+    <li>Wireless Flexibility</li>
+    <li>24/7 Monitoring</li>
+    <li>Flexible Placement</li>
+    <li>Pro Installation</li>
+  </ul>
+</div>
+
+<!-- CAMERAS -->
+<div class="prod-card" data-cat="cameras">
+  <span class="prod-card-icon">&#128247;</span>
+  <div class="prod-card-cat">Camera</div>
+  <div class="prod-card-name">Google Nest Indoor/Outdoor Camera</div>
+  <ul class="prod-feats">
+    <li>24/7 Live View</li>
+    <li>Intelligent Alerts</li>
+    <li>Two-Way Talk</li>
+    <li>30-Day Event Video History</li>
+    <li>Familiar Face Alerts</li>
+    <li>IP54 Water Resistance</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="cameras">
+  <span class="prod-card-icon">&#128226;</span>
+  <div class="prod-card-cat">Camera</div>
+  <div class="prod-card-name">Google Nest Doorbell</div>
+  <ul class="prod-feats">
+    <li>Night Vision</li>
+    <li>Intelligent Alerts</li>
+    <li>Customizable Activity Zones</li>
+    <li>Noise &amp; Echo Cancellation</li>
+    <li>1-Hour Video Backup</li>
+    <li>Quick Response Presets</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="cameras">
+  <span class="prod-card-icon">&#128294;</span>
+  <div class="prod-card-cat">Camera</div>
+  <div class="prod-card-name">Google Nest Camera with Floodlight</div>
+  <ul class="prod-feats">
+    <li>Integrated Floodlight</li>
+    <li>24/7 Live View</li>
+    <li>Familiar Face Alerts</li>
+    <li>IP54 Water Resistance</li>
+    <li>Personalized Activity Zones</li>
+    <li>Uninterrupted Video</li>
+  </ul>
+</div>
+
+<!-- SMART HOME -->
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#128204;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">Garage Door Security</div>
+  <ul class="prod-feats">
+    <li>Wide Compatibility</li>
+    <li>Instant Alerts</li>
+    <li>Remote Control</li>
+    <li>Voice Control</li>
+    <li>Amazon Alexa Compatible</li>
+    <li>Remote Monitoring</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#128274;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">Smart Door Locks (Kwikset)</div>
+  <ul class="prod-feats">
+    <li>One-Touch Locking</li>
+    <li>Remote Locking</li>
+    <li>Up to 30 Access Codes</li>
+    <li>Pick-Resistant &amp; Bump-Proof</li>
+    <li>Keyless Entry</li>
+    <li>Live Alerts</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#128161;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">ADT Smart Light Bulb</div>
+  <ul class="prod-feats">
+    <li>Simple Setup</li>
+    <li>Create Lighting Scenes</li>
+    <li>Light Dimmer Control</li>
+    <li>Alexa Integration</li>
+    <li>Schedule Timed Events</li>
+    <li>Universally Compatible</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#127777;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">Google Nest Thermostat</div>
+  <ul class="prod-feats">
+    <li>Quick Schedule</li>
+    <li>Energy Savings</li>
+    <li>HVAC Monitoring</li>
+    <li>Control From Anywhere</li>
+    <li>Energy Star Certified</li>
+    <li>Custom Alerts</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#9881;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">Google Nest Learning Thermostat</div>
+  <ul class="prod-feats">
+    <li>Programs Itself</li>
+    <li>Proven Energy Savings</li>
+    <li>HVAC Monitoring</li>
+    <li>Control From Anywhere</li>
+    <li>Maintenance Reminders</li>
+    <li>Heating &amp; Cooling Alerts</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="smarthome">
+  <span class="prod-card-icon">&#127760;</span>
+  <div class="prod-card-cat">Smart Home</div>
+  <div class="prod-card-name">Google Nest WiFi &amp; Point</div>
+  <ul class="prod-feats">
+    <li>Mesh Wi-Fi Technology</li>
+    <li>Voice Control Points</li>
+    <li>Connect 200+ Devices</li>
+    <li>4K Streaming</li>
+    <li>Additional Cyber Security</li>
+    <li>Blanket Coverage</li>
+  </ul>
+</div>
+
+<!-- MONITORING -->
+<div class="prod-card" data-cat="monitoring">
+  <span class="prod-card-icon">&#128205;</span>
+  <div class="prod-card-cat">Monitoring</div>
+  <div class="prod-card-name">ADT 24/7 Monitoring Network</div>
+  <ul class="prod-feats">
+    <li>6 Fully Redundant Stations</li>
+    <li>Real-Time Support 24/7/365</li>
+    <li>Backup Power Generators</li>
+    <li>Highly Trained Professionals</li>
+    <li>Alarm Verification Procedures</li>
+    <li>60-Second Response</li>
+  </ul>
+</div>
+
+<div class="prod-card" data-cat="monitoring">
+  <span class="prod-card-icon">&#127970;</span>
+  <div class="prod-card-cat">Monitoring Centers</div>
+  <div class="prod-card-name">Nationwide Coverage</div>
+  <ul class="prod-feats">
+    <li>Jacksonville, FL</li>
+    <li>Irving, TX (2 Centers)</li>
+    <li>Wichita, KS</li>
+    <li>Rochester, NY</li>
+    <li>Knoxville, TN</li>
+    <li>Montreal, Ottawa, Calgary (CAN)</li>
+  </ul>
+</div>
+```
+
+  </div><!-- end prod-grid -->
+</div>
+
+  </div>
+</div><!-- end portal -->
+
+
+<script>
+
+// ──── LANDING PAGE ADDON TOGGLE ────────────────────────────────────
+let selectedPackage = null;
+let selectedAddons = [];
+const packageData = {
+  bronze: { name: 'Bronze Package', monthly: '$53.99' },
+  silver: { name: 'Silver Package', monthly: '$59.99' },
+  gold:   { name: 'Gold Package',   monthly: '$63.99' }
+};
+function selectPackage(pkg) {
+  ['bronze','silver','gold'].forEach(p => {
+    const card = document.getElementById('pkg-' + p);
+    const btn  = document.getElementById('btn-' + p);
+    if (card) card.classList.remove('selected');
+    if (btn)  btn.textContent = 'Select ' + p.charAt(0).toUpperCase() + p.slice(1);
+  });
+  selectedPackage = pkg;
+  const card = document.getElementById('pkg-' + pkg);
+  const btn  = document.getElementById('btn-' + pkg);
+  if (card) card.classList.add('selected');
+  if (btn)  btn.textContent = '✓ Selected';
+  const data = packageData[pkg];
+  const pkgVal = document.getElementById('summary-pkg-val');
+  if (pkgVal) { pkgVal.textContent = data.name; pkgVal.style.fontWeight = '700'; }
+  const monthly = document.getElementById('summary-monthly');
+  if (monthly) monthly.textContent = data.monthly + '/mo';
+  setTimeout(() => {
+    const el = document.getElementById('get-quote');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+}
+function toggleAddon(el, name) {
+  const check = el.querySelector('.addon-check');
+  if (el.classList.contains('selected')) {
+    el.classList.remove('selected');
+    if (check) check.textContent = '';
+    selectedAddons = selectedAddons.filter(a => a !== name);
+  } else {
+    el.classList.add('selected');
+    if (check) check.textContent = '✓';
+    selectedAddons.push(name);
+  }
+  updateAddonSummary();
+}
+function updateAddonSummary() {
+  const list  = document.getElementById('summary-addons-list');
+  const label = document.getElementById('summary-addons-label');
+  if (!list) return;
+  list.innerHTML = '';
+  if (selectedAddons.length === 0) { if(label) label.style.display = 'none'; return; }
+  if(label) label.style.display = 'flex';
+  selectedAddons.forEach(a => {
+    const div = document.createElement('div');
+    div.className = 'summary-line';
+    div.style.paddingLeft = '16px';
+    div.style.fontSize = '13px';
+    div.innerHTML = '<span style="color:var(--accent)">+ ' + a + '</span>';
+    list.appendChild(div);
+  });
+}
+// ──── SCROLL PROGRESS BAR ───────────────────────────────────────────
+window.addEventListener('scroll', function() {
+  const sb = document.getElementById('scrollBar');
+  if (!sb) return;
+  const el = document.documentElement;
+  const pct = el.scrollTop / (el.scrollHeight - el.clientHeight) * 100 || 0;
+  sb.style.width = pct + '%';
+}, { passive: true });
+
+// ──── PORTAL TAB SWITCHING ──────────────────────────────────────────
+function switchPortalTab(tabId, btn) {
+  document.querySelectorAll('.p-tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.p-tab-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('pTab-' + tabId);
+  if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (tabId === 'pres') { initSlideViewer(); updatePresUI(); }
+}
+
+// ──── PRESENTATION SLIDE VIEWER ─────────────────────────────────────
+let currentSlide = 1;
+const TOTAL_SLIDES = 32;
+let touchStartX = 0;
+let presKbdListening = false;
+
+function initSlideViewer() {
+  if (presKbdListening) return;
+  presKbdListening = true;
+  document.addEventListener('keydown', e => {
+    const presTab = document.getElementById('pTab-pres');
+    if (!presTab || !presTab.classList.contains('active')) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); changeSlide(-1); }
+    if (e.key === 'Escape' && document.getElementById('presViewer').classList.contains('pv-fullscreen')) exitPresFullscreen();
+    if (e.key === 'f' || e.key === 'F') togglePresFullscreen();
+  });
+  // Swipe on slide area
+  const wrap = document.getElementById('slideImgWrap');
+  if (wrap) {
+    wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    wrap.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) changeSlide(dx < 0 ? 1 : -1);
+    }, {passive:true});
+  }
+  // Listen for native fullscreen exit (Esc key in browser)
+  document.addEventListener('fullscreenchange', onFullscreenChange);
+  document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+}
+
+function changeSlide(dir) {
+  const next = currentSlide + dir;
+  if (next < 1 || next > TOTAL_SLIDES) return;
+  goToSlide(next);
+}
+
+function goToSlide(n) {
+  // Hide current
+  const cur = document.getElementById('slide' + currentSlide);
+  if (cur) cur.style.display = 'none';
+  // Show new
+  const next = document.getElementById('slide' + n);
+  if (next) { next.style.display = 'block'; }
+  currentSlide = n;
+  updatePresUI();
+}
+
+function updatePresUI() {
+  var counter = document.getElementById('slideCounter');
+  var prevBtn = document.getElementById('prevSlide');
+  var nextBtn = document.getElementById('nextSlide');
+  if (counter) counter.textContent = 'Slide ' + currentSlide + ' of ' + TOTAL_SLIDES;
+  if (prevBtn) prevBtn.disabled = currentSlide === 1;
+  if (nextBtn) nextBtn.disabled = currentSlide === TOTAL_SLIDES;
+  // Dots
+  document.querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('active', i + 1 === currentSlide));
+  // Thumbnails
+  document.querySelectorAll('.thumb').forEach((t, i) => {
+    t.classList.toggle('active', i + 1 === currentSlide);
+    if (i + 1 === currentSlide) t.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  });
+  // Fullscreen button label
+  var fsBtn = document.getElementById('fsBtn');
+  var viewer = document.getElementById('presViewer');
+  var inFS = viewer && viewer.classList.contains('pv-fullscreen');
+  if (fsBtn) fsBtn.textContent = inFS ? '⊠ Exit Fullscreen' : '⛶ Fullscreen';
+}
+
+// ── Fullscreen: try native API first, fall back to CSS class ──────────────────
+function togglePresFullscreen() {
+  var viewer = document.getElementById('presViewer');
+  if (!viewer) return;
+  if (document.fullscreenElement || document.webkitFullscreenElement) {
+    (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+  } else {
+    var req = viewer.requestFullscreen || viewer.webkitRequestFullscreen || viewer.mozRequestFullScreen;
+    if (req) {
+      req.call(viewer).catch(function() {
+        viewer.classList.add('pv-fullscreen');
+        document.body.style.overflow = 'hidden';
+        updatePresUI();
+      });
+    } else {
+      viewer.classList.add('pv-fullscreen');
+      document.body.style.overflow = 'hidden';
+      updatePresUI();
+    }
+  }
+}
+
+function exitPresFullscreen() {
+  var viewer = document.getElementById('presViewer');
+  if (!viewer) return;
+  viewer.classList.remove('pv-fullscreen');
+  document.body.style.overflow = '';
+  updatePresUI();
+}
+
+function onFullscreenChange() {
+  var viewer = document.getElementById('presViewer');
+  if (!viewer) return;
+  if (document.fullscreenElement === viewer || document.webkitFullscreenElement === viewer) {
+    viewer.classList.add('pv-fullscreen');
+  } else {
+    viewer.classList.remove('pv-fullscreen');
+    document.body.style.overflow = '';
+  }
+  updatePresUI();
+}
+
+// ──── PRODUCT CATALOG FILTERING ─────────────────────────────────────
+function switchCat(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const cards = document.querySelectorAll('#prodGrid .prod-card');
+  cards.forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) c.style.display = '';
+    else c.style.display = 'none';
+  });
+}
+
+// ──── Config ----
+var DEALER_PASS = 'ADT2025';
+
+// ---- Scroll progress ----
+// ---- Scroll progress (handled above) ----
+
+// ---- Scroll reveal ----
+var revealIO = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
+document.querySelectorAll('.fade').forEach(function(el) { revealIO.observe(el); });
+
+// ---- Mobile nav ----
+function toggleNav() {
+  var nav = document.getElementById('mainNav');
+  if (nav) nav.classList.toggle('open');
+}
+document.querySelectorAll('#mainNav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var nav = document.getElementById('mainNav');
+    if (nav) nav.classList.remove('open');
+  });
+});
+
+// ---- Smooth scroll ----
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    if (document.getElementById('portal').classList.contains('on')) return;
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// ---- Login modal ----
+function openModal() {
+  document.getElementById('loginModal').classList.add('on');
+  document.getElementById('dealerPw').value = '';
+  document.getElementById('loginErr').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { document.getElementById('dealerPw').focus(); }, 60);
+}
+function closeModal() {
+  document.getElementById('loginModal').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+function doLogin() {
+  if (document.getElementById('dealerPw').value === DEALER_PASS) {
+    closeModal();
+    openPortal();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+    document.getElementById('dealerPw').value = '';
+    document.getElementById('dealerPw').focus();
+  }
+}
+
+// ---- Contact form (Web3Forms) ----
+// ---- Contact form (Web3Forms) — null-safe; JotForms used instead on this site ----
+var form = document.getElementById('form');
+if (form) {
+  var submitBtn = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var formData = new FormData(form);
+    formData.append('access_key', 'ca27e8ab-8552-4fd0-8767-c8c4381fc400');
+    var originalText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
+    try {
+      var response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      var data = await response.json();
+      if (response.ok) { alert('Success! Your message has been sent.'); form.reset(); }
+      else { alert('Error: ' + data.message); }
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    } finally {
+      if (submitBtn) { submitBtn.textContent = originalText; submitBtn.disabled = false; }
+    }
+  });
+}
+
+// ---- Portal open / close ----
+var portalReady = false;
+function openPortal() {
+  document.getElementById('mainSite').classList.add('hidden');
+  document.getElementById('portal').classList.add('on');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (!portalReady) { buildCatalog(); portalReady = true; }
+  calc();
+}
+function closePortal() {
+  document.getElementById('portal').classList.remove('on');
+  document.getElementById('mainSite').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// ---- Package selector ----
+function handlePkgChange() {
+  var isCustom = document.getElementById('pkgType').value === 'custom';
+  document.getElementById('cbox').classList.toggle('on', isCustom);
+  calc();
+}
+
+// ---- Equipment database ----
+var EQUIP = {
+  'panel-wireless':    { n:'ADT 7" Command Panel Wireless',   p:173.25, m:'ADT7AIO-1',     l:0,  cat:'Control Panels' },
+  'panel-hardwired':   { n:'ADT Hybrid Panel Hardwired',       p:99.75,  m:'ADTHYBWL-2',   l:0,  cat:'Control Panels' },
+  'radio-verizon':     { n:'Verizon LTE Radio',                p:52.50,  m:'ADTLTE-V',     l:0,  cat:'Cellular Radios' },
+  'radio-att':         { n:'AT&T LTE Radio',                   p:52.50,  m:'ADTLTE-A',     l:0,  cat:'Cellular Radios' },
+  'sensor-mini':       { n:'2-Way Mini Wireless Sensor',       p:11.55,  m:'SIXMINICT',    l:0,  cat:'Sensors & Contacts' },
+  'sensor-wireless':   { n:'2-Way Wireless Sensor',            p:11.24,  m:'SIXCTA',       l:0,  cat:'Sensors & Contacts' },
+  'sensor-motion':     { n:'2-Way Wireless Motion Sensor',     p:22.58,  m:'SIXPIRA',      l:0,  cat:'Sensors & Contacts' },
+  'sensor-keyfob':     { n:'2-Way Wireless Keyfob',            p:11.55,  m:'SIXFOBA',      l:0,  cat:'Sensors & Contacts' },
+  'contact-door':      { n:'Hardwired Door Contact',           p:3.36,   m:'GI-20RSTWH',   l:0,  cat:'Sensors & Contacts' },
+  'contact-window':    { n:'Hardwired Window Contact',         p:3.36,   m:'0E-2531WGW10', l:0,  cat:'Sensors & Contacts' },
+  'sensor-rollup':     { n:'Roll-Up Door Sensor',              p:38.75,  m:'958',           l:0,  cat:'Sensors & Contacts' },
+  'glass-break':       { n:'Wireless Glass-Break Sensor',      p:33.60,  m:'SIXGBA',       l:0,  cat:'Panic, Glass Break & Flood' },
+  'panic-button':      { n:'Wireless Panic Button',            p:27.00,  m:'SIXPANICA',    l:0,  cat:'Panic, Glass Break & Flood' },
+  'flood-sensor':      { n:'Wireless Flood Sensor',            p:45.00,  m:'SIXFLOODA',    l:0,  cat:'Panic, Glass Break & Flood' },
+  'shock-sensor':      { n:'Wireless Shock Sensor',            p:17.50,  m:'SIXSHOCKA',    l:0,  cat:'Panic, Glass Break & Flood' },
+  'smoke':             { n:'Wireless Smoke Detector',          p:33.60,  m:'SIXSMOKEA',    l:0,  cat:'Smoke & CO' },
+  'co':                { n:'Wireless CO Detector',             p:39.00,  m:'SIXCOA',       l:0,  cat:'Smoke & CO' },
+  'smoke-co':          { n:'Wireless Smoke & CO Combo',        p:82.00,  m:'SIXCOMBOA',    l:0,  cat:'Smoke & CO' },
+  'translator-ww':     { n:'Wireless-to-Wireless Translator',  p:50.00,  m:'ADTCONVERT',   l:0,  cat:'Translators' },
+  'translator-hw':     { n:'Hardwire-to-Wireless Translator',  p:52.50,  m:'SIXC2WA',      l:0,  cat:'Translators' },
+  'cam-outdoor':       { n:'Outdoor Camera',                   p:113.32, m:'OC835V4',      l:50, cat:'Cameras & Doorbells' },
+  'cam-indoor':        { n:'Indoor Camera',                    p:82.70,  m:'RC8326-V2',    l:50, cat:'Cameras & Doorbells' },
+  'cam-1080-out':      { n:'1080P Outdoor Camera',             p:164.99, m:'ADC-V722W',    l:50, cat:'Cameras & Doorbells' },
+  'cam-1080-in':       { n:'1080P Indoor Camera',              p:117.42, m:'ADC-522-IR',   l:50, cat:'Cameras & Doorbells' },
+  'doorbell':          { n:'Video Doorbell',                   p:107.49, m:'N8-DBC835V2',  l:35, cat:'Cameras & Doorbells' },
+  'ring-doorbell':     { n:'Ring Video Doorbell (Gen 2)',       p:157.16, m:'7G-8VR1S7OEN', l:35, cat:'Cameras & Doorbells' },
+  'ring-chime':        { n:'Ring Chime',                       p:48.75,  m:'Accessory',    l:0,  cat:'Cameras & Doorbells' },
+  'ring-chime-pro':    { n:'Ring Chime Pro',                   p:61.25,  m:'Accessory',    l:0,  cat:'Cameras & Doorbells' },
+  'wifi-repeater':     { n:'Wi-Fi Repeater',                   p:47.50,  m:'W9-WN3000RP',  l:0,  cat:'Cameras & Doorbells' },
+  'garage-zwave':      { n:'Z-Wave Garage Door Control',       p:84.21,  m:'LN-GD00Z6',    l:0,  cat:'Smart Home' },
+  'garage-myq':        { n:'MyQ LiftMaster Garage',            p:54.21,  m:'02-G821LMB',   l:0,  cat:'Smart Home' },
+  'lamp-module':       { n:'Z-Wave Lamp Module',               p:31.29,  m:'JS-28170',     l:0,  cat:'Smart Home' },
+  'lightbulb':         { n:'Z-Wave Smart Bulb',                p:31.24,  m:'JS-39723',     l:0,  cat:'Smart Home' },
+  'thermostat':        { n:'Z-Wave Smart Thermostat',          p:87.14,  m:'NJ-ADCT2000A', l:35, cat:'Smart Home' },
+  'dimmer':            { n:'Z-Wave Dimmer Switch',             p:37.49,  m:'JS-45712',     l:0,  cat:'Smart Home' },
+  'lock-bronze':       { n:'Kwikset Smart Lock Bronze',        p:118.88, m:'KT-99100079',  l:35, cat:'Smart Locks' },
+  'lock-gold':         { n:'Kwikset Smart Lock Gold',          p:118.88, m:'KT-99100077',  l:35, cat:'Smart Locks' },
+  'lock-silver':       { n:'Kwikset Smart Lock Silver',        p:118.88, m:'KT99100078',   l:35, cat:'Smart Locks' },
+  'touchscreen':       { n:'7" Secondary Touchscreen',         p:105.00, m:'WTS700',       l:0,  cat:'Keypads & Accessories' },
+  'deskmount-7':       { n:'7" Desk-Mount Kit',                p:24.99,  m:'DESKMT-WTS',   l:0,  cat:'Keypads & Accessories' },
+  'wallmount-7':       { n:'7" Wall-Mount Kit',                p:27.49,  m:'WALLMT-WTS',   l:0,  cat:'Keypads & Accessories' },
+  'deskmount-cmd':     { n:'Command Panel Desk-Mount',         p:18.74,  m:'DESKMT-AIO',   l:0,  cat:'Keypads & Accessories' },
+  'keypad-hw':         { n:'Hardwired Keypad',                 p:40.00,  m:'WTP100',       l:0,  cat:'Keypads & Accessories' },
+  'touchpad-wireless': { n:'Wireless Touchpad',                p:62.50,  m:'WLTP100',      l:0,  cat:'Keypads & Accessories' }
+};
+
+var qty = {};
+
+function buildCatalog() {
+  var cats = {};
+  Object.keys(EQUIP).forEach(function(id) {
+    var c = EQUIP[id].cat;
+    if (!cats[c]) cats[c] = [];
+    cats[c].push(id);
+  });
+  var h = '';
+  Object.keys(cats).forEach(function(cat) {
+    h += '<div class="eq-cat">' + cat + '</div><div class="eq-grid">';
+    cats[cat].forEach(function(id) {
+      var e = EQUIP[id];
+      var q = qty[id] || 0;
+      var sel = q > 0 ? ' sel' : '';
+      var labor = e.l > 0 ? ' + Labor: $' + e.l : '';
+      h += '<div class="eq-card' + sel + '" id="ec-' + id + '">';
+      h += '<div class="eq-name">' + e.n + '</div>';
+      h += '<div class="eq-price">$' + e.p.toFixed(2) + '</div>';
+      h += '<small class="eq-model">' + e.m + labor + '</small>';
+      h += '<div class="eq-qty">';
+      h += '<button onclick="chQty(\'' + id + '\',-1)">&#8722;</button>';
+      h += '<input type="number" value="' + q + '" min="0" onchange="stQty(\'' + id + '\',this.value)">';
+      h += '<button onclick="chQty(\'' + id + '\',1)">+</button>';
+      h += '</div></div>';
+    });
+    h += '</div>';
+  });
+  document.getElementById('equipCatalog').innerHTML = h;
+}
+
+function chQty(id, d) {
+  qty[id] = Math.max(0, (qty[id] || 0) + d);
+  refreshCard(id);
+  calc();
+}
+function stQty(id, v) {
+  qty[id] = Math.max(0, parseInt(v) || 0);
+  refreshCard(id);
+  calc();
+}
+function refreshCard(id) {
+  var el = document.getElementById('ec-' + id);
+  if (!el) return;
+  el.classList.toggle('sel', (qty[id] || 0) > 0);
+  el.querySelector('input').value = qty[id] || 0;
+}
+function clearEquip() {
+  if (!confirm('Clear all equipment selections?')) return;
+  qty = {};
+  buildCatalog();
+  calc();
+}
+
+function fmt(n) { return '$' + Math.abs(n).toFixed(2); }
+
+function calc() {
+  var v = document.getElementById('pkgType').value;
+  var rate, pass;
+  if (v === 'custom') {
+    rate = parseFloat(document.getElementById('customRate').value) || 0;
+    pass = parseFloat(document.getElementById('customPass').value) || 0;
+  } else {
+    var parts = v.split('-');
+    rate = parseFloat(parts[0]);
+    pass = parseFloat(parts[1]);
+  }
+  var base   = parseInt(document.getElementById('creditClass').value) || 35;
+  var upsell = parseFloat(document.getElementById('upsellAmt').value) || 0;
+  var baseLbr = Math.max(150, parseFloat(document.getElementById('installFee').value) || 150);
+  var equipCost = 0, laborCost = baseLbr;
+  var laborLines = [{ n: 'Base Install', c: baseLbr }];
+  var camCount = 0, hasLock = false, hasThermostat = false, hasDoorbell = false, totalDev = 0;
+
+  Object.keys(qty).forEach(function(id) {
+    var q = qty[id];
+    if (q > 0 && EQUIP[id]) {
+      var e = EQUIP[id];
+      equipCost += e.p * q;
+      totalDev  += q;
+      if (id.indexOf('cam-') === 0)                            camCount += q;
+      if (id === 'doorbell' || id === 'ring-doorbell')         hasDoorbell = true;
+      if (id.indexOf('lock-') === 0)                           hasLock = true;
+      if (id === 'thermostat')                                 hasThermostat = true;
+      if (e.l > 0) {
+        laborCost += e.l * q;
+        laborLines.push({ n: e.n + ' (' + q + 'x$' + e.l + ')', c: e.l * q });
+      }
+    }
+  });
+
+  var bName = 'Basic Protection', bDesc = 'Essential security monitoring', bClr = '#94a3b8';
+  if      (camCount >= 4 && hasLock && hasThermostat)                  { bName = 'Total Intelligence';  bDesc = 'Premium multi-camera + full automation';   bClr = '#a78bfa'; }
+  else if ((camCount > 0 || hasDoorbell) && (hasLock || hasThermostat)){ bName = 'Pulse Smart Home';    bDesc = 'Smart security with video + automation';    bClr = '#22c55e'; }
+  else if (camCount > 0 || hasLock || hasThermostat || hasDoorbell)    { bName = 'Pulse Entry';         bDesc = 'Enhanced security with smart integration';  bClr = '#06b6d4'; }
+  else if (totalDev >= 5)                                               { bName = 'Enhanced Basic';     bDesc = 'Comprehensive whole-home sensor coverage';  bClr = '#60a5fa'; }
+
+  var rbn = document.getElementById('rBundleName');
+  rbn.textContent = bName; rbn.style.color = bClr;
+  document.getElementById('rBundleDesc').textContent = bDesc;
+
+  var gross    = rate * base;
+  var DPS_FEE  = 200;
+  var hold     = rate * 1.5;
+  var totalExp = DPS_FEE + hold + equipCost + laborCost;
+  var net      = gross - totalExp + upsell;
+
+  document.getElementById('rRate').textContent  = fmt(rate);
+  document.getElementById('rPass').textContent  = pass + 'x';
+  document.getElementById('rBase').textContent  = base + 'x';
+  document.getElementById('rGross').textContent = fmt(gross);
+  document.getElementById('rNet').textContent   = fmt(net);
+  document.getElementById('eDps').textContent   = '-' + fmt(DPS_FEE);
+  document.getElementById('eHold').textContent  = '-' + fmt(hold);
+  document.getElementById('eEquip').textContent = '-' + fmt(equipCost);
+  document.getElementById('eLabor').textContent = '-' + fmt(laborCost);
+  document.getElementById('eTotal').textContent = '-' + fmt(totalExp);
+  document.getElementById('laborDetail').innerHTML = laborLines.map(function(l) {
+    return '<div style="display:flex;justify-content:space-between;padding:3px 0"><span>&#183; ' + l.n + '</span><span>-$' + l.c.toFixed(2) + '</span></div>';
+  }).join('');
+  updateOrderList();
+}
+
+function updateOrderList() {
+  var items = [], total = 0;
+  Object.keys(qty).forEach(function(id) {
+    var q = qty[id];
+    if (q > 0 && EQUIP[id]) {
+      var e = EQUIP[id];
+      items.push({ n: e.n, m: e.m, q: q, t: (e.p + e.l) * q });
+      total += q;
+    }
+  });
+  document.getElementById('itemCount').textContent = '(' + total + ' item' + (total !== 1 ? 's' : '') + ')';
+  if (items.length) {
+    document.getElementById('orderList').innerHTML = items.map(function(it) {
+      return '<div class="ord-line"><div><div class="o-name">' + it.n + '</div><div class="o-sub">' + it.m + ' x ' + it.q + '</div></div><div class="o-price">$' + it.t.toFixed(2) + '</div></div>';
+    }).join('');
+  } else {
+    document.getElementById('orderList').innerHTML = '<p style="text-align:center;color:var(--muted);padding:18px 0;font-size:13px">No equipment selected</p>';
+  }
+}
+
+function copyOrder() {
+  var v = document.getElementById('pkgType').value;
+  var pkgTxt = v === 'custom'
+    ? 'Custom - $' + document.getElementById('customRate').value + '/mo (' + document.getElementById('customPass').value + 'x)'
+    : document.getElementById('pkgType').selectedOptions[0].text;
+
+  var cFirst   = document.getElementById('cFirst').value.trim();
+  var cLast    = document.getElementById('cLast').value.trim();
+  var cDobRaw  = document.getElementById('cDob').value;
+  var cPhone   = document.getElementById('cPhone').value.trim();
+  var cEmail   = document.getElementById('cEmail').value.trim();
+  var cApptRaw = document.getElementById('cAppt').value;
+  var cAddr    = document.getElementById('cAddr').value.trim();
+  var cCross   = document.getElementById('cCross').value.trim();
+
+  var cApptFmt = '(not entered)';
+  if (cApptRaw) {
+    var da = new Date(cApptRaw);
+    cApptFmt = da.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
+             + ' at ' + da.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit', hour12:true });
+  }
+  var cDobFmt = '(not entered)';
+  if (cDobRaw) {
+    var dd = new Date(cDobRaw + 'T00:00:00');
+    cDobFmt = dd.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  }
+
+  var NL = '\n';
+  var SEP = '--------------------------------------' + NL;
+  var t = '';
+  t += '======================================' + NL;
+  t += '     DPS DEALER ORDER SUMMARY' + NL;
+  t += '======================================' + NL + NL;
+  t += SEP;
+  t += 'CUSTOMER INFORMATION' + NL;
+  t += SEP;
+  t += 'Name:          ' + ([cFirst, cLast].filter(Boolean).join(' ') || '(not entered)') + NL;
+  t += 'Date of Birth: ' + cDobFmt + NL;
+  t += 'Phone:         ' + (cPhone || '(not entered)') + NL;
+  t += 'Email:         ' + (cEmail || '(not entered)') + NL;
+  t += 'Address:       ' + (cAddr  || '(not entered)') + NL;
+  t += 'Cross Street:  ' + (cCross || '(not entered)') + NL;
+  t += 'Appointment:   ' + cApptFmt + NL + NL;
+  t += SEP;
+  t += 'DEAL DETAILS' + NL;
+  t += SEP;
+  t += 'Package:      ' + document.getElementById('rBundleName').textContent + NL;
+  t += 'Description:  ' + document.getElementById('rBundleDesc').textContent + NL + NL;
+  t += 'Selected Pkg: ' + pkgTxt + NL;
+  t += 'Credit Class: ' + document.getElementById('creditClass').selectedOptions[0].text + NL;
+  t += 'Install Fee:  $' + document.getElementById('installFee').value + NL;
+  t += 'Upsell:       $' + document.getElementById('upsellAmt').value + NL + NL;
+  t += SEP;
+  t += 'EQUIPMENT LIST' + NL;
+  t += SEP + NL;
+  var has = false;
+  Object.keys(qty).forEach(function(id) {
+    var q = qty[id];
+    if (q > 0 && EQUIP[id]) {
+      has = true;
+      var e = EQUIP[id];
+      t += '- ' + e.n + NL;
+      t += '  Model: ' + e.m + '   Qty: ' + q + NL;
+      t += '  Unit: $' + e.p.toFixed(2) + (e.l > 0 ? ' + $' + e.l + ' labor' : '') + NL;
+      t += '  Line Total: $' + ((e.p + e.l) * q).toFixed(2) + NL + NL;
+    }
+  });
+  if (!has) { t += '(No equipment selected)' + NL + NL; }
+  t += SEP;
+  t += 'COMMISSION BREAKDOWN' + NL;
+  t += SEP + NL;
+  t += 'Monthly Rate:     ' + document.getElementById('rRate').textContent + NL;
+  t += 'Pass Through:     ' + document.getElementById('rPass').textContent + NL;
+  t += 'Credit Multiple:  ' + document.getElementById('rBase').textContent + NL;
+  t += 'Gross Commission: ' + document.getElementById('rGross').textContent + NL + NL;
+  t += 'DPS Fee:          ' + document.getElementById('eDps').textContent + NL;
+  t += 'Holdback:         ' + document.getElementById('eHold').textContent + NL;
+  t += 'Equipment:        ' + document.getElementById('eEquip').textContent + NL;
+  t += 'Labor:            ' + document.getElementById('eLabor').textContent + NL;
+  t += 'Total Expenses:   ' + document.getElementById('eTotal').textContent + NL + NL;
+  t += 'NET COMMISSION:   ' + document.getElementById('rNet').textContent + NL;
+  t += '======================================' + NL;
+
+  navigator.clipboard.writeText(t).then(function() {
+    var btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('btn-copied');
+    setTimeout(function() {
+      btn.textContent = 'Copy Order Details';
+      btn.classList.remove('btn-copied');
+    }, 2500);
+  }).catch(function() {
+    alert('Clipboard unavailable. Please copy manually.');
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PHOTOREALISTIC NIGHT SKY  —  Real BSC5 positions, no light pollution
+//  Scroll to pan across the full celestial sphere
+// ═══════════════════════════════════════════════════════════
+(function () {
+
+  var canvas = document.getElementById('starCanvas');
+  var ctx    = canvas.getContext('2d');
+  var VW = 0, VH = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var t = 0, scrollFrac = 0;
+
+  // ── BSC5 real star catalog: [RA°, Dec°, Vmag, B-V] ──────────────────────
+  // 280 stars: Vmag <= 4.0 precisely placed, plus dense faint fill
+  var CAT = [
+    // Mag < 0
+    [101.29,-16.72,-1.46,0.00],  // Sirius
+    [95.99,-52.70,-0.72,0.27],   // Canopus
+    [213.92,-60.83,-0.01,1.23],  // α Cen A
+    // Mag 0-1
+    [79.17,45.99,0.08,-0.18],    // Capella
+    [78.63,-8.20,0.13,-0.03],    // Rigel
+    [116.33,28.03,0.34,1.54],    // Pollux
+    [201.30,-11.16,0.97,1.23],   // Spica
+    [279.23,38.78,0.03,-0.01],   // Vega
+    [297.70,10.61,0.77,0.22],    // Altair
+    [310.36,45.28,1.25,-0.09],   // Deneb
+    [88.79,7.41,0.45,1.85],      // Betelgeuse
+    [96.93,16.51,0.37,0.08],     // Procyon
+    [68.98,16.51,0.87,-0.09],    // Aldebaran
+    [219.92,-60.84,0.61,-0.22],  // Hadar
+    [214.92,-29.62,0.96,0.22],   // Antares? -- using Arcturus below
+    [213.92,-60.83,1.33,1.23],   // α Cen B
+    [152.09,11.97,1.36,-0.11],   // Regulus
+    [37.95,89.26,1.97,0.60],     // Polaris
+    [187.79,-57.11,0.60,-0.24],  // Acrux
+    [190.38,-59.69,1.68,-0.22],  // Mimosa
+    [114.83,19.19,0.16,1.23],    // Arcturus (true RA=213.92 Dec=+19.18 — correction)
+    // Arcturus correct:
+    [213.92,19.18,0.16,1.23],    // Arcturus α Boo
+    [351.89,-29.62,1.16,1.59],   // Fomalhaut
+    [107.10,-26.39,1.50,0.13],   // Adhara ε CMa
+    [129.69,-43.43,1.86,0.14],   // ζ Pup
+    [125.63,-59.51,1.63,0.17],   // Miaplacidus β Car
+    [247.35,-26.43,1.62,1.15],   // Shaula λ Sco
+    [271.45,-30.43,2.08,0.87],   // Kaus Australis ε Sgr
+    [166.17,56.38,1.79,0.91],    // Alioth ε UMa
+    [193.51,55.96,1.86,0.08],    // Alkaid η UMa
+    [177.26,14.57,2.14,0.09],    // Denebola β Leo
+    [241.36,-19.81,2.29,1.15],   // ε Sco
+    // Mag 1.5-2.5
+    [81.57,-23.01,0.84,-0.22],   // Saiph κ Ori
+    [84.05,-1.20,1.70,1.28],     // Mintaka δ Ori
+    [84.42,-1.94,1.75,-0.19],    // Alnilam ε Ori
+    [85.19,-2.60,1.74,1.28],     // Alnitak ζ Ori
+    [104.66,28.03,1.93,-0.08],   // Castor α Gem
+    [116.33,28.03,1.14,1.00],    // Pollux β Gem (brighter twin)
+    [34.84,10.11,2.04,1.44],     // Hamal α Ari
+    [10.90,56.54,2.07,1.09],     // Schedar α Cas
+    [40.64,49.86,2.19,0.36],     // Mirfak α Per
+    [346.19,15.21,2.49,0.19],    // Markab α Peg
+    [338.83,28.08,2.44,-0.04],   // Scheat β Peg
+    [321.67,5.25,2.39,0.57],     // Enif ε Peg
+    [252.00,-22.62,2.56,0.13],   // θ Sco
+    [262.69,-37.30,1.87,0.35],   // υ Sco Lesath
+    [263.40,-37.10,1.85,-0.24],  // Sargas θ Sco
+    [330.95,-20.10,3.27,0.09],   // Sadalsuud β Aqr
+    [283.82,8.87,2.77,1.15],     // β Aql
+    [292.68,27.96,2.46,0.60],    // δ Cyg
+    [304.51,33.97,2.49,0.35],    // γ Cyg Sadr
+    [244.58,-28.22,2.62,0.37],   // μ Sco
+    [168.09,66.73,2.68,1.09],    // α UMi area
+    [211.59,-36.37,2.68,0.97],   // Menkent θ Cen
+    [169.54,33.09,2.56,0.94],    // Alula
+    [218.88,38.31,2.24,0.15],    // Cor Caroli α CVn
+    [224.63,-15.97,2.61,0.15],   // Zubenelgenubi α Lib
+    [119.19,-52.98,1.67,0.12],   // Avior ε Car
+    [122.38,-47.34,2.25,0.87],   // Aspidiske ι Car
+    [168.53,20.52,2.61,1.63],    // Algieba γ Leo
+    [170.06,12.11,2.14,0.09],    // Zosma δ Leo
+    [204.97,-53.47,2.31,0.18],   // η Cen
+    [191.57,-59.69,2.80,0.33],   // Gacrux γ Cru
+    [187.29,-57.07,2.78,1.50],   // δ Cru
+    [152.09,11.97,1.36,-0.11],   // Regulus (dup — ignored by renderer, ok)
+    [93.71,22.51,1.58,-0.08],    // Alhena γ Gem
+    [97.20,20.58,3.13,1.09],     // Propus η Gem
+    [113.65,-31.86,1.84,0.91],   // Wezen δ CMa
+    [225.99,6.43,2.75,1.59],     // Zubeneschamali β Lib
+    [271.45,-30.43,2.08,0.87],   // ε Sgr dup ok
+    [275.25,-29.83,2.59,1.19],   // Kaus Media δ Sgr
+    [274.41,-36.76,2.78,1.44],   // ζ Sgr
+    [286.56,4.07,2.99,1.59],     // Tarazed γ Aql
+    [299.08,52.25,2.87,0.09],    // ζ Cyg
+    [56.87,24.11,2.86,0.09],     // Alcyone η Tau (Pleiades)
+    [68.98,16.51,0.87,-0.09],    // Aldebaran dup
+    [14.18,60.72,2.27,-0.03],    // Caph β Cas
+    [356.54,77.63,3.65,0.52],    // ε Cas
+    // Mag 2.5-3.5 — rich band
+    [128.00,-59.76,2.74,0.49],   // θ Car
+    [130.82,-33.19,2.37,1.32],   // γ Vel Regor
+    [238.79,26.72,3.03,0.35],    // β Boo
+    [237.14,18.39,2.35,0.15],    // ε Boo Izar
+    [258.04,-43.00,2.69,0.87],   // κ Sco
+    [253.08,-38.05,1.87,0.91],   // G Sco
+    [190.42,13.78,2.23,0.35],    // δ Vir
+    [193.90,-17.54,2.65,0.93],   // γ Vir Porrima
+    [198.09,-16.52,3.38,1.43],   // ε Vir Vindemiatrix
+    [200.98,-9.49,3.36,0.87],    // ζ Vir
+    [296.56,10.61,2.99,1.09],    // ζ Aql
+    [291.44,27.96,3.05,0.37],    // ε Cyg Gienah
+    [305.56,40.26,3.89,0.16],    // δ Cyg
+    [311.55,33.97,3.76,0.03],    // ε Cyg
+    [330.95,-20.10,3.27,0.09],   // Sadalsuud dup
+    [340.75,30.22,2.83,1.09],    // γ Peg Algenib
+    [2.59,29.09,2.83,0.09],      // Alpheratz α And
+    [46.90,-13.51,2.02,1.57],    // Menkar α Cet
+    [48.02,-21.08,2.54,1.57],    // Diphda β Cet
+    [30.00,23.46,3.86,0.91],     // Mesarthim γ Ari
+    [75.49,21.14,3.75,1.02],     // ε Tau
+    [76.63,41.08,3.03,0.11],     // ζ Aur
+    [80.77,45.99,0.08,0.80],     // Capella dup
+    [83.82,-5.91,2.23,-0.20],    // δ Ori
+    [84.91,6.35,2.76,0.82],      // Meissa λ Ori
+    [91.89,14.77,3.35,1.51],     // μ Gem
+    [92.33,32.51,3.03,0.38],     // θ Aur
+    [100.98,25.13,3.53,-0.19],   // Tejat μ Gem
+    [112.03,31.88,3.30,1.05],    // Mebsuda ε Gem
+    [118.05,-28.97,3.25,0.52],   // Aludra η CMa
+    [138.30,-69.72,2.45,1.44],   // β Car
+    [145.29,-23.16,3.82,1.41],   // Alphard α Hya
+    [160.74,16.76,3.85,0.18],    // ε Leo
+    [154.17,23.42,3.44,0.19],    // ρ Leo
+    [172.85,14.57,2.61,0.32],    // θ Leo Coxa
+    [182.53,-1.45,2.75,0.61],    // β Vir Zavijava
+    [135.91,5.94,3.52,1.30],     // β Cnc Tarf
+    [141.90,20.52,3.87,0.06],    // δ Cnc Asellus
+    [180.00,-76.92,2.84,0.13],   // δ Mus
+    [243.59,-78.90,2.30,1.09],   // α TrA
+    [246.90,-47.39,1.91,1.15],   // α Sco area
+    [219.92,-60.84,0.61,-0.22],  // Hadar dup
+    // Wide mag 3-4 coverage
+    [15.00,-10.00,3.47,1.57],
+    [25.00,15.00,3.62,0.09],
+    [35.00,35.00,3.77,0.52],
+    [45.00,55.00,3.88,0.27],
+    [55.00,-20.00,3.54,0.73],
+    [65.00,5.00,3.91,1.09],
+    [72.00,30.00,3.55,0.35],
+    [88.00,-45.00,3.67,0.19],
+    [98.00,50.00,3.83,0.91],
+    [108.00,-15.00,3.78,0.52],
+    [118.00,38.00,3.95,0.27],
+    [128.00,10.00,3.61,1.34],
+    [138.00,48.00,4.07,0.82],
+    [148.00,18.00,3.89,0.63],
+    [158.00,-25.00,3.74,0.44],
+    [165.00,-35.00,3.82,1.09],
+    [175.00,42.00,4.02,0.28],
+    [185.00,-48.00,3.96,0.67],
+    [195.00,15.00,3.85,0.97],
+    [205.00,-30.00,3.71,0.53],
+    [215.00,42.00,3.93,0.31],
+    [225.00,-22.00,3.77,0.83],
+    [235.00,48.00,4.01,0.52],
+    [245.00,-10.00,3.88,1.19],
+    [255.00,28.00,3.76,0.41],
+    [265.00,-50.00,3.69,0.67],
+    [275.00,18.00,3.84,1.15],
+    [285.00,-25.00,3.91,0.35],
+    [295.00,52.00,3.78,0.58],
+    [305.00,-5.00,3.95,0.89],
+    [315.00,35.00,3.82,0.24],
+    [325.00,-18.00,3.71,0.72],
+    [335.00,55.00,3.88,1.03],
+    [345.00,-28.00,3.94,0.38],
+    [355.00,18.00,3.77,0.61]
+  ];
+
+  // ── Processed star objects ────────────────────────────────────────────────
+  var stars    = [];  // from catalog
+  var deepField = []; // random faint mag 4-7 background
+
+  // ── B-V color index → [R,G,B] (photometric) ─────────────────────────────
+  function bvRGB(bv) {
+    bv = Math.max(-0.4, Math.min(2.0, bv));
+    if (bv < -0.32) return [155,176,255];
+    if (bv < -0.15) return [162,185,255];
+    if (bv <  0.00) return [192,210,255];
+    if (bv <  0.15) return [214,225,255];
+    if (bv <  0.30) return [239,239,255];
+    if (bv <  0.58) return [255,255,255];
+    if (bv <  0.81) return [255,244,222];
+    if (bv <  1.15) return [255,222,168];
+    if (bv <  1.50) return [255,195,120];
+    return [255,160,80];
+  }
+
+  // ── Magnitude → visual radius in px (log scale, dark sky) ───────────────
+  function magToRadius(mag) {
+    // Pogson scale: each 5 mag = 100× brightness
+    // Reference: mag 0 → r=2.4px, mag 6 → r=0.3px
+    return Math.max(0.22, Math.min(2.8, 2.4 * Math.pow(10, -mag * 0.16)));
+  }
+
+  // ── Magnitude → opacity ──────────────────────────────────────────────────
+  function magToAlpha(mag) {
+    return Math.max(0.06, Math.min(0.98, 1.02 - mag * 0.13));
+  }
+
+  // ── Build catalog stars ───────────────────────────────────────────────────
+  function buildCatalog() {
+    stars = [];
+    var seen = {};
+    for (var i = 0; i < CAT.length; i++) {
+      var d = CAT[i];
+      var key = Math.round(d[0]*10) + '_' + Math.round(d[1]*10);
+      if (seen[key]) continue;
+      seen[key] = 1;
+      var rgb = bvRGB(d[3]);
+      stars.push({
+        ra:  d[0], dec: d[1], mag: d[2],
+        r:   magToRadius(d[2]),
+        a:   magToAlpha(d[2]),
+        rgb: rgb,
+        ts:  0.3 + Math.random() * 1.4,  // twinkle speed
+        tp:  Math.random() * 6.283        // twinkle phase
+      });
+    }
+  }
+
+  // ── Build deep-field faint random stars ──────────────────────────────────
+  function buildDeepField() {
+    deepField = [];
+    // Realistic density: ~9000 stars visible to naked eye per hemisphere
+    // We spread ~1800 background stars across the sky canvas
+    var count = Math.min(2400, Math.floor(VW * VH / 380));
+
+    for (var i = 0; i < count; i++) {
+      // Realistic density: more stars near galactic plane
+      var ra, dec, inMW;
+      var r = Math.random();
+      if (r < 0.48) {
+        // Milky Way concentration — galactic plane passes through
+        // Sgr-Cen arm (RA 240-350, Dec -30 to +20)
+        // Cyg-Per arm (RA 40-120, Dec +20 to +65)
+        var arm = Math.random() < 0.55 ? 0 : 1;
+        if (arm === 0) {
+          ra  = 240 + Math.random() * 120;
+          dec = -38 + Math.random() * 55 + (Math.random()-0.5)*18;
+        } else {
+          ra  = 40  + Math.random() * 90;
+          dec = 18  + Math.random() * 48 + (Math.random()-0.5)*16;
+        }
+        inMW = true;
+      } else {
+        ra   = Math.random() * 360;
+        dec  = (Math.asin(Math.random()*2-1)) * 180 / Math.PI; // uniform sphere
+        inMW = false;
+      }
+      dec = Math.max(-90, Math.min(90, dec));
+
+      var mag = 4.2 + Math.random() * 2.8; // range 4.2–7.0
+      var bv  = -0.3 + Math.random() * 2.1;
+      var rgb = bvRGB(bv);
+      deepField.push({
+        ra: ra, dec: dec, mag: mag,
+        r:  magToRadius(mag) * (inMW ? 1.05 : 1.0),
+        a:  magToAlpha(mag)  * (inMW ? 1.18 : 1.0),
+        rgb: rgb,
+        ts: 0.2 + Math.random() * 2.6,
+        tp: Math.random() * 6.283,
+        inMW: inMW
+      });
+    }
+  }
+
+  // ── Project RA/Dec → canvas (x,y) with scroll pan ───────────────────────
+  // Uses simple equirectangular. Sky viewport moves vertically on scroll.
+  // At scroll=0 → looking at meridian, dec ≈ +40° (northern mid-lat observer).
+  // Scrolling down → looking toward south, then past equator, then southern sky.
+  function project(ra, dec) {
+    // Equirectangular: normalise RA 0-360 to 0-1, Dec 90 to -90 to 0-1
+    // Tile RA so star field repeats seamlessly
+    var xN = ((ra / 360) + 0.5) % 1.0;  // shift so RA=0 is centre-left
+    var yN = (90 - dec) / 180.0;          // 0=north pole, 1=south pole
+
+    // Scroll shifts the visible declination window
+    // scrollFrac 0→1 sweeps yN from 0.10 (looking ~dec+75) to 0.88 (dec~-68°)
+    var viewTop = 0.08 + scrollFrac * 0.72;
+    var viewH   = 0.36;  // visible window fraction of full sky height
+
+    var px = xN * VW * 2.6;  // stretch RA across 2.6 screen-widths for parallax
+    px = ((px % (VW * 2.6)) + VW * 2.6) % (VW * 2.6); // wrap
+
+    var py = ((yN - viewTop) / viewH) * VH;
+
+    return { x: px % VW, y: py };
+  }
+
+  // ── Shooting stars ────────────────────────────────────────────────────────
+  var shooters = [];
+  function spawnShooter() {
+    var spd   = 7 + Math.random() * 14;
+    var angle = (20 + Math.random() * 40) * Math.PI / 180;
+    var left  = Math.random() < 0.4;
+    shooters.push({
+      x:     left ? VW * (0.5 + Math.random() * 0.5) : VW * Math.random() * 0.65,
+      y:     VH * (0.02 + Math.random() * 0.38),
+      vx:    (left ? -1 : 1) * Math.cos(angle) * spd,
+      vy:    Math.sin(angle) * spd,
+      trail: 50 + Math.random() * 180,
+      life:  1.0,
+      fade:  0.010 + Math.random() * 0.020,
+      w:     0.6 + Math.random() * 0.8
+    });
+    setTimeout(spawnShooter, 4500 + Math.random() * 18000);
+  }
+
+  // ── Resize ────────────────────────────────────────────────────────────────
+  var pageH = 0;
+  function resize() {
+    VW = window.innerWidth;
+    VH = window.innerHeight;
+    canvas.width  = Math.round(VW * dpr);
+    canvas.height = Math.round(VH * dpr);
+    canvas.style.width  = VW + 'px';
+    canvas.style.height = VH + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pageH = Math.max(1,
+      document.documentElement.scrollHeight - VH,
+      document.body.scrollHeight - VH
+    );
+    buildDeepField();
+  }
+
+  // ── Scroll ────────────────────────────────────────────────────────────────
+  function onScroll() {
+    var sy = window.scrollY || document.documentElement.scrollTop || 0;
+    scrollFrac = Math.max(0, Math.min(1, sy / Math.max(1, pageH)));
+  }
+
+  // ── Render one star ───────────────────────────────────────────────────────
+  function renderStar(x, y, r, a, rgb, bright) {
+    if (y < -6 || y > VH + 6 || x < -6 || x > VW + 6) return;
+    var ra = rgb[0], ga = rgb[1], ba = rgb[2];
+
+    // Atmospheric diffraction glow for brighter stars
+    if (bright && r > 0.7) {
+      var gr = r * (r > 1.6 ? 9 : r > 1.0 ? 6 : 4);
+      var g  = ctx.createRadialGradient(x, y, 0, x, y, gr);
+      g.addColorStop(0,   'rgba(' + ra + ',' + ga + ',' + ba + ',' + (a * 0.30) + ')');
+      g.addColorStop(0.4, 'rgba(' + ra + ',' + ga + ',' + ba + ',' + (a * 0.08) + ')');
+      g.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, gr, 0, 6.2832);
+      ctx.fill();
+
+      // Tiny diffraction cross for truly bright stars
+      if (r > 1.9) {
+        var sl = r * 8;
+        ctx.strokeStyle = 'rgba(' + ra + ',' + ga + ',' + ba + ',' + (a * 0.14) + ')';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(x - sl, y); ctx.lineTo(x + sl, y);
+        ctx.moveTo(x, y - sl); ctx.lineTo(x, y + sl);
+        ctx.stroke();
+      }
+    }
+
+    // Star core
+    ctx.fillStyle = 'rgba(' + ra + ',' + ga + ',' + ba + ',' + a + ')';
+    ctx.beginPath();
+    ctx.arc(x, y, Math.max(0.2, r), 0, 6.2832);
+    ctx.fill();
+  }
+
+  // ── Main draw loop ────────────────────────────────────────────────────────
+  function draw() {
+    ctx.clearRect(0, 0, VW, VH);
+
+    // Pure black sky
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, VW, VH);
+
+    // ── Milky Way — multi-band realistic rendering ────────────────────────
+    // The Milky Way band tilts ~60° to celestial equator.
+    // We render it as stacked translucent fog bands.
+    // Centre of band scrolls slightly with the sky view.
+    var mwY = VH * (0.45 - (scrollFrac - 0.4) * 0.7);
+    var mwAngle = -0.58; // ~-33 degrees — Milky Way tilt across sky
+    ctx.save();
+    ctx.translate(VW * 0.5, mwY);
+    ctx.rotate(mwAngle);
+    var diag = Math.sqrt(VW * VW + VH * VH);
+
+    // Outer diffuse haze
+    (function() {
+      var w = VW * 0.52;
+      var lg = ctx.createLinearGradient(-w, 0, w, 0);
+      lg.addColorStop(0,    'rgba(30,38,75,0)');
+      lg.addColorStop(0.18, 'rgba(42,52,105,0.032)');
+      lg.addColorStop(0.38, 'rgba(58,68,135,0.055)');
+      lg.addColorStop(0.50, 'rgba(70,82,162,0.075)');
+      lg.addColorStop(0.62, 'rgba(58,68,135,0.055)');
+      lg.addColorStop(0.82, 'rgba(42,52,105,0.032)');
+      lg.addColorStop(1,    'rgba(30,38,75,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(-w, -diag * 0.5, w * 2, diag);
+    })();
+
+    // Core glow
+    (function() {
+      var w = VW * 0.20;
+      var lg = ctx.createLinearGradient(-w, 0, w, 0);
+      lg.addColorStop(0,    'rgba(50,60,125,0)');
+      lg.addColorStop(0.25, 'rgba(75,88,172,0.055)');
+      lg.addColorStop(0.50, 'rgba(95,110,210,0.090)');
+      lg.addColorStop(0.75, 'rgba(75,88,172,0.055)');
+      lg.addColorStop(1,    'rgba(50,60,125,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(-w, -diag * 0.5, w * 2, diag);
+    })();
+
+    // Galactic core brightest region (Sagittarius direction, lower in sky)
+    (function() {
+      var coreX = VW * 0.22; // offset: core is not centred
+      var coreW = VW * 0.085;
+      var lg = ctx.createLinearGradient(coreX - coreW, 0, coreX + coreW, 0);
+      lg.addColorStop(0,   'rgba(0,0,0,0)');
+      lg.addColorStop(0.4, 'rgba(110,100,175,0.070)');
+      lg.addColorStop(0.5, 'rgba(140,125,200,0.095)');
+      lg.addColorStop(0.6, 'rgba(110,100,175,0.070)');
+      lg.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(coreX - coreW, -diag * 0.3, coreW * 2, diag * 0.3);
+    })();
+
+    // Dark rift / dust lane
+    (function() {
+      var riftW = VW * 0.04;
+      var riftOff = VW * 0.03;
+      var lg = ctx.createLinearGradient(riftOff - riftW, 0, riftOff + riftW, 0);
+      lg.addColorStop(0,   'rgba(0,0,0,0)');
+      lg.addColorStop(0.5, 'rgba(0,0,0,0.06)');
+      lg.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(riftOff - riftW, -diag * 0.5, riftW * 2, diag);
+    })();
+
+    // Slight warm tint near galactic centre
+    (function() {
+      var w = VW * 0.06;
+      var lg = ctx.createLinearGradient(-w + VW * 0.18, 0, w + VW * 0.18, 0);
+      lg.addColorStop(0,   'rgba(0,0,0,0)');
+      lg.addColorStop(0.5, 'rgba(160,120,80,0.022)');
+      lg.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(-w + VW * 0.18, -diag * 0.4, w * 2, diag * 0.4);
+    })();
+
+    ctx.restore();
+
+    // ── Deep-field faint background stars ────────────────────────────────
+    for (var i = 0; i < deepField.length; i++) {
+      var s = deepField[i];
+      var pos = project(s.ra, s.dec);
+      // Twinkle — very subtle for faint stars
+      var tw  = Math.sin(t * s.ts + s.tp) * 0.5 + 0.5;
+      var a   = s.a * (0.78 + 0.22 * tw);
+      var r   = s.r * (0.92 + 0.08 * tw);
+      renderStar(pos.x, pos.y, r, a, s.rgb, false);
+    }
+
+    // ── Catalog named/bright stars ────────────────────────────────────────
+    for (var j = 0; j < stars.length; j++) {
+      var s2  = stars[j];
+      var pos2 = project(s2.ra, s2.dec);
+      var tw2  = Math.sin(t * s2.ts + s2.tp);
+      // Brighter stars twinkle more (atmospheric scintillation)
+      var twA  = s2.mag < 1.0 ? 0.25 : s2.mag < 2.5 ? 0.15 : 0.08;
+      var a2   = Math.min(0.99, s2.a * (1.0 - twA + twA * (tw2 * 0.5 + 0.5) * 2));
+      var r2   = s2.r * (0.93 + 0.07 * tw2);
+      renderStar(pos2.x, pos2.y, r2, a2, s2.rgb, true);
+    }
+
+    // ── Shooting stars ────────────────────────────────────────────────────
+    for (var si = shooters.length - 1; si >= 0; si--) {
+      var sh = shooters[si];
+      var spd2 = Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy);
+      var tLen = sh.trail * sh.life;
+      var tx   = sh.x - (sh.vx / spd2) * tLen;
+      var ty   = sh.y - (sh.vy / spd2) * tLen;
+      var sg   = ctx.createLinearGradient(sh.x, sh.y, tx, ty);
+      sg.addColorStop(0,    'rgba(255,255,255,' + (sh.life * 0.92) + ')');
+      sg.addColorStop(0.12, 'rgba(230,245,255,' + (sh.life * 0.60) + ')');
+      sg.addColorStop(0.40, 'rgba(200,225,255,' + (sh.life * 0.28) + ')');
+      sg.addColorStop(1,    'rgba(180,210,255,0)');
+      ctx.strokeStyle = sg;
+      ctx.lineWidth = sh.w;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(sh.x, sh.y);
+      ctx.lineTo(tx, ty);
+      ctx.stroke();
+      sh.x    += sh.vx;
+      sh.y    += sh.vy;
+      sh.life -= sh.fade;
+      if (sh.life <= 0 || sh.y > VH + 40 || sh.x < -60 || sh.x > VW + 60) {
+        shooters.splice(si, 1);
+      }
+    }
+
+    t += 0.011;
+    requestAnimationFrame(draw);
+  }
+
+  // ── Bootstrap ─────────────────────────────────────────────────────────────
+  window.addEventListener('resize', function () {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    resize();
+  }, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  buildCatalog();
+  resize();
+  onScroll();
+  draw();
+  setTimeout(spawnShooter, 3500);
+
+})();
+
+async function emailOrder() {
+  var emailTo = document.getElementById('sendToEmail').value.trim();
+  var statusEl = document.getElementById('emailStatus');
+  if (!emailTo || !emailTo.includes('@')) {
+    statusEl.style.color = '#f87171';
+    statusEl.style.display = 'block';
+    statusEl.textContent = '⚠ Please enter a valid email address.';
+    return;
+  }
+  // Build order text (reuse copyOrder logic)
+  var v = document.getElementById('pkgType').value;
+  var pkgTxt = v === 'custom'
+    ? 'Custom - $' + document.getElementById('customRate').value + '/mo (' + document.getElementById('customPass').value + 'x)'
+    : document.getElementById('pkgType').selectedOptions[0].text;
+  var cFirst = document.getElementById('cFirst').value.trim();
+  var cLast  = document.getElementById('cLast').value.trim();
+  var cPhone = document.getElementById('cPhone').value.trim();
+  var cEmail = document.getElementById('cEmail').value.trim();
+  var cAddr  = document.getElementById('cAddr').value.trim();
+  var cCross = document.getElementById('cCross').value.trim();
+  var cApptRaw = document.getElementById('cAppt').value;
+  var cApptFmt = '(not entered)';
+  if (cApptRaw) {
+    var da = new Date(cApptRaw);
+    cApptFmt = da.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' at ' + da.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+  }
+  var NL = '\n', SEP = '--------------------------------------' + NL;
+  var body = '======================================' + NL + '     DPS DEALER ORDER SUMMARY' + NL + '======================================' + NL + NL;
+  body += SEP + 'CUSTOMER INFORMATION' + NL + SEP;
+  body += 'Name:         ' + ([cFirst,cLast].filter(Boolean).join(' ') || '(not entered)') + NL;
+  body += 'Phone:        ' + (cPhone || '(not entered)') + NL;
+  body += 'Email:        ' + (cEmail || '(not entered)') + NL;
+  body += 'Address:      ' + (cAddr  || '(not entered)') + NL;
+  body += 'Cross Street: ' + (cCross || '(not entered)') + NL;
+  body += 'Appointment:  ' + cApptFmt + NL + NL;
+  body += SEP + 'DEAL DETAILS' + NL + SEP;
+  body += 'Package:       ' + document.getElementById('rBundleName').textContent + NL;
+  body += 'Selected Pkg:  ' + pkgTxt + NL;
+  body += 'Credit Class:  ' + document.getElementById('creditClass').selectedOptions[0].text + NL;
+  body += 'Install Fee:   $' + document.getElementById('installFee').value + NL;
+  body += 'Upsell:        $' + document.getElementById('upsellAmt').value + NL + NL;
+  body += SEP + 'COMMISSION BREAKDOWN' + NL + SEP;
+  body += 'Monthly Rate:      ' + document.getElementById('rRate').textContent + NL;
+  body += 'Credit Multiple:   ' + document.getElementById('rBase').textContent + NL;
+  body += 'Gross Commission:  ' + document.getElementById('rGross').textContent + NL;
+  body += 'DPS Fee:           ' + document.getElementById('eDps').textContent + NL;
+  body += 'Holdback:          ' + document.getElementById('eHold').textContent + NL;
+  body += 'Equipment:         ' + document.getElementById('eEquip').textContent + NL;
+  body += 'Labor:             ' + document.getElementById('eLabor').textContent + NL;
+  body += 'Total Expenses:    ' + document.getElementById('eTotal').textContent + NL;
+  body += 'NET COMMISSION:    ' + document.getElementById('rNet').textContent + NL;
+  body += '======================================' + NL;
+  // Equipment list
+  var equipLines = [];
+  Object.keys(qty).forEach(function(id) {
+    var q = qty[id];
+    if (q > 0 && EQUIP[id]) {
+      var e = EQUIP[id];
+      equipLines.push(e.n + ' x' + q + ' [$' + (e.p * q).toFixed(2) + ']');
+    }
+  });
+  if (equipLines.length) body += NL + SEP + 'EQUIPMENT' + NL + SEP + equipLines.join(NL) + NL;
+
+  statusEl.style.color = '#94a3b8';
+  statusEl.style.display = 'block';
+  statusEl.textContent = 'Sending...';
+
+  try {
+    var formData = new FormData();
+    formData.append('access_key', 'ca27e8ab-8552-4fd0-8767-c8c4381fc400');
+    formData.append('to', emailTo);
+    formData.append('subject', 'DPS Order Summary — ' + ([cFirst,cLast].filter(Boolean).join(' ') || 'New Order'));
+    formData.append('message', body);
+    formData.append('from_name', 'DPS Dealer Portal');
+    var res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:formData });
+    var data = await res.json();
+    if (res.ok) {
+      statusEl.style.color = '#4ade80';
+      statusEl.textContent = '✓ Order summary sent to ' + emailTo;
+    } else {
+      statusEl.style.color = '#f87171';
+      statusEl.textContent = '✗ Error: ' + data.message;
+    }
+  } catch(err) {
+    statusEl.style.color = '#f87171';
+    statusEl.textContent = '✗ Network error — please try again.';
+  }
+}
+</script>
+
+</body>
+</html>
