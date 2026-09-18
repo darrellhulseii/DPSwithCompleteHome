@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Complete Home Today</title>
+<style>
+  :root{--navy:#0D1B2A;--blue:#0061AA;--ink:#1A2733;--muted:#5B6B7B;--line:#E1E8F0;--bg:#F6F9FC}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'DM Sans',-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+  .bar{background:var(--navy);color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .bar span{font-weight:700}
+  .bar .home{color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.3);padding:8px 14px;border-radius:6px;font-size:13px}
+  .wrap{max-width:820px;margin:0 auto;padding:40px 24px 80px}
+  h1{font-family:Arial,sans-serif;font-size:30px;margin:0 0 6px}
+  h2{font-family:Arial,sans-serif;font-size:20px;margin:34px 0 10px;color:var(--navy)}
+  .updated{color:var(--muted);font-size:14px;margin-bottom:8px}
+  .note{background:#FFF7E6;border:1px solid #F0D48A;border-radius:8px;padding:12px 16px;font-size:13px;color:#6B551A;margin:18px 0}
+  p,li{font-size:15px;color:#33414F}
+  a{color:var(--blue)}
+  .foot{border-top:1px solid var(--line);margin-top:40px;padding-top:18px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span>Complete Home Today</span>
+  <a href="index.html" class="home">← Back to Site</a>
+</div>
+<div class="wrap">
+  <h1>Terms of Service</h1>
+  <div class="updated">Last updated: <span id="d"></span></div>
+
+  <div class="note"><strong>Template notice:</strong> These terms are a starting template. Have them reviewed by a qualified attorney before you rely on them.</div>
+
+  <p>These Terms of Service ("Terms") govern your use of <strong>completehomellc.com</strong> (the "Site"), operated by Complete Home Today LLC. By using the Site or submitting a form, you agree to these Terms.</p>
+
+  <h2>About Our Services</h2>
+  <p>Complete Home Today is an independent authorized sales representative of Direct Protection Security (DPS), an ADT Authorized Dealer. We help homeowners select and arrange professionally installed, professionally monitored security systems. Products, monitoring, and installation are provided through DPS and its affiliated providers under a separate residential services agreement. DPS is not ADT LLC.</p>
+
+  <h2>Quotes &amp; Offers</h2>
+  <p>Pricing, packages, promotions, and offers shown on the Site are estimates and are subject to change, availability, credit approval, and the terms of the applicable monitoring agreement. Nothing on the Site is a binding offer until confirmed in a signed agreement.</p>
+
+  <h2>Guarantees</h2>
+  <p>Any money-back guarantee, theft-protection/deductible guarantee, or similar promise is subject to the specific conditions stated in the applicable agreement and the disclaimers on our home page. Please read those terms carefully.</p>
+
+  <h2>Your Responsibilities</h2>
+  <p>You agree to provide accurate information and to use the Site lawfully. You may not attempt to disrupt, reverse engineer, or gain unauthorized access to the Site or its systems.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>The Site and its content are owned by Complete Home Today LLC or its licensors. Third-party marks (including ADT and Google Nest) are the property of their respective owners and are used for identification only.</p>
+
+  <h2>Disclaimer &amp; Limitation of Liability</h2>
+  <p>The Site is provided "as is" without warranties of any kind. To the fullest extent permitted by law, Complete Home Today is not liable for indirect, incidental, or consequential damages arising from your use of the Site.</p>
+
+  <h2>Governing Law</h2>
+  <p>These Terms are governed by the laws of the State of California, without regard to its conflict-of-laws rules.</p>
+
+  <h2>Contact Us</h2>
+  <p>Complete Home Today LLC<br>36245 Capri Dr, Winchester, CA 92596<br><a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a> · <a href="tel:4089094484">(408) 909-4484</a></p>
+
+  <div class="foot">© <span id="y"></span> Complete Home Today LLC · CA ACO #6446 · ACE #552544</div>
+</div>
+<script>
+  var now=new Date();
+  document.getElementById('d').textContent=now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('y').textContent=now.getFullYear();
+</script>
+</body>
+</html>
