@@ -1228,6 +1228,12 @@ img,iframe,video,canvas,svg{max-width:100%}
 @media(max-width:640px){.cht-logo .cht-mark{width:38px;height:38px}.cht-w1{font-size:19px}.cht-w2{font-size:9.5px}}
 @media(max-width:380px){.cht-logo{gap:9px}.cht-logo .cht-mark{width:32px;height:32px}.cht-w1{font-size:16px}.cht-w2{font-size:8px}}
 
+
+/* phone header buttons: keep labels on one line */
+@media(max-width:640px){
+  #mainNav{flex-wrap:wrap;gap:8px !important;width:100%}
+  #mainNav > a, #mainNav > button{white-space:nowrap !important;font-size:12px !important;padding:9px 11px !important;letter-spacing:.02em !important;flex:1 1 auto;text-align:center;justify-content:center}
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 </head>
@@ -1249,7 +1255,7 @@ img,iframe,video,canvas,svg{max-width:100%}
     <div class="logo-badge">Professional Home Security</div>
   </div>
   <div class="header-right" id="mainNav">
-    <a href="#get-quote" class="header-quote-btn">Free Quote</a>
+    <a href="#get-quote" class="header-quote-btn">Protect Your Home</a>
     <button onclick="openDealerLogin()" class="btn btn-p" style="padding:10px 18px;font-size:13px;border-radius:4px;font-family:Arial,sans-serif;font-weight:700;cursor:pointer;border:none;background:#0061AA;color:#fff;letter-spacing:.04em">🔐 Dealer Portal</button>
     <a href="hiring.html" class="hire-nav-btn">Now Hiring</a>
     <div class="header-cta">
@@ -1270,7 +1276,7 @@ img,iframe,video,canvas,svg{max-width:100%}
     <span class="hero-badge">6-Month Money-Back Guarantee**</span>
   </div>
   <div class="hero-cta-row">
-    <a href="#get-quote" class="btn-hero-primary">Get My Free Quote →</a>
+    <a href="#get-quote" class="btn-hero-primary">Protect Your Home →</a>
     <a href="tel:4089094484" class="btn-hero-secondary">📞 Call (408) 909-4484</a>
   </div>
   <div class="hero-rating">
@@ -1316,7 +1322,7 @@ img,iframe,video,canvas,svg{max-width:100%}
         <p>Fully licensed through the CA Bureau of Security &amp; Investigative Services (BSIS ACO #6446) — a local team you can verify and trust.</p>
       </div>
     </div>
-    <div class="section-cta"><a href="#get-quote">Get My Free Quote →</a></div>
+    <div class="section-cta"><a href="#get-quote">Protect Your Home →</a></div>
   </div>
 </div>
 
@@ -1657,7 +1663,7 @@ img,iframe,video,canvas,svg{max-width:100%}
 <!-- QUOTE FORM -->
 <div class="section form-bg" id="get-quote">
   <div class="section-inner">
-    <div class="section-label">Step 3 — Get Your Free Quote</div>
+    <div class="section-label">Step 3 — Protect Your Home</div>
     <h2>Schedule Your Installation</h2>
     <p class="section-sub">A local specialist will contact you to confirm your package, answer questions, and schedule at your convenience.</p>
 
@@ -1776,7 +1782,7 @@ img,iframe,video,canvas,svg{max-width:100%}
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta-bar">
   <a href="tel:4089094484" class="sc-call">📞 Call Now</a>
-  <a href="#get-quote" class="sc-quote">Free Quote →</a>
+  <a href="#get-quote" class="sc-quote">Protect Your Home →</a>
 </div>
 
 <script>
