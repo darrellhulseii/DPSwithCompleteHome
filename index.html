@@ -1236,7 +1236,7 @@ img,iframe,video,canvas,svg{max-width:100%}
   </div>
   <div class="header-right" id="mainNav">
     <a href="#get-quote" class="header-quote-btn">Free Quote</a>
-    <button onclick="window.location.href='portal.html'" class="btn btn-p" style="padding:10px 18px;font-size:13px;border-radius:4px;font-family:Arial,sans-serif;font-weight:700;cursor:pointer;border:none;background:#0061AA;color:#fff;letter-spacing:.04em">🔐 Dealer Portal</button>
+    <button onclick="openDealerLogin()" class="btn btn-p" style="padding:10px 18px;font-size:13px;border-radius:4px;font-family:Arial,sans-serif;font-weight:700;cursor:pointer;border:none;background:#0061AA;color:#fff;letter-spacing:.04em">🔐 Dealer Portal</button>
     <a href="hiring.html" class="hire-nav-btn">Now Hiring</a>
     <div class="header-cta">
       Get protected today
@@ -1746,6 +1746,18 @@ img,iframe,video,canvas,svg{max-width:100%}
   </div>
 </footer>
 </div><!-- end mainSite -->
+
+<!-- DEALER LOGIN (password verified by decryption; portal.html is encrypted) -->
+<div id="dealerLogin" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,8,.82);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)closeDealerLogin()">
+  <form id="dealerForm" style="width:100%;max-width:380px;background:#0B1826;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:28px 24px;color:#fff;font-family:Arial,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.6)">
+    <div style="font-size:21px;font-weight:800;margin-bottom:6px">🔐 Dealer Portal</div>
+    <div style="font-size:13px;color:#9FB2C4;margin-bottom:18px;line-height:1.5">Authorized dealers only. Enter the portal password.</div>
+    <div id="dealerErr" style="display:none;color:#fca5a5;font-size:13px;margin-bottom:10px">Incorrect password. Try again.</div>
+    <input type="password" id="dealerPw" placeholder="Password" autocomplete="current-password" required style="width:100%;padding:13px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(0,0,0,.35);color:#fff;font-size:16px;margin-bottom:12px">
+    <button id="dealerGo" type="submit" style="width:100%;padding:14px;border:0;border-radius:8px;background:#0061AA;color:#fff;font-size:16px;font-weight:800;cursor:pointer">Unlock Portal</button>
+    <button type="button" onclick="closeDealerLogin()" style="width:100%;margin-top:10px;padding:11px;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;background:transparent;color:#cbd5e1;font-size:14px;cursor:pointer">Cancel</button>
+  </form>
+</div>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta-bar">
@@ -2410,6 +2422,25 @@ var ORDER_EMAIL_TO = 'darrell@completehomellc.com';
 
 (function(){var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();})();
 
+
+// ---- Dealer login: verifies the password by decrypting a check token (no password stored in this page) ----
+var DL={"salt":"BOblzcEJKcuIUzhBrWdkVA==","iv2":"voF/b4HsjLBlU5vk","tok":"hQLgVfu9wXyW+3QdE4dTliiO1bjK8A==","iter":600000};
+function dlB64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+function openDealerLogin(){var m=document.getElementById('dealerLogin');m.style.display='flex';document.getElementById('dealerErr').style.display='none';var i=document.getElementById('dealerPw');i.value='';setTimeout(function(){i.focus();},50);}
+function closeDealerLogin(){document.getElementById('dealerLogin').style.display='none';}
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeDealerLogin();});
+document.getElementById('dealerForm').addEventListener('submit',async function(ev){
+  ev.preventDefault();var btn=document.getElementById('dealerGo'),err=document.getElementById('dealerErr');
+  btn.disabled=true;btn.textContent='Checking…';err.style.display='none';
+  try{
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(document.getElementById('dealerPw').value),'PBKDF2',false,['deriveKey']);
+    var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:dlB64(DL.salt),iterations:DL.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},true,['decrypt']);
+    await crypto.subtle.decrypt({name:'AES-GCM',iv:dlB64(DL.iv2)},key,dlB64(DL.tok));
+    var raw=new Uint8Array(await crypto.subtle.exportKey('raw',key));
+    sessionStorage.setItem('chtPortalKey',btoa(String.fromCharCode.apply(null,raw)));
+    window.location.href='portal.html';
+  }catch(x){err.style.display='block';btn.disabled=false;btn.textContent='Unlock Portal';document.getElementById('dealerPw').value='';document.getElementById('dealerPw').focus();}
+});
 </script>
 
 </body>
