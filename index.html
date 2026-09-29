@@ -5,7 +5,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Complete Home Today | Professional Home Security</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20aria-hidden%3D%22true%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22fg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233FDBFF%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230098D8%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%2224%22%20fill%3D%22url%28%23fg%29%22/%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%2222.6%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-opacity%3D%22.22%22%20stroke-width%3D%221%22/%3E%3Cpolyline%20points%3D%2210.5%2C23.2%2024%2C11%2037.5%2C23.2%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M15.8%2025%20L24%2017.6%20L32.2%2025%20V35.4%20H15.8%20Z%20M21.2%2035.4%20V30.2%20A2.8%202.8%200%200%201%2026.8%2030.2%20V35.4%20Z%22/%3E%3C/svg%3E">
 <style>
@@ -1255,6 +1255,69 @@ img,iframe,video,canvas,svg{max-width:100%}
 .testi-card{break-inside:avoid;-webkit-column-break-inside:avoid;margin-bottom:20px;width:100%}
 .testi-card p{font-size:14.5px}
 .social-section .section-sub{max-width:700px;margin-left:auto;margin-right:auto;text-wrap:balance}
+/* ═══ AUTO-FIT: screen detection driven sizing ═══
+   JS below sets html[data-screen], [data-orient], [data-touch] and --app-vw / --app-vh / --fit-scale */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100vh;min-height:100dvh}
+/* Fluid base type: scales smoothly between 320px phones and 1920px+ desktops */
+html{font-size:clamp(14px, calc(13px + 0.25vw), 17px)}
+/* Keep every block inside the screen */
+.section-inner,.footer-inner,.trust-inner,.proof-grid,.benefits-grid,.packages-grid,.addons-grid,.quote-layout{width:100%;min-width:0}
+.pkg-card,.addon-card,.benefit-card,.proof-tile,.testi-card,.form-summary,.jotform-wrap{min-width:0}
+h1,h2,h3,p,li,.who,.summary-line,.addon-desc{overflow-wrap:anywhere;word-break:normal}
+.jotform-wrap{max-width:100%}
+.jotform-wrap iframe{display:block;border:0}
+
+/* Notch / home-bar safe areas */
+.topbar{padding-top:max(8px, env(safe-area-inset-top))}
+.sticky-cta-bar{padding-bottom:env(safe-area-inset-bottom)}
+@media(max-width:760px){body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}}
+header,.topbar,footer,.section,.trust-bar{padding-left:max(clamp(14px,4vw,40px), env(safe-area-inset-left));padding-right:max(clamp(14px,4vw,40px), env(safe-area-inset-right))}
+
+/* Size classes set by the detector */
+html[data-screen="xs"] .hero h1{font-size:clamp(22px, 8.2vw, 30px)}
+html[data-screen="xs"] .hero p{font-size:14px}
+html[data-screen="xs"] .btn-hero-primary,html[data-screen="xs"] .btn-hero-secondary{width:100%;justify-content:center;font-size:15px;padding:14px 16px}
+html[data-screen="xs"] .proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+html[data-screen="xs"] .testi-grid{columns:1}
+html[data-screen="sm"] .btn-hero-primary,html[data-screen="sm"] .btn-hero-secondary{flex:1 1 220px;justify-content:center}
+html[data-screen="sm"] .testi-grid{columns:1}
+html[data-screen="md"] .testi-grid{columns:2}
+html[data-screen="md"] .benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+html[data-screen="xl"] .section-inner,html[data-screen="xl"] .footer-inner{max-width:1320px}
+html[data-screen="xl"] .hero{padding-top:88px;padding-bottom:76px}
+html[data-screen="xl"] .hero h1{font-size:clamp(50px,3.6vw,64px)}
+
+/* Short landscape phones: compress vertical space */
+html[data-orient="landscape"][data-short="1"] .hero{padding-top:28px;padding-bottom:24px}
+html[data-orient="landscape"][data-short="1"] .hero h1{font-size:clamp(22px,4vw,32px);margin-bottom:8px}
+html[data-orient="landscape"][data-short="1"] .hero p{margin-bottom:14px}
+html[data-orient="landscape"][data-short="1"] .sticky-cta-bar a{padding:10px 8px}
+html[data-orient="landscape"][data-short="1"] .form-summary{position:static}
+
+/* Touch screens: comfortable tap targets, no sticky hover lifts */
+html[data-touch="1"] .pkg-select-btn,html[data-touch="1"] .header-quote-btn,html[data-touch="1"] .hire-nav-btn,html[data-touch="1"] .footer-legal-links a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+html[data-touch="1"] .pkg-select-btn{display:flex}
+html[data-touch="1"] .pkg-card:hover,html[data-touch="1"] .addon-card:hover,html[data-touch="1"] .benefit-card:hover{transform:none}
+
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto !important}}
+/* ═══ AUTO-SENSE: every block measures its own width and reflows (no fixed breakpoints needed) ═══ */
+.section-inner,.benefits-grid,.proof-grid,.packages-grid,.addons-grid,.quote-layout,.testi-grid,.footer-top{container-type:inline-size}
+.benefits-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)) !important}
+.proof-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)) !important}
+.packages-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)) !important;max-width:none !important}
+.addons-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,175px),1fr)) !important}
+.quote-layout[data-fit="narrow"]{grid-template-columns:1fr !important}
+.quote-layout[data-fit="wide"]{grid-template-columns:minmax(260px,1fr) minmax(0,1.6fr) !important}
+.quote-layout[data-fit="narrow"] .form-summary{position:static}
+.testi-grid{columns:auto 300px !important}
+.footer-top[data-fit="narrow"]{flex-direction:column}
+.footer-top[data-fit="narrow"] .footer-licenses{text-align:left}
+/* Type follows the measured screen width continuously */
+.hero h1{font-size:calc(var(--fit-h1,40) * 1px) !important}
+.section h2,.proof-band h2{font-size:calc(var(--fit-h2,30) * 1px) !important}
+.hero p,.hero-sub{font-size:calc(var(--fit-body,16) * 1px)}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 </head>
@@ -2514,6 +2577,87 @@ document.getElementById('dealerForm').addEventListener('submit',async function(e
     window.location.href='portal.html';
   }catch(x){err.style.display='block';btn.disabled=false;btn.textContent='Unlock Portal';document.getElementById('dealerPw').value='';document.getElementById('dealerPw').focus();}
 });
+</script>
+
+<script>
+// ═══ AUTO-FIT: detects screen size/orientation/input and re-tunes the layout live ═══
+(function(){
+  var root=document.documentElement, raf=0;
+  function sizeClass(w){ return w<400?'xs':w<640?'sm':w<1024?'md':w<1440?'lg':'xl'; }
+  function fit(){
+    raf=0;
+    var vv=window.visualViewport;
+    var w=Math.round(vv?vv.width:window.innerWidth);
+    var h=Math.round(vv?vv.height:window.innerHeight);
+    root.setAttribute('data-screen',sizeClass(w));
+    root.setAttribute('data-orient',w>h?'landscape':'portrait');
+    root.setAttribute('data-short',h<500?'1':'0');
+    root.setAttribute('data-touch',(window.matchMedia&&matchMedia('(pointer:coarse)').matches)?'1':'0');
+    root.style.setProperty('--app-vw',w+'px');
+    root.style.setProperty('--app-vh',h+'px');
+    // Shrink any heading or button row that still overflows its container
+    document.querySelectorAll('.hero h1,.section h2,.proof-num,.cht-w1,.pkg-name').forEach(function(el){
+      el.style.removeProperty('font-size');
+      var parent=el.parentElement; if(!parent) return;
+      var avail=parent.clientWidth, need=el.scrollWidth;
+      if(need>avail+1){
+        var cur=parseFloat(getComputedStyle(el).fontSize);
+        el.style.setProperty('font-size',Math.max(12,Math.floor(cur*avail/need))+'px','important');
+      }
+    });
+    // Guard: if anything still pushes the page sideways, clamp it
+    if(document.body.scrollWidth>w+1){
+      document.querySelectorAll('#mainSite *').forEach(function(el){
+        if(el.getBoundingClientRect().right>w+1 && !el.closest('.sticky-cta-bar')){ el.style.maxWidth='100%'; }
+      });
+    }
+  }
+  function queue(){ if(!raf) raf=requestAnimationFrame(fit); }
+  window.addEventListener('resize',queue,{passive:true});
+  window.addEventListener('orientationchange',function(){ setTimeout(queue,150); });
+  if(window.visualViewport) visualViewport.addEventListener('resize',queue,{passive:true});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(queue);
+  if(document.readyState!=='loading') fit(); else document.addEventListener('DOMContentLoaded',fit);
+  window.addEventListener('load',queue);
+})();
+</script>
+
+<script>
+// ═══ AUTO-SENSE: continuous measurement of the screen and of each section ═══
+(function(){
+  var root=document.documentElement;
+  function lerp(w,a,b,lo,hi){ var t=Math.max(0,Math.min(1,(w-a)/(b-a))); return lo+(hi-lo)*t; }
+  function sense(){
+    var vv=window.visualViewport, w=vv?vv.width:window.innerWidth;
+    // Smooth scale between a 320px phone and a 1600px desktop
+    root.style.setProperty('--fit-h1',lerp(w,320,1600,24,60).toFixed(1));
+    root.style.setProperty('--fit-h2',lerp(w,320,1600,21,38).toFixed(1));
+    root.style.setProperty('--fit-body',lerp(w,320,1600,14,18).toFixed(1));
+  }
+  // Each watched block reports its own width and switches layout at the point it gets cramped
+  var rules=[['.quote-layout',720],['.footer-top',620]];
+  var ro=('ResizeObserver' in window)?new ResizeObserver(function(entries){
+    entries.forEach(function(e){
+      var lim=+e.target.getAttribute('data-fit-at');
+      e.target.setAttribute('data-fit',e.contentRect.width<lim?'narrow':'wide');
+    });
+    sense();
+  }):null;
+  function init(){
+    sense();
+    rules.forEach(function(r){
+      document.querySelectorAll(r[0]).forEach(function(el){
+        el.setAttribute('data-fit-at',r[1]);
+        el.setAttribute('data-fit',el.clientWidth<r[1]?'narrow':'wide');
+        if(ro) ro.observe(el);
+      });
+    });
+    if(ro) ro.observe(root);
+  }
+  window.addEventListener('resize',sense,{passive:true});
+  if(window.visualViewport) visualViewport.addEventListener('resize',sense,{passive:true});
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+})();
 </script>
 
 </body>
