@@ -1318,6 +1318,16 @@ html[data-touch="1"] .pkg-card:hover,html[data-touch="1"] .addon-card:hover,html
 .section h2,.proof-band h2{font-size:calc(var(--fit-h2,30) * 1px) !important}
 .hero p,.hero-sub{font-size:calc(var(--fit-body,16) * 1px)}
 
+/* ═══ HEADER FIT: logo never gets covered; buttons drop below when space runs out ═══ */
+header{flex-wrap:wrap !important}
+header .logo-block{flex:0 0 auto;min-width:max-content;position:relative;z-index:2}
+#mainNav{flex:1 1 300px;min-width:0;justify-content:flex-end}
+header[data-fit="stacked"]{flex-direction:column !important;align-items:stretch !important;gap:12px !important}
+header[data-fit="stacked"] .logo-block{align-items:flex-start}
+header[data-fit="stacked"] #mainNav{width:100%;flex:1 1 auto;justify-content:stretch;flex-wrap:wrap;gap:8px !important}
+header[data-fit="stacked"] #mainNav > a,header[data-fit="stacked"] #mainNav > button{flex:1 1 140px;justify-content:center;text-align:center}
+header[data-fit="stacked"] .header-cta{display:none}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 </head>
@@ -2657,6 +2667,29 @@ document.getElementById('dealerForm').addEventListener('submit',async function(e
   window.addEventListener('resize',sense,{passive:true});
   if(window.visualViewport) visualViewport.addEventListener('resize',sense,{passive:true});
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+
+<script>
+// ═══ HEADER FIT: stack the header whenever the logo and buttons can't share a row ═══
+(function(){
+  var hdr=document.querySelector('header'), logo=hdr&&hdr.querySelector('.logo-block'), nav=document.getElementById('mainNav');
+  if(!hdr||!logo||!nav) return;
+  function check(){
+    hdr.removeAttribute('data-fit');
+    var logoW=logo.scrollWidth, cs=getComputedStyle(hdr);
+    var inner=hdr.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    var btns=nav.querySelectorAll('a,button'), navMin=0;
+    btns.forEach(function(b){ navMin=Math.max(navMin,b.scrollWidth); });
+    var lr=logo.getBoundingClientRect(), nr=nav.getBoundingClientRect();
+    var overlap=nr.top<lr.bottom && nr.left<lr.right-1;
+    if(overlap || logoW+navMin+24>inner) hdr.setAttribute('data-fit','stacked');
+  }
+  var lastW=0;if('ResizeObserver' in window) new ResizeObserver(function(){var w=hdr.clientWidth;if(w!==lastW){lastW=w;check();}}).observe(hdr);
+  window.addEventListener('resize',check,{passive:true});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(check);
+  window.addEventListener('load',check);
+  check();
 })();
 </script>
 
