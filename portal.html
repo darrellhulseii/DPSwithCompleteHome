@@ -1202,60 +1202,83 @@ img,iframe,video,canvas,svg{max-width:100%}
               <div class="cg"><label>Nearest Cross Street</label><input type="text" id="cCross" placeholder="Oak Ave &amp; 5th St"></div>
             </div>
           </div>
-          <div class="p-sec-t">&#128176; Deal Configuration</div>
+          <div class="p-sec-t">&#128176; Deal Configuration <span style="font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0">Corview funding schedule &middot; Oct 2026</span></div>
           <div class="p-row">
             <div class="pfg">
-              <label>Package Type</label>
-              <select id="pkgType" onchange="handlePkgChange()">
-                <option value="36.99-1">Res-Basic &mdash; $36.99/mo (1&times;)</option>
-                <option value="42.99-1.75" selected>Res-Bundle 2 &mdash; $42.99/mo (1.75&times;)</option>
-                <option value="44.99-4">Res-Bundle 2A &mdash; $44.99/mo (4&times;)</option>
-                <option value="47.99-4.5">Res-Bundle GSM &mdash; $47.99/mo (4.5&times;)</option>
-                <option value="49.99-4">Res-Pulse 1A &mdash; $49.99/mo (4&times;)</option>
-                <option value="52.99-4.5">Res-Pulse 1B &mdash; $52.99/mo (4.5&times;)</option>
-                <option value="53.99-4.5">Res-Pulse 1C &mdash; $53.99/mo (4.5&times;)</option>
-                <option value="58.99-4">Res-Pulse 2A &mdash; $58.99/mo (4&times;)</option>
-                <option value="59.99-4">Res-Pulse 2B &mdash; $59.99/mo (4&times;)</option>
-                <option value="60.99-4">Res-Pulse 3A &mdash; $60.99/mo (4&times;)</option>
-                <option value="63.99-4">Res-Pulse 3B &mdash; $63.99/mo (4&times;)</option>
-                <option value="64.99-4">Res-Pulse 3C &mdash; $64.99/mo (4&times;)</option>
-                <option value="39.99-1">Comm-Basic &mdash; $39.99/mo (1&times;)</option>
-                <option value="45.99-5">Comm-Bundle 4 &mdash; $45.99/mo (5&times;)</option>
-                <option value="51.99-5">Comm-Pulse 1C &mdash; $51.99/mo (5&times;)</option>
-                <option value="58.99-5">Comm-Pulse 2C &mdash; $58.99/mo (5&times;)</option>
-                <option value="59.99-5">Comm-Pulse 2D &mdash; $59.99/mo (5&times;)</option>
-                <option value="custom">&#9999; Custom Monthly Rate</option>
-              </select>
-              <div id="cbox" class="cbox">
-                <div class="pfg"><label>Custom Rate ($/mo)</label><input type="number" id="customRate" step="0.01" min="0" placeholder="0.00" oninput="calc()"></div>
-                <div class="pfg"><label>Pass-Through Multiple</label><input type="number" id="customPass" step="0.25" min="0" placeholder="0" oninput="calc()"></div>
-              </div>
-            </div>
-            <div class="pfg">
-              <label>Credit Class</label>
-              <select id="creditClass" onchange="calc()">
-                <option value="35">A+ (775+) &mdash; 35&times;</option>
-                <option value="34">A (725&ndash;774) &mdash; 34&times;</option>
-                <option value="33">B (675&ndash;724) &mdash; 33&times;</option>
-                <option value="30">B&minus; (650&ndash;674) &mdash; 30&times;</option>
-                <option value="28">D (625&ndash;649) &mdash; 28&times;</option>
-                <option value="27">E (600&ndash;624) &mdash; 27&times;</option>
-                <option value="24">BULK (575&ndash;599) &mdash; 24&times;</option>
-                <option value="28" data-hold="3.75">Commercial (&gt;75 score) &mdash; 28&times;</option>
+              <label>Credit Class / Account Type</label>
+              <select id="dClass" onchange="onClassChange()">
+                <option value="A+" selected>A+ (795+) &mdash; 39&times;</option>
+                <option value="A">A (760&ndash;794) &mdash; 38&times;</option>
+                <option value="B">B (705&ndash;759) &mdash; 37.5&times;</option>
+                <option value="B-">B&minus; (665&ndash;704) &mdash; 37&times;</option>
+                <option value="D">D (640&ndash;664) &mdash; 33.5&times;</option>
+                <option value="E">E (600&ndash;639) &mdash; 33&times;</option>
+                <option value="Bulk">Bulk (560+) &mdash; 26.5&times;</option>
+                <option value="C">Commercial C (650+ / 430+ / 60+) &mdash; 30&times;</option>
+                <option value="P">Prepaid P (36 mo upfront, renters OK) &mdash; 36&times;</option>
               </select>
             </div>
             <div class="pfg">
-              <label>Base Install Fee (min $150)</label>
-              <input type="number" id="installFee" value="150" min="150" step="10" oninput="calc()">
+              <label>Service</label>
+              <select id="dService" onchange="onServiceChange()"></select>
             </div>
             <div class="pfg">
-              <label>Upsell Amount ($)</label>
-              <input type="number" id="upsellAmt" value="0" min="0" step="10" oninput="calc()">
+              <label>Video Service</label>
+              <select id="dVideo" onchange="onServiceChange()">
+                <option value="N">None</option>
+                <option value="GP" selected>Google Premium (+$7.00 rate)</option>
+              </select>
             </div>
-            <div class="pfg" style="grid-column:1/-1">
-              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600">
-                <input type="checkbox" id="volBonus" onchange="calc()" style="width:18px;height:18px;flex:0 0 auto;accent-color:#22c55e;cursor:pointer">
-                11+ accounts this month &mdash; volume bonus (+1 multiple)
+            <div class="pfg">
+              <label>Customer Monthly Rate ($)</label>
+              <input type="number" id="dRate" step="1" min="0" value="76.99" oninput="calc()">
+              <div id="rateHint" style="font-size:11px;color:var(--muted);margin-top:5px"></div>
+            </div>
+            <div class="pfg">
+              <label>Revenue Collected ($) <span style="text-transform:none;font-weight:400">activation / install / upsell</span></label>
+              <input type="number" id="dRev" step="1" min="0" value="0" oninput="calc()">
+            </div>
+            <div class="pfg">
+              <label>Labor Base (System Install)</label>
+              <select id="dLaborBase" onchange="buildCatalog();calc()">
+                <option value="175">$175 base</option>
+                <option value="150" selected>$150 base</option>
+                <option value="125">$125 base</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Equipment Source</label>
+              <select id="dInv" onchange="calc()">
+                <option value="Company" selected>Corview stock (inventory fee applies)</option>
+                <option value="None">Dealer-supplied (no inventory fee)</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Pay Transfer</label>
+              <select id="dPay" onchange="calc()">
+                <option value="0" selected>Standard (0%)</option>
+                <option value="0.02">Fund (2%)</option>
+                <option value="0.08">Quick (8%)</option>
+                <option value="0.10">Next Day (10%)</option>
+                <option value="0.15">Same Day (15%)</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Other Deductions (&times; multiple) <span style="text-transform:none;font-weight:400">e.g. resale</span></label>
+              <input type="number" id="dDeduct" step="0.5" min="0" value="0" oninput="calc()">
+            </div>
+            <div class="pfg">
+              <label>Other Charges ($) <span style="text-transform:none;font-weight:400">credit check, dispute fee</span></label>
+              <input type="number" id="dOther" step="1" min="0" value="0" oninput="calc()">
+            </div>
+            <div class="pfg" style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 24px">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;margin:0">
+                <input type="checkbox" id="dInvoice" onchange="onServiceChange()" style="width:18px;height:18px;flex:0 0 auto;accent-color:#24BCFF;cursor:pointer">
+                Invoicing (&minus;1&times;, +$1 rate, billed quarterly)
+              </label>
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;margin:0">
+                <input type="checkbox" id="dGuard" onchange="calc()" style="width:18px;height:18px;flex:0 0 auto;accent-color:#24BCFF;cursor:pointer">
+                Guard Response (+$8 to customer, not funded)
               </label>
             </div>
           </div>
@@ -1266,33 +1289,44 @@ img,iframe,video,canvas,svg{max-width:100%}
   <a href="https://claude.ai/artifact/EWUraWFWn8YrgGr9kBgas3" style="color:#7dd3fc;text-decoration:underline;font-weight:700">Open live Dealer Portal →</a>
 </div>
 <div id="jsErrBanner" style="display:none;margin:0 0 18px;padding:14px 16px;border-radius:8px;background:rgba(251,191,36,.12);border:1.5px solid rgba(251,191,36,.45);color:#fde68a;font-size:13px"></div>
-          <div id="equipCatalog"><div class="eq-cat">Control Panels</div><div class="eq-grid"><div class="eq-card" id="ec-panel-wireless"><div class="eq-name">ADT 7" Command Panel Wireless</div><div class="eq-price">$173.25</div><small class="eq-model">ADT7AIO-1</small><div class="eq-qty"><button onclick="chQty('panel-wireless',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('panel-wireless',this.value)"><button onclick="chQty('panel-wireless',1)">+</button></div></div><div class="eq-card" id="ec-panel-hardwired"><div class="eq-name">ADT Hybrid Panel Hardwired</div><div class="eq-price">$99.75</div><small class="eq-model">ADTHYBWL-2</small><div class="eq-qty"><button onclick="chQty('panel-hardwired',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('panel-hardwired',this.value)"><button onclick="chQty('panel-hardwired',1)">+</button></div></div></div><div class="eq-cat">Cellular Radios</div><div class="eq-grid"><div class="eq-card" id="ec-radio-verizon"><div class="eq-name">Verizon LTE Radio</div><div class="eq-price">$52.50</div><small class="eq-model">ADTLTE-V</small><div class="eq-qty"><button onclick="chQty('radio-verizon',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('radio-verizon',this.value)"><button onclick="chQty('radio-verizon',1)">+</button></div></div><div class="eq-card" id="ec-radio-att"><div class="eq-name">AT&T LTE Radio</div><div class="eq-price">$52.50</div><small class="eq-model">ADTLTE-A</small><div class="eq-qty"><button onclick="chQty('radio-att',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('radio-att',this.value)"><button onclick="chQty('radio-att',1)">+</button></div></div></div><div class="eq-cat">Sensors & Contacts</div><div class="eq-grid"><div class="eq-card" id="ec-sensor-mini"><div class="eq-name">2-Way Mini Wireless Sensor</div><div class="eq-price">$11.55</div><small class="eq-model">SIXMINICT</small><div class="eq-qty"><button onclick="chQty('sensor-mini',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('sensor-mini',this.value)"><button onclick="chQty('sensor-mini',1)">+</button></div></div><div class="eq-card" id="ec-sensor-wireless"><div class="eq-name">2-Way Wireless Sensor</div><div class="eq-price">$11.24</div><small class="eq-model">SIXCTA</small><div class="eq-qty"><button onclick="chQty('sensor-wireless',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('sensor-wireless',this.value)"><button onclick="chQty('sensor-wireless',1)">+</button></div></div><div class="eq-card" id="ec-sensor-motion"><div class="eq-name">2-Way Wireless Motion Sensor</div><div class="eq-price">$22.58</div><small class="eq-model">SIXPIRA</small><div class="eq-qty"><button onclick="chQty('sensor-motion',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('sensor-motion',this.value)"><button onclick="chQty('sensor-motion',1)">+</button></div></div><div class="eq-card" id="ec-sensor-keyfob"><div class="eq-name">2-Way Wireless Keyfob</div><div class="eq-price">$11.55</div><small class="eq-model">SIXFOBA</small><div class="eq-qty"><button onclick="chQty('sensor-keyfob',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('sensor-keyfob',this.value)"><button onclick="chQty('sensor-keyfob',1)">+</button></div></div><div class="eq-card" id="ec-contact-door"><div class="eq-name">Hardwired Door Contact</div><div class="eq-price">$3.36</div><small class="eq-model">GI-20RSTWH</small><div class="eq-qty"><button onclick="chQty('contact-door',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('contact-door',this.value)"><button onclick="chQty('contact-door',1)">+</button></div></div><div class="eq-card" id="ec-contact-window"><div class="eq-name">Hardwired Window Contact</div><div class="eq-price">$3.36</div><small class="eq-model">0E-2531WGW10</small><div class="eq-qty"><button onclick="chQty('contact-window',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('contact-window',this.value)"><button onclick="chQty('contact-window',1)">+</button></div></div><div class="eq-card" id="ec-sensor-rollup"><div class="eq-name">Roll-Up Door Sensor</div><div class="eq-price">$38.75</div><small class="eq-model">958</small><div class="eq-qty"><button onclick="chQty('sensor-rollup',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('sensor-rollup',this.value)"><button onclick="chQty('sensor-rollup',1)">+</button></div></div></div><div class="eq-cat">Panic, Glass Break & Flood</div><div class="eq-grid"><div class="eq-card" id="ec-glass-break"><div class="eq-name">Wireless Glass-Break Sensor</div><div class="eq-price">$33.60</div><small class="eq-model">SIXGBA</small><div class="eq-qty"><button onclick="chQty('glass-break',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('glass-break',this.value)"><button onclick="chQty('glass-break',1)">+</button></div></div><div class="eq-card" id="ec-panic-button"><div class="eq-name">Wireless Panic Button</div><div class="eq-price">$27.00</div><small class="eq-model">SIXPANICA</small><div class="eq-qty"><button onclick="chQty('panic-button',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('panic-button',this.value)"><button onclick="chQty('panic-button',1)">+</button></div></div><div class="eq-card" id="ec-flood-sensor"><div class="eq-name">Wireless Flood Sensor</div><div class="eq-price">$45.00</div><small class="eq-model">SIXFLOODA</small><div class="eq-qty"><button onclick="chQty('flood-sensor',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('flood-sensor',this.value)"><button onclick="chQty('flood-sensor',1)">+</button></div></div><div class="eq-card" id="ec-shock-sensor"><div class="eq-name">Wireless Shock Sensor</div><div class="eq-price">$17.50</div><small class="eq-model">SIXSHOCKA</small><div class="eq-qty"><button onclick="chQty('shock-sensor',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('shock-sensor',this.value)"><button onclick="chQty('shock-sensor',1)">+</button></div></div></div><div class="eq-cat">Smoke & CO</div><div class="eq-grid"><div class="eq-card" id="ec-smoke"><div class="eq-name">Wireless Smoke Detector</div><div class="eq-price">$33.60</div><small class="eq-model">SIXSMOKEA</small><div class="eq-qty"><button onclick="chQty('smoke',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('smoke',this.value)"><button onclick="chQty('smoke',1)">+</button></div></div><div class="eq-card" id="ec-co"><div class="eq-name">Wireless CO Detector</div><div class="eq-price">$39.00</div><small class="eq-model">SIXCOA</small><div class="eq-qty"><button onclick="chQty('co',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('co',this.value)"><button onclick="chQty('co',1)">+</button></div></div><div class="eq-card" id="ec-smoke-co"><div class="eq-name">Wireless Smoke & CO Combo</div><div class="eq-price">$82.00</div><small class="eq-model">SIXCOMBOA</small><div class="eq-qty"><button onclick="chQty('smoke-co',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('smoke-co',this.value)"><button onclick="chQty('smoke-co',1)">+</button></div></div></div><div class="eq-cat">Translators</div><div class="eq-grid"><div class="eq-card" id="ec-translator-ww"><div class="eq-name">Wireless-to-Wireless Translator</div><div class="eq-price">$50.00</div><small class="eq-model">ADTCONVERT</small><div class="eq-qty"><button onclick="chQty('translator-ww',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('translator-ww',this.value)"><button onclick="chQty('translator-ww',1)">+</button></div></div><div class="eq-card" id="ec-translator-hw"><div class="eq-name">Hardwire-to-Wireless Translator</div><div class="eq-price">$52.50</div><small class="eq-model">SIXC2WA</small><div class="eq-qty"><button onclick="chQty('translator-hw',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('translator-hw',this.value)"><button onclick="chQty('translator-hw',1)">+</button></div></div></div><div class="eq-cat">Cameras & Doorbells</div><div class="eq-grid"><div class="eq-card" id="ec-cam-outdoor"><div class="eq-name">Outdoor Camera</div><div class="eq-price">$113.32</div><small class="eq-model">OC835V4 + Labor: $50</small><div class="eq-qty"><button onclick="chQty('cam-outdoor',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('cam-outdoor',this.value)"><button onclick="chQty('cam-outdoor',1)">+</button></div></div><div class="eq-card" id="ec-cam-indoor"><div class="eq-name">Indoor Camera</div><div class="eq-price">$82.70</div><small class="eq-model">RC8326-V2 + Labor: $50</small><div class="eq-qty"><button onclick="chQty('cam-indoor',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('cam-indoor',this.value)"><button onclick="chQty('cam-indoor',1)">+</button></div></div><div class="eq-card" id="ec-cam-1080-out"><div class="eq-name">1080P Outdoor Camera</div><div class="eq-price">$164.99</div><small class="eq-model">ADC-V722W + Labor: $50</small><div class="eq-qty"><button onclick="chQty('cam-1080-out',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('cam-1080-out',this.value)"><button onclick="chQty('cam-1080-out',1)">+</button></div></div><div class="eq-card" id="ec-cam-1080-in"><div class="eq-name">1080P Indoor Camera</div><div class="eq-price">$117.42</div><small class="eq-model">ADC-522-IR + Labor: $50</small><div class="eq-qty"><button onclick="chQty('cam-1080-in',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('cam-1080-in',this.value)"><button onclick="chQty('cam-1080-in',1)">+</button></div></div><div class="eq-card" id="ec-doorbell"><div class="eq-name">Video Doorbell</div><div class="eq-price">$107.49</div><small class="eq-model">N8-DBC835V2 + Labor: $35</small><div class="eq-qty"><button onclick="chQty('doorbell',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('doorbell',this.value)"><button onclick="chQty('doorbell',1)">+</button></div></div><div class="eq-card" id="ec-ring-doorbell"><div class="eq-name">Ring Video Doorbell (Gen 2)</div><div class="eq-price">$157.16</div><small class="eq-model">7G-8VR1S7OEN + Labor: $35</small><div class="eq-qty"><button onclick="chQty('ring-doorbell',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('ring-doorbell',this.value)"><button onclick="chQty('ring-doorbell',1)">+</button></div></div><div class="eq-card" id="ec-ring-chime"><div class="eq-name">Ring Chime</div><div class="eq-price">$48.75</div><small class="eq-model">Accessory</small><div class="eq-qty"><button onclick="chQty('ring-chime',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('ring-chime',this.value)"><button onclick="chQty('ring-chime',1)">+</button></div></div><div class="eq-card" id="ec-ring-chime-pro"><div class="eq-name">Ring Chime Pro</div><div class="eq-price">$61.25</div><small class="eq-model">Accessory</small><div class="eq-qty"><button onclick="chQty('ring-chime-pro',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('ring-chime-pro',this.value)"><button onclick="chQty('ring-chime-pro',1)">+</button></div></div><div class="eq-card" id="ec-wifi-repeater"><div class="eq-name">Wi-Fi Repeater</div><div class="eq-price">$47.50</div><small class="eq-model">W9-WN3000RP</small><div class="eq-qty"><button onclick="chQty('wifi-repeater',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('wifi-repeater',this.value)"><button onclick="chQty('wifi-repeater',1)">+</button></div></div></div><div class="eq-cat">Smart Home</div><div class="eq-grid"><div class="eq-card" id="ec-garage-zwave"><div class="eq-name">Z-Wave Garage Door Control</div><div class="eq-price">$84.21</div><small class="eq-model">LN-GD00Z6</small><div class="eq-qty"><button onclick="chQty('garage-zwave',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('garage-zwave',this.value)"><button onclick="chQty('garage-zwave',1)">+</button></div></div><div class="eq-card" id="ec-garage-myq"><div class="eq-name">MyQ LiftMaster Garage</div><div class="eq-price">$54.21</div><small class="eq-model">02-G821LMB</small><div class="eq-qty"><button onclick="chQty('garage-myq',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('garage-myq',this.value)"><button onclick="chQty('garage-myq',1)">+</button></div></div><div class="eq-card" id="ec-lamp-module"><div class="eq-name">Z-Wave Lamp Module</div><div class="eq-price">$31.29</div><small class="eq-model">JS-28170</small><div class="eq-qty"><button onclick="chQty('lamp-module',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('lamp-module',this.value)"><button onclick="chQty('lamp-module',1)">+</button></div></div><div class="eq-card" id="ec-lightbulb"><div class="eq-name">Z-Wave Smart Bulb</div><div class="eq-price">$31.24</div><small class="eq-model">JS-39723</small><div class="eq-qty"><button onclick="chQty('lightbulb',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('lightbulb',this.value)"><button onclick="chQty('lightbulb',1)">+</button></div></div><div class="eq-card" id="ec-thermostat"><div class="eq-name">Z-Wave Smart Thermostat</div><div class="eq-price">$87.14</div><small class="eq-model">NJ-ADCT2000A + Labor: $35</small><div class="eq-qty"><button onclick="chQty('thermostat',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('thermostat',this.value)"><button onclick="chQty('thermostat',1)">+</button></div></div><div class="eq-card" id="ec-dimmer"><div class="eq-name">Z-Wave Dimmer Switch</div><div class="eq-price">$37.49</div><small class="eq-model">JS-45712</small><div class="eq-qty"><button onclick="chQty('dimmer',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('dimmer',this.value)"><button onclick="chQty('dimmer',1)">+</button></div></div></div><div class="eq-cat">Smart Locks</div><div class="eq-grid"><div class="eq-card" id="ec-lock-bronze"><div class="eq-name">Kwikset Smart Lock Bronze</div><div class="eq-price">$118.88</div><small class="eq-model">KT-99100079 + Labor: $35</small><div class="eq-qty"><button onclick="chQty('lock-bronze',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('lock-bronze',this.value)"><button onclick="chQty('lock-bronze',1)">+</button></div></div><div class="eq-card" id="ec-lock-gold"><div class="eq-name">Kwikset Smart Lock Gold</div><div class="eq-price">$118.88</div><small class="eq-model">KT-99100077 + Labor: $35</small><div class="eq-qty"><button onclick="chQty('lock-gold',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('lock-gold',this.value)"><button onclick="chQty('lock-gold',1)">+</button></div></div><div class="eq-card" id="ec-lock-silver"><div class="eq-name">Kwikset Smart Lock Silver</div><div class="eq-price">$118.88</div><small class="eq-model">KT99100078 + Labor: $35</small><div class="eq-qty"><button onclick="chQty('lock-silver',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('lock-silver',this.value)"><button onclick="chQty('lock-silver',1)">+</button></div></div></div><div class="eq-cat">Keypads & Accessories</div><div class="eq-grid"><div class="eq-card" id="ec-touchscreen"><div class="eq-name">7" Secondary Touchscreen</div><div class="eq-price">$105.00</div><small class="eq-model">WTS700</small><div class="eq-qty"><button onclick="chQty('touchscreen',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('touchscreen',this.value)"><button onclick="chQty('touchscreen',1)">+</button></div></div><div class="eq-card" id="ec-deskmount-7"><div class="eq-name">7" Desk-Mount Kit</div><div class="eq-price">$24.99</div><small class="eq-model">DESKMT-WTS</small><div class="eq-qty"><button onclick="chQty('deskmount-7',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('deskmount-7',this.value)"><button onclick="chQty('deskmount-7',1)">+</button></div></div><div class="eq-card" id="ec-wallmount-7"><div class="eq-name">7" Wall-Mount Kit</div><div class="eq-price">$27.49</div><small class="eq-model">WALLMT-WTS</small><div class="eq-qty"><button onclick="chQty('wallmount-7',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('wallmount-7',this.value)"><button onclick="chQty('wallmount-7',1)">+</button></div></div><div class="eq-card" id="ec-deskmount-cmd"><div class="eq-name">Command Panel Desk-Mount</div><div class="eq-price">$18.74</div><small class="eq-model">DESKMT-AIO</small><div class="eq-qty"><button onclick="chQty('deskmount-cmd',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('deskmount-cmd',this.value)"><button onclick="chQty('deskmount-cmd',1)">+</button></div></div><div class="eq-card" id="ec-keypad-hw"><div class="eq-name">Hardwired Keypad</div><div class="eq-price">$40.00</div><small class="eq-model">WTP100</small><div class="eq-qty"><button onclick="chQty('keypad-hw',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('keypad-hw',this.value)"><button onclick="chQty('keypad-hw',1)">+</button></div></div><div class="eq-card" id="ec-touchpad-wireless"><div class="eq-name">Wireless Touchpad</div><div class="eq-price">$62.50</div><small class="eq-model">WLTP100</small><div class="eq-qty"><button onclick="chQty('touchpad-wireless',-1)">&#8722;</button><input type="number" value="0" min="0" onchange="stQty('touchpad-wireless',this.value)"><button onclick="chQty('touchpad-wireless',1)">+</button></div></div></div></div>
+          <div id="equipCatalog"></div>
         </div>
       </div>
       <div class="res-sticky">
         <div class="bundle-chip">
-          <div class="b-sup">Recommended Package</div>
-          <div class="b-name" id="rBundleName">Basic Protection</div>
-          <div class="b-sub" id="rBundleDesc">Essential security monitoring</div>
+          <div class="b-sup">Service Tier Check</div>
+          <div class="b-name" id="rBundleName">&mdash;</div>
+          <div class="b-sub" id="rBundleDesc">&mdash;</div>
         </div>
         <div class="res-panel">
-          <div class="r-item"><div class="r-lbl">Monthly Rate</div><div class="r-val" id="rRate">&mdash;</div></div>
-          <div class="r-item"><div class="r-lbl">Pass Through</div><div class="r-val" id="rPass">&mdash;</div></div>
-          <div class="r-item"><div class="r-lbl">Credit Multiple</div><div class="r-val" id="rBase">&mdash;</div></div>
-          <div class="r-item"><div class="r-lbl">Gross Commission</div><div class="r-val" id="rGross">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Rate &rarr; Fund Rate</div><div class="r-val" id="rRate">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Gross &rarr; Net Multiple</div><div class="r-val" id="rBase">&mdash;</div></div>
+          <div class="r-item"><div class="r-lbl">Gross Funding</div><div class="r-val" id="rGross">&mdash;</div></div>
           <div class="net-box">
-            <div class="r-lbl">&#128176; Net Commission</div>
+            <div class="r-lbl">&#128176; Total Pay (this deal)</div>
             <div class="r-val" id="rNet">&mdash;</div>
           </div>
           <div class="exp-box">
-            <h4>&#128188; Expense Breakdown</h4>
-            <div class="e-row"><span>DPS Fee</span><span id="eDps">&mdash;</span></div>
-            <div class="e-row"><span>Holdback (1.5&times; rate)</span><span id="eHold">&mdash;</span></div>
+            <h4>&#128188; Pay Breakdown</h4>
+            <div class="e-row"><span>Gross Funding</span><span id="eGross">&mdash;</span></div>
+            <div class="e-row"><span>Holdback Reserve (&minus;2&times; fund rate)</span><span id="eHold">&mdash;</span></div>
+            <div class="e-row"><span>Revenue (95% of collected)</span><span id="eRev">&mdash;</span></div>
             <div class="e-row"><span>Equipment Cost</span><span id="eEquip">&mdash;</span></div>
+            <div class="e-row"><span>Inventory Mgmt Fee</span><span id="eInv">&mdash;</span></div>
             <div class="e-row"><span>Labor Cost</span><span id="eLabor">&mdash;</span></div>
-            <div id="laborDetail"></div>
-            <div class="e-tot"><span>Total Expenses</span><span id="eTotal">&mdash;</span></div>
+            <div id="laborDetail" style="font-size:11.5px;color:var(--muted)"></div>
+            <div class="e-row"><span>Dealer Fee + Account Fee</span><span id="eDps">&mdash;</span></div>
+            <div class="e-row"><span>Pay Transfer Fee</span><span id="ePay">&mdash;</span></div>
+            <div class="e-row"><span>Other Charges</span><span id="eOther">&mdash;</span></div>
+            <div class="e-tot"><span>Total Pay</span><span id="eTotal">&mdash;</span></div>
           </div>
+          <div class="exp-box">
+            <h4>&#128737; Risk</h4>
+            <div class="e-row"><span>Chargeback if lost (13 mo)</span><span id="eCb">&mdash;</span></div>
+            <div class="e-row"><span>Added to reserve</span><span id="eRes">&mdash;</span></div>
+            <div style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5">Chargebacks come out of reserve only after 3 payments / 90 days and with a $5,000+ reserve balance; otherwise due immediately.</div>
+          </div>
+          <div id="dWarn" style="display:none;margin-top:8px;padding:10px 12px;border-radius:8px;background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.45);color:#fde68a;font-size:12px;line-height:1.5"></div>
         </div>
         <div class="ord-box">
           <div class="ord-hd">&#128203; Order Summary <span id="itemCount" style="font-size:12px;font-weight:600">(0 items)</span></div>
@@ -1305,6 +1339,27 @@ img,iframe,video,canvas,svg{max-width:100%}
         </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="p-wrap" style="padding-top:0">
+    <div class="p-glass" id="dealLogBox">
+      <div class="p-sec-t" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <span>&#128193; Deal Log <span id="logCount" style="font-size:12px;color:var(--muted);text-transform:none;letter-spacing:0"></span></span>
+        <span style="display:flex;gap:8px;flex-wrap:wrap">
+          <button onclick="saveDeal()" class="btn btn-p" style="border:none;border-radius:5px;padding:9px 14px;font-size:13px;cursor:pointer">&#128190; Save This Deal</button>
+          <button onclick="exportDeals()" class="btn btn-cpy" style="padding:9px 14px;font-size:13px;width:auto;cursor:pointer">&#11015; Export CSV</button>
+        </span>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="dealLog" style="width:100%;border-collapse:collapse;font-size:13px;color:#fff">
+          <thead><tr style="text-align:left;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em">
+            <th style="padding:8px 6px">Saved</th><th style="padding:8px 6px">Customer</th><th style="padding:8px 6px">Class</th><th style="padding:8px 6px">Service</th><th style="padding:8px 6px;text-align:right">Rate</th><th style="padding:8px 6px;text-align:right">Gross Funding</th><th style="padding:8px 6px;text-align:right">Total Pay</th><th style="padding:8px 6px;text-align:right">Reserve</th><th></th>
+          </tr></thead>
+          <tbody id="dealLogBody"></tbody>
+          <tfoot id="dealLogFoot"></tfoot>
+        </table>
+      </div>
+      <div id="logNote" style="font-size:11px;color:var(--muted);margin-top:8px">Saved on this device only. Export CSV to keep a permanent copy.</div>
     </div>
   </div>
 </div><!-- end pTab-calc -->
@@ -2041,82 +2096,167 @@ function closePortal() {
 // Portal is shown by default (CSS). The calculator is initialized at the
 // very end of this script, after EQUIP and all functions are defined.
 
-// ---- Package selector ----
-function handlePkgChange() {
-  var isCustom = document.getElementById('pkgType').value === 'custom';
-  document.getElementById('cbox').classList.toggle('on', isCustom);
-  calc();
-}
+// ================================================================
+//  CORVIEW PAY ENGINE  -  Security, Oct 2026
+//  Source: Corview Funding Schedule (10/26), Equipment Price Sheet
+//  (10/26) and Corview Pay Calc Tool (2026-10). Edit the tables
+//  below when Corview publishes a new month.
+// ================================================================
+var CV = {
+  version: 'Oct 2026',
+  // Base multiple by class
+  classes: {
+    'A+':   { m:39,   label:'A+ (795+)',          kind:'R', minRev:99 },
+    'A':    { m:38,   label:'A (760-794)',        kind:'R', minRev:99 },
+    'B':    { m:37.5, label:'B (705-759)',        kind:'R', minRev:99 },
+    'B-':   { m:37,   label:'B- (665-704)',       kind:'R', minRev:99 },
+    'D':    { m:33.5, label:'D (640-664)',        kind:'R', minRev:99 },
+    'E':    { m:33,   label:'E (600-639)',        kind:'R', minRev:99 },
+    'Bulk': { m:26.5, label:'Bulk (560+)',        kind:'R', minRev:299 },
+    'C':    { m:30,   label:'Commercial C',       kind:'C', minRev:99 },
+    'P':    { m:36,   label:'Prepaid P',          kind:'P', minRev:99 }
+  },
+  holdback: 2,            // -2X fund rate, goes to reserve
+  revenueKeep: 0.95,      // dealer keeps 95% of collected revenue
+  dealerFee: 300,         // per account processed
+  accountFee: 5,          // per account processed
+  inventoryPct: 0.20,     // 20% of equipment cost ...
+  inventoryX: 1,          // ... or 1X fund rate, whichever is greater
+  chargebackMonths: 13,
+  // Services: rate range, standard charge, prepaid charge, -X deduction
+  services: {
+    'Secure':   { name:'Secure',             site:'R', min:42.99, max:53.99, chg:3.50, pre:20, ded:1 },
+    'Smart':    { name:'Smart',              site:'R', min:49.99, max:63.99, chg:3.50, pre:22, ded:0, needs:'auto' },
+    'Complete': { name:'Complete',           site:'R', min:51.99, max:69.99, chg:6.50, pre:26, ded:0, needs:'camOrAuto' },
+    'Remote':   { name:'Premise Remote',     site:'C', min:49.99, max:55.99, chg:3.50, pre:16, ded:1 },
+    'Video':    { name:'Enterprise View',    site:'C', min:53.99, max:61.99, chg:3.25, pre:18, ded:0 },
+    'Total':    { name:'Total Productivity', site:'C', min:58.99, max:66.99, chg:3.50, pre:20, ded:0 }
+  },
+  video: { 'N': { name:'None', add:0, chg:0 }, 'GP': { name:'Google Premium', add:7, chg:1.50 } },
+  guard: { add:8, chg:8 },
+  // Labor by category for the $175 / $150 / $125 base columns
+  labor: {
+    System:[175,150,125], Keypad:[0,0,25], Lock:[35,25,25], Thermostat:[35,25,25],
+    Opener:[35,25,25], Doorbell:[25,50,25], Indoor:[35,50,25], Outdoor:[50,50,25],
+    Floodlight:[50,50,25], WiFi:[50,50,50], Service:[50,50,50]
+  }
+};
 
-// ---- Equipment database ----
+// ---- Equipment database (n=name, p=price, m=model, k=labor category, cat=section, v=price varies) ----
 var EQUIP = {
-  'panel-wireless':    { n:'ADT 7" Command Panel Wireless',   p:173.25, m:'ADT7AIO-1',     l:0,  cat:'Control Panels' },
-  'panel-hardwired':   { n:'ADT Hybrid Panel Hardwired',       p:99.75,  m:'ADTHYBWL-2',   l:0,  cat:'Control Panels' },
-  'radio-verizon':     { n:'Verizon LTE Radio',                p:52.50,  m:'ADTLTE-V',     l:0,  cat:'Cellular Radios' },
-  'radio-att':         { n:'AT&T LTE Radio',                   p:52.50,  m:'ADTLTE-A',     l:0,  cat:'Cellular Radios' },
-  'sensor-mini':       { n:'2-Way Mini Wireless Sensor',       p:11.55,  m:'SIXMINICT',    l:0,  cat:'Sensors & Contacts' },
-  'sensor-wireless':   { n:'2-Way Wireless Sensor',            p:11.24,  m:'SIXCTA',       l:0,  cat:'Sensors & Contacts' },
-  'sensor-motion':     { n:'2-Way Wireless Motion Sensor',     p:22.58,  m:'SIXPIRA',      l:0,  cat:'Sensors & Contacts' },
-  'sensor-keyfob':     { n:'2-Way Wireless Keyfob',            p:11.55,  m:'SIXFOBA',      l:0,  cat:'Sensors & Contacts' },
-  'contact-door':      { n:'Hardwired Door Contact',           p:3.36,   m:'GI-20RSTWH',   l:0,  cat:'Sensors & Contacts' },
-  'contact-window':    { n:'Hardwired Window Contact',         p:3.36,   m:'0E-2531WGW10', l:0,  cat:'Sensors & Contacts' },
-  'sensor-rollup':     { n:'Roll-Up Door Sensor',              p:38.75,  m:'958',           l:0,  cat:'Sensors & Contacts' },
-  'glass-break':       { n:'Wireless Glass-Break Sensor',      p:33.60,  m:'SIXGBA',       l:0,  cat:'Panic, Glass Break & Flood' },
-  'panic-button':      { n:'Wireless Panic Button',            p:27.00,  m:'SIXPANICA',    l:0,  cat:'Panic, Glass Break & Flood' },
-  'flood-sensor':      { n:'Wireless Flood Sensor',            p:45.00,  m:'SIXFLOODA',    l:0,  cat:'Panic, Glass Break & Flood' },
-  'shock-sensor':      { n:'Wireless Shock Sensor',            p:17.50,  m:'SIXSHOCKA',    l:0,  cat:'Panic, Glass Break & Flood' },
-  'smoke':             { n:'Wireless Smoke Detector',          p:33.60,  m:'SIXSMOKEA',    l:0,  cat:'Smoke & CO' },
-  'co':                { n:'Wireless CO Detector',             p:39.00,  m:'SIXCOA',       l:0,  cat:'Smoke & CO' },
-  'smoke-co':          { n:'Wireless Smoke & CO Combo',        p:82.00,  m:'SIXCOMBOA',    l:0,  cat:'Smoke & CO' },
-  'translator-ww':     { n:'Wireless-to-Wireless Translator',  p:50.00,  m:'ADTCONVERT',   l:0,  cat:'Translators' },
-  'translator-hw':     { n:'Hardwire-to-Wireless Translator',  p:52.50,  m:'SIXC2WA',      l:0,  cat:'Translators' },
-  'cam-outdoor':       { n:'Outdoor Camera',                   p:113.32, m:'OC835V4',      l:50, cat:'Cameras & Doorbells' },
-  'cam-indoor':        { n:'Indoor Camera',                    p:82.70,  m:'RC8326-V2',    l:50, cat:'Cameras & Doorbells' },
-  'cam-1080-out':      { n:'1080P Outdoor Camera',             p:164.99, m:'ADC-V722W',    l:50, cat:'Cameras & Doorbells' },
-  'cam-1080-in':       { n:'1080P Indoor Camera',              p:117.42, m:'ADC-522-IR',   l:50, cat:'Cameras & Doorbells' },
-  'doorbell':          { n:'Video Doorbell',                   p:107.49, m:'N8-DBC835V2',  l:35, cat:'Cameras & Doorbells' },
-  'ring-doorbell':     { n:'Ring Video Doorbell (Gen 2)',       p:157.16, m:'7G-8VR1S7OEN', l:35, cat:'Cameras & Doorbells' },
-  'ring-chime':        { n:'Ring Chime',                       p:48.75,  m:'Accessory',    l:0,  cat:'Cameras & Doorbells' },
-  'ring-chime-pro':    { n:'Ring Chime Pro',                   p:61.25,  m:'Accessory',    l:0,  cat:'Cameras & Doorbells' },
-  'wifi-repeater':     { n:'Wi-Fi Repeater',                   p:47.50,  m:'W9-WN3000RP',  l:0,  cat:'Cameras & Doorbells' },
-  'garage-zwave':      { n:'Z-Wave Garage Door Control',       p:84.21,  m:'LN-GD00Z6',    l:0,  cat:'Smart Home' },
-  'garage-myq':        { n:'MyQ LiftMaster Garage',            p:54.21,  m:'02-G821LMB',   l:0,  cat:'Smart Home' },
-  'lamp-module':       { n:'Z-Wave Lamp Module',               p:31.29,  m:'JS-28170',     l:0,  cat:'Smart Home' },
-  'lightbulb':         { n:'Z-Wave Smart Bulb',                p:31.24,  m:'JS-39723',     l:0,  cat:'Smart Home' },
-  'thermostat':        { n:'Z-Wave Smart Thermostat',          p:87.14,  m:'NJ-ADCT2000A', l:35, cat:'Smart Home' },
-  'dimmer':            { n:'Z-Wave Dimmer Switch',             p:37.49,  m:'JS-45712',     l:0,  cat:'Smart Home' },
-  'lock-bronze':       { n:'Kwikset Smart Lock Bronze',        p:118.88, m:'KT-99100079',  l:35, cat:'Smart Locks' },
-  'lock-gold':         { n:'Kwikset Smart Lock Gold',          p:118.88, m:'KT-99100077',  l:35, cat:'Smart Locks' },
-  'lock-silver':       { n:'Kwikset Smart Lock Silver',        p:118.88, m:'KT99100078',   l:35, cat:'Smart Locks' },
-  'touchscreen':       { n:'7" Secondary Touchscreen',         p:105.00, m:'WTS700',       l:0,  cat:'Keypads & Accessories' },
-  'deskmount-7':       { n:'7" Desk-Mount Kit',                p:24.99,  m:'DESKMT-WTS',   l:0,  cat:'Keypads & Accessories' },
-  'wallmount-7':       { n:'7" Wall-Mount Kit',                p:27.49,  m:'WALLMT-WTS',   l:0,  cat:'Keypads & Accessories' },
-  'deskmount-cmd':     { n:'Command Panel Desk-Mount',         p:18.74,  m:'DESKMT-AIO',   l:0,  cat:'Keypads & Accessories' },
-  'keypad-hw':         { n:'Hardwired Keypad',                 p:40.00,  m:'WTP100',       l:0,  cat:'Keypads & Accessories' },
-  'touchpad-wireless': { n:'Wireless Touchpad',                p:62.50,  m:'WLTP100',      l:0,  cat:'Keypads & Accessories' }
+  'adtp-system':    { n:'ADT+ System (Base + 8" Touchscreen)', p:231.36, m:'ADTBASE502R0 + STS5R0',  k:'System',     cat:'ADT+ System' },
+  'adtp-base':      { n:'ADT+ Base',                           p:92.95,  m:'ADTBASE502R0-01-WH',     k:'System',     cat:'ADT+ System' },
+  'adtp-touch':     { n:'ADT+ Touchscreen (8in)',              p:138.41, m:'STS5R0-01-WH-PRO-1',     k:'Keypad',     cat:'ADT+ System' },
+  'adtp-keypad':    { n:'ADT+ Keypad',                         p:77.36,  m:'SKP5R0-01-WH-PRO',       k:'Keypad',     cat:'ADT+ System' },
+  'adtp-trans':     { n:'ADT+ Translator (Wireless/Hardwire)', p:75.97,  m:'SSB5R0-34-WH',           k:'Convert',    cat:'ADT+ System' },
+  'adtp-repeat':    { n:'ADT+ Wireless Repeater',              p:42.28,  m:'SSEX5R0-29-WH',          k:'Repeat',     cat:'ADT+ System' },
+  'adtp-dw':        { n:'Door/Window Contact',                 p:12.17,  m:'SSH5R0-29-WH',           k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-motion':    { n:'Motion Detector',                     p:18.11,  m:'SSM5R0-29-WH',           k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-fob':       { n:'Keyfob (4-Button)',                   p:14.15,  m:'SKF3R0-29-WH',           k:'None',       cat:'ADT+ Peripherals' },
+  'adtp-gb':        { n:'Glassbreak Detector',                 p:35.22,  m:'SSGB5R0-29-WH',          k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-smoke':     { n:'Smoke Detector',                      p:48.97,  m:'SSS5R0-29-WH',           k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-co':        { n:'Carbon Monoxide Detector',            p:52.69,  m:'SSCO5R0-29-WH',          k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-smokeco':   { n:'Smoke/CO Detector',                   p:63.63,  m:'SSSX5R0-29-WH',          k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-shock':     { n:'Shock Sensor',                        p:15.06,  m:'SSHX5R0-29-WH',          k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-flood':     { n:'Flood/Temperature Detector',          p:17.32,  m:'SSW5R0-29-WH',           k:'Sensor',     cat:'ADT+ Peripherals' },
+  'adtp-siren':     { n:'Indoor Siren',                        p:42.30,  m:'SAH5R0-29-WH',           k:'Sensor',     cat:'ADT+ Peripherals' },
+  'light-module':   { n:'Honeywell Light Module',              p:31.99,  m:'Z5SWPID',                k:'Light',      cat:'Smart Home', auto:1 },
+  'nest-std':       { n:'Google Nest Thermostat (Standard)',   p:68.50,  m:'GA01334-US',             k:'Thermostat', cat:'Smart Home', auto:1 },
+  'nest-temp':      { n:'Google Nest Thermostat (Temp)',       p:237.99, m:'GA05169-US',             k:'Thermostat', cat:'Smart Home', auto:1 },
+  'lock-button':    { n:'Kwikset Deadbolt Lock - Button',      p:106.45, m:'98935-001/-002/-007',    k:'Lock',       cat:'Smart Home', auto:1 },
+  'lock-touch':     { n:'Kwikset Deadbolt Lock - Touchscreen', p:183.95, m:'99180-001/-002/-006',    k:'Lock',       cat:'Smart Home', auto:1 },
+  'garage-linear':  { n:'Linear Garage Door Controller',       p:98.28,  m:'GD00Z-8-GC',             k:'Opener',     cat:'Smart Home', auto:1 },
+  'g-doorbell':     { n:'Google Video Doorbell',               p:110.03, m:'GA01318-US',             k:'Doorbell',   cat:'Google Video', cam:1 },
+  'g-indoor':       { n:'Google Indoor Camera',                p:78.00,  m:'GA09973-US',             k:'Indoor',     cat:'Google Video', cam:1 },
+  'g-outdoor':      { n:'Google Outdoor Camera',               p:133.64, m:'GA10919-US',             k:'Outdoor',    cat:'Google Video', cam:1 },
+  'g-flood':        { n:'Google Floodlight Camera',            p:189.99, m:'GA02411-US',             k:'Floodlight', cat:'Google Video', cam:1 },
+  'acc-livelight':  { n:'ADT+ Live Light',                     p:32.13,  m:'ADTPLUS-YS-R0-29',       k:'None',       cat:'Accessories' },
+  'acc-cover':      { n:'Contact / Shock Sensor Color Cover',  p:2.59,   m:'DWCOVER-SR, DWPCOVER-SR', k:'None',      cat:'Accessories' },
+  'acc-magnet':     { n:'Contact / Shock Sensor Magnet',       p:3.60,   m:'DWMAGNET-SR',            k:'None',       cat:'Accessories' },
+  'acc-spacer':     { n:'Contact / Shock Sensor Spacer',       p:4.06,   m:'DWSHIM-SR',              k:'None',       cat:'Accessories' },
+  'acc-overhead':   { n:'Resideo Overhead Contact',            p:21.99,  m:'958',                    k:'None',       cat:'Accessories' },
+  'acc-xfmr':       { n:'Power Transformer',                   p:20.99,  m:'PPS1650',                k:'None',       cat:'Accessories' },
+  'acc-strip':      { n:'Ultratech Power Outlet Strip',        p:16.99,  m:'6SURGE',                 k:'None',       cat:'Accessories' },
+  'acc-battery':    { n:'Battery',                             p:3.99,   m:'CR123A',                 k:'None',       cat:'Accessories' },
+  'acc-chime':      { n:'Doorbell Chime Kit',                  p:40.00,  m:'Price varies',           k:'None',       cat:'Accessories', v:1 },
+  'acc-wifi':       { n:'WiFi Extender',                       p:32.31,  m:'Price varies',           k:'WiFi',       cat:'Accessories', v:1 },
+  'svc-overage':    { n:'Labor Overage',                       p:5.00,   m:'Per unit',               k:'None',       cat:'Labor & Service' },
+  'svc-service':    { n:'Service Call',                        p:50.00,  m:'Trip + labor',           k:'Service',    cat:'Labor & Service' },
+  // Legacy items still on the Corview pay tool (not on the Oct price sheet)
+  'cmd-system':     { n:'ADT Command System (Panel + Cell)',   p:243.59, m:'Legacy',                 k:'System',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-panel':      { n:'ADT Command Panel',                   p:186.94, m:'Legacy',                 k:'System',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-cell':       { n:'ADT Command Cell',                    p:56.65,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-dw':         { n:'Wireless Door/Window Sensor',         p:9.96,   m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-minidw':     { n:'Wireless Mini Door/Window Sensor',    p:13.88,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-motion':     { n:'Wireless Motion Detector',            p:24.37,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-fob':        { n:'Wireless Keychain Remote',            p:12.46,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-gb':         { n:'Wireless Glassbreak Detector',        p:36.26,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-panic':      { n:'Wireless Panic',                      p:27.19,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-smoke':      { n:'Wireless Smoke Detector',             p:36.26,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-heat':       { n:'Wireless Heat Detector',              p:33.99,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-co':         { n:'Wireless CO Detector',                p:40.78,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-smokeco':    { n:'Wireless Smoke/CO Detector',          p:89.50,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-isiren':     { n:'Wireless Indoor Siren/Strobe',        p:45.32,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-osiren':     { n:'Wireless Outdoor Siren/Strobe',       p:67.98,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-shock':      { n:'Wireless Shock Sensor',               p:13.92,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-flood':      { n:'Wireless Flood Detector',             p:40.79,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-temp':       { n:'Wireless Temperature Sensor',         p:23.79,  m:'Legacy',                 k:'Sensor',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-hw2w':       { n:'Hardwire to Wireless Converter (8 Zones)', p:53.99, m:'Legacy',             k:'Convert',    cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-w2w':        { n:'Wireless to Wireless Converter',      p:47.59,  m:'Legacy',                 k:'Convert',    cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-repeat':     { n:'Wireless Repeater',                   p:73.65,  m:'Legacy',                 k:'Repeat',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-7in':        { n:'Wireless 7" Touchscreen Keypad',      p:138.00, m:'Legacy',                 k:'Keypad',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-touchpad':   { n:'Wireless Touchpad',                   p:56.65,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-wiredpad':   { n:'Wired Touchpad',                      p:36.26,  m:'Legacy',                 k:'Keypad',     cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-antenna':    { n:'External LTE Antenna',                p:24.23,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'cmd-deskmount':  { n:'Desktop Mount for Command Panel',     p:16.98,  m:'Legacy',                 k:'None',       cat:'Legacy ADT Command / Alarm.com' },
+  'garage-lift':    { n:'Garage Door Controller (LiftMaster)', p:70.02,  m:'Legacy',                 k:'Opener',     cat:'Legacy ADT Command / Alarm.com', auto:1 },
+  'adc-doorbell':   { n:'Alarm.com Video Doorbell',            p:118.03, m:'Legacy',                 k:'Doorbell',   cat:'Legacy ADT Command / Alarm.com', cam:1 },
+  'adc-indoor':     { n:'Alarm.com Indoor Camera',             p:61.23,  m:'Legacy',                 k:'Indoor',     cat:'Legacy ADT Command / Alarm.com', cam:1 },
+  'adc-outdoor':    { n:'Alarm.com Outdoor Camera (Spotlight)', p:35.75, m:'Legacy',                 k:'Outdoor',    cat:'Legacy ADT Command / Alarm.com', cam:1 },
+  'adc-flood':      { n:'Alarm.com Floodlight Camera',         p:233.93, m:'Legacy',                 k:'Floodlight', cat:'Legacy ADT Command / Alarm.com', cam:1 }
 };
 
 var qty = {};
+var priceOverride = {};
+
+function r2(n) { return Math.round((n + Number.EPSILON) * 100) / 100; }
+function fmt(n) { return '$' + Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function sfmt(n) { return (n < 0 ? '-' : n > 0 ? '+' : '') + fmt(n); }
+function unitPrice(id) { return priceOverride[id] != null ? priceOverride[id] : EQUIP[id].p; }
+function laborBaseIdx() {
+  var b = parseInt((document.getElementById('dLaborBase') || {}).value, 10);
+  return b === 175 ? 0 : b === 125 ? 2 : 1;
+}
+function laborFor(id) {
+  var row = CV.labor[EQUIP[id].k];
+  return row ? row[laborBaseIdx()] : 0;
+}
 
 function buildCatalog() {
-  var cats = {};
+  var cats = {}, order = [];
   Object.keys(EQUIP).forEach(function(id) {
     var c = EQUIP[id].cat;
-    if (!cats[c]) cats[c] = [];
+    if (!cats[c]) { cats[c] = []; order.push(c); }
     cats[c].push(id);
   });
   var h = '';
-  Object.keys(cats).forEach(function(cat) {
-    h += '<div class="eq-cat">' + cat + '</div><div class="eq-grid">';
+  order.forEach(function(cat) {
+    var legacy = cat.indexOf('Legacy') === 0;
+    if (legacy) h += '<details style="margin-top:6px"><summary class="eq-cat" style="cursor:pointer">' + cat + ' (' + cats[cat].length + ')</summary>';
+    else h += '<div class="eq-cat">' + cat + '</div>';
+    h += '<div class="eq-grid">';
     cats[cat].forEach(function(id) {
       var e = EQUIP[id];
       var q = qty[id] || 0;
-      var sel = q > 0 ? ' sel' : '';
-      var labor = e.l > 0 ? ' + Labor: $' + e.l : '';
-      h += '<div class="eq-card' + sel + '" id="ec-' + id + '">';
+      var lab = laborFor(id);
+      h += '<div class="eq-card' + (q > 0 ? ' sel' : '') + '" id="ec-' + id + '">';
       h += '<div class="eq-name">' + e.n + '</div>';
-      h += '<div class="eq-price">$' + e.p.toFixed(2) + '</div>';
-      h += '<small class="eq-model">' + e.m + labor + '</small>';
+      if (e.v) {
+        h += '<div class="eq-price">$<input type="number" step="0.01" min="0" value="' + unitPrice(id).toFixed(2) + '" onchange="setPrice(\'' + id + '\',this.value)" style="width:80px;padding:2px 4px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.3);color:#fff;font:inherit"> <span style="font-size:10px;color:var(--muted)">edit</span></div>';
+      } else {
+        h += '<div class="eq-price">$' + e.p.toFixed(2) + '</div>';
+      }
+      h += '<small class="eq-model">' + e.m + (lab > 0 ? ' &middot; Labor $' + lab : '') + '</small>';
       h += '<div class="eq-qty">';
       h += '<button onclick="chQty(\'' + id + '\',-1)">&#8722;</button>';
       h += '<input type="number" value="' + q + '" min="0" onchange="stQty(\'' + id + '\',this.value)">';
@@ -2124,25 +2264,19 @@ function buildCatalog() {
       h += '</div></div>';
     });
     h += '</div>';
+    if (legacy) h += '</details>';
   });
   document.getElementById('equipCatalog').innerHTML = h;
 }
 
-function chQty(id, d) {
-  qty[id] = Math.max(0, (qty[id] || 0) + d);
-  refreshCard(id);
-  calc();
-}
-function stQty(id, v) {
-  qty[id] = Math.max(0, parseInt(v) || 0);
-  refreshCard(id);
-  calc();
-}
+function setPrice(id, v) { var n = parseFloat(v); priceOverride[id] = isNaN(n) ? null : Math.max(0, n); calc(); }
+function chQty(id, d) { qty[id] = Math.max(0, (qty[id] || 0) + d); refreshCard(id); calc(); }
+function stQty(id, v) { qty[id] = Math.max(0, parseInt(v, 10) || 0); refreshCard(id); calc(); }
 function refreshCard(id) {
   var el = document.getElementById('ec-' + id);
   if (!el) return;
   el.classList.toggle('sel', (qty[id] || 0) > 0);
-  el.querySelector('input').value = qty[id] || 0;
+  el.querySelector('.eq-qty input').value = qty[id] || 0;
 }
 function clearEquip() {
   if (!confirm('Clear all equipment selections?')) return;
@@ -2151,199 +2285,288 @@ function clearEquip() {
   calc();
 }
 
-function fmt(n) { return '$' + Math.abs(n).toFixed(2); }
-
-function calc() {
-  var pkgEl = document.getElementById('pkgType');
-  if (!pkgEl) return; // portal not yet in DOM
-  var v = pkgEl.value;
-  var rate, pass;
-  if (v === 'custom') {
-    rate = parseFloat(document.getElementById('customRate').value) || 0;
-    pass = parseFloat(document.getElementById('customPass').value) || 0;
-  } else {
-    var parts = v.split('-');
-    rate = parseFloat(parts[0]);
-    pass = parseFloat(parts[1]);
-  }
-  var ccSel  = document.getElementById('creditClass');
-  var base   = parseInt(ccSel.value) || 35;
-  var holdMult = 1.5;
-  var ccOpt = ccSel.options[ccSel.selectedIndex];
-  if (ccOpt && ccOpt.getAttribute('data-hold')) { holdMult = parseFloat(ccOpt.getAttribute('data-hold')) || 1.5; }
-  var volEl = document.getElementById('volBonus');
-  var volBonusOn = !!(volEl && volEl.checked);
-  if (volBonusOn) { base += 1; }  // Exhibit A: accounts over 10/month earn +1 multiple
-  var upsell = parseFloat(document.getElementById('upsellAmt').value) || 0;
-  var baseLbr = Math.max(150, parseFloat(document.getElementById('installFee').value) || 150);
-  var equipCost = 0, laborCost = baseLbr;
-  var laborLines = [{ n: 'Base Install', c: baseLbr }];
-  var camCount = 0, hasLock = false, hasThermostat = false, hasDoorbell = false, totalDev = 0;
-
-  Object.keys(qty).forEach(function(id) {
-    var q = qty[id];
-    if (q > 0 && EQUIP[id]) {
-      var e = EQUIP[id];
-      equipCost += e.p * q;
-      totalDev  += q;
-      if (id.indexOf('cam-') === 0)                            camCount += q;
-      if (id === 'doorbell' || id === 'ring-doorbell')         hasDoorbell = true;
-      if (id.indexOf('lock-') === 0)                           hasLock = true;
-      if (id === 'thermostat')                                 hasThermostat = true;
-      if (e.l > 0) {
-        laborCost += e.l * q;
-        laborLines.push({ n: e.n + ' (' + q + 'x$' + e.l + ')', c: e.l * q });
-      }
-    }
+// ---- Class / service selectors ----
+function fillServices() {
+  var cls = CV.classes[document.getElementById('dClass').value];
+  var sel = document.getElementById('dService');
+  var prev = sel.value || 'Complete';
+  var h = '';
+  Object.keys(CV.services).forEach(function(k) {
+    var s = CV.services[k];
+    var ok = cls.kind === 'P' || (cls.kind === 'C' ? s.site === 'C' : s.site === 'R');
+    if (ok) h += '<option value="' + k + '">' + s.name + (s.site === 'C' ? ' (Commercial)' : '') + ' &mdash; $' + s.min.toFixed(2) + '&ndash;$' + s.max.toFixed(2) + '</option>';
   });
-
-  var bName = 'Basic Protection', bDesc = 'Essential security monitoring', bClr = '#94a3b8';
-  if      (camCount >= 4 && hasLock && hasThermostat)                  { bName = 'Total Intelligence';  bDesc = 'Premium multi-camera + full automation';   bClr = '#a78bfa'; }
-  else if ((camCount > 0 || hasDoorbell) && (hasLock || hasThermostat)){ bName = 'Pulse Smart Home';    bDesc = 'Smart security with video + automation';    bClr = '#22c55e'; }
-  else if (camCount > 0 || hasLock || hasThermostat || hasDoorbell)    { bName = 'Pulse Entry';         bDesc = 'Enhanced security with smart integration';  bClr = '#06b6d4'; }
-  else if (totalDev >= 5)                                               { bName = 'Enhanced Basic';     bDesc = 'Comprehensive whole-home sensor coverage';  bClr = '#60a5fa'; }
-
-  var rbn = document.getElementById('rBundleName');
-  if (rbn) { rbn.textContent = bName; rbn.style.color = bClr; }
-  function setEl(id, val) { var e = document.getElementById(id); if (e) e.textContent = val; }
-  setEl('rBundleDesc', bDesc);
-
-  var gross    = rate * base;
-  var DPS_FEE  = 200;
-  var hold     = rate * holdMult;
-  var totalExp = DPS_FEE + hold + equipCost + laborCost;
-  var net      = gross - totalExp + upsell;
-
-  setEl('rRate',  fmt(rate));
-  setEl('rPass',  pass + 'x');
-  setEl('rBase',  base + 'x' + (volBonusOn ? ' (+1 vol)' : ''));
-  setEl('rGross', fmt(gross));
-  setEl('rNet',   fmt(net));
-  setEl('eDps',   '-' + fmt(DPS_FEE));
-  setEl('eHold',  '-' + fmt(hold));
-  setEl('eEquip', '-' + fmt(equipCost));
-  setEl('eLabor', '-' + fmt(laborCost));
-  setEl('eTotal', '-' + fmt(totalExp));
-  document.getElementById('laborDetail').innerHTML = laborLines.map(function(l) {
-    return '<div style="display:flex;justify-content:space-between;padding:3px 0"><span>&#183; ' + l.n + '</span><span>-$' + l.c.toFixed(2) + '</span></div>';
-  }).join('');
-  updateOrderList();
+  sel.innerHTML = h;
+  if (sel.querySelector('option[value="' + prev + '"]')) sel.value = prev;
+  else if (cls.kind === 'C') sel.value = 'Remote';
+}
+function rateRange() {
+  var s = CV.services[document.getElementById('dService').value];
+  var vid = CV.video[document.getElementById('dVideo').value];
+  var inv = document.getElementById('dInvoice').checked ? 1 : 0;
+  return { min: r2(s.min + vid.add + inv), max: r2(s.max + vid.add + inv) };
+}
+function onClassChange() { fillServices(); onServiceChange(); }
+function onServiceChange() {
+  // Snap the rate into the allowed range when it falls outside it
+  var rg = rateRange();
+  var el = document.getElementById('dRate');
+  var r = parseFloat(el.value);
+  if (isNaN(r) || r < rg.min) el.value = rg.min.toFixed(2);
+  else if (r > rg.max) el.value = rg.max.toFixed(2);
+  calc();
 }
 
-function updateOrderList() {
-  var items = [], total = 0;
+// ---- The pay calculation (one deal) ----
+function computeDeal() {
+  var clsKey = document.getElementById('dClass').value;
+  var cls = CV.classes[clsKey];
+  var svcKey = document.getElementById('dService').value;
+  var svc = CV.services[svcKey];
+  var vidKey = document.getElementById('dVideo').value;
+  var vid = CV.video[vidKey];
+  var invoicing = document.getElementById('dInvoice').checked;
+  var guard = document.getElementById('dGuard').checked;
+  var rate = parseFloat(document.getElementById('dRate').value) || 0;
+  var collected = parseFloat(document.getElementById('dRev').value) || 0;
+  var extraDed = parseFloat(document.getElementById('dDeduct').value) || 0;
+  var other = parseFloat(document.getElementById('dOther').value) || 0;
+  var payPct = parseFloat(document.getElementById('dPay').value) || 0;
+  var payLbl = document.getElementById('dPay').selectedOptions[0].text;
+  var invMode = document.getElementById('dInv').value;
+
+  // Fund rate = rate - service charge - video charge (Guard Response nets to zero)
+  var svcCharge = cls.kind === 'P' ? svc.pre : svc.chg;
+  var fundRate = r2(rate - svcCharge - vid.chg);
+
+  // Multiples
+  var base = cls.m;
+  var deductX = svc.ded + (invoicing ? 1 : 0) + extraDed;
+  var grossX = base - deductX;
+  var netX = grossX - CV.holdback;
+
+  var grossFunding = r2(grossX * fundRate);
+  var holdback = -r2(CV.holdback * fundRate);
+  var revenue = r2(collected * CV.revenueKeep);
+
+  // Equipment + labor
+  var equip = 0, labor = 0, lines = [], laborLines = [], cams = 0, autos = 0, hasSystem = false;
   Object.keys(qty).forEach(function(id) {
     var q = qty[id];
-    if (q > 0 && EQUIP[id]) {
-      var e = EQUIP[id];
-      items.push({ n: e.n, m: e.m, q: q, t: (e.p + e.l) * q });
-      total += q;
-    }
+    if (!(q > 0) || !EQUIP[id]) return;
+    var e = EQUIP[id], up = unitPrice(id), lab = laborFor(id);
+    equip += up * q;
+    labor += lab * q;
+    if (e.cam) cams += q;
+    if (e.auto) autos += q;
+    if (e.k === 'System') hasSystem = true;
+    lines.push({ id:id, n:e.n, m:e.m, q:q, p:up, l:lab });
+    if (lab > 0) laborLines.push({ n: e.n + ' (' + q + ' x $' + lab + ')', c: lab * q });
   });
-  document.getElementById('itemCount').textContent = '(' + total + ' item' + (total !== 1 ? 's' : '') + ')';
-  if (items.length) {
-    document.getElementById('orderList').innerHTML = items.map(function(it) {
-      return '<div class="ord-line"><div><div class="o-name">' + it.n + '</div><div class="o-sub">' + it.m + ' x ' + it.q + '</div></div><div class="o-price">$' + it.t.toFixed(2) + '</div></div>';
+  equip = r2(equip);
+  var invFee = invMode === 'Company' && equip > 0 ? r2(Math.max(equip * CV.inventoryPct, fundRate * CV.inventoryX)) : 0;
+  var dealerFees = CV.dealerFee + CV.accountFee;
+
+  // Pay transfer fee is taken on funding before the inventory fee and other charges (Corview pay tool)
+  var preFee = grossFunding + holdback + revenue - equip - labor - dealerFees;
+  var payFee = preFee > 0 ? r2(preFee * payPct) : 0;
+  var total = r2(grossFunding + holdback + revenue - equip - invFee - labor - dealerFees - payFee - other);
+
+  // Warnings
+  var warn = [];
+  var rg = rateRange();
+  if (rate < rg.min - 0.001 || rate > rg.max + 0.001) warn.push('Rate must be between $' + rg.min.toFixed(2) + ' and $' + rg.max.toFixed(2) + ' for ' + svc.name + (vid.add ? ' + ' + vid.name : '') + (invoicing ? ' with invoicing' : '') + '.');
+  else if (Math.abs((rate - rg.min) - Math.round(rate - rg.min)) > 0.001) warn.push('Rate may only move in $1.00 steps from $' + rg.min.toFixed(2) + '.');
+  if (collected < cls.minRev) warn.push('Minimum revenue is $' + cls.minRev + (clsKey === 'Bulk' ? ' for Bulk' : '') + ' (collected: $' + collected.toFixed(2) + ').');
+  if (!hasSystem) warn.push('No system/panel selected yet.');
+  var tierOk = true, tierMsg = svc.name + ' service';
+  if (svc.needs === 'auto' && autos < 1) { tierOk = false; tierMsg = 'Smart needs at least 1 automation device (lock, thermostat, garage, light module).'; }
+  if (svc.needs === 'camOrAuto' && autos + cams < 1) { tierOk = false; tierMsg = 'Complete needs at least 1 camera and/or automation device.'; }
+  if (!tierOk) warn.push(tierMsg);
+  if (clsKey === 'P') warn.push('Prepaid: full 36-month term paid upfront; not available in all areas.');
+  if (clsKey === 'C') warn.push('Commercial credit check fee ($10 Equifax / $20 Experian) goes in Other Charges.');
+  if (invoicing) warn.push('Invoicing requires an eligible credit score and quarterly billing.');
+  if (fundRate <= 0) warn.push('Fund rate is zero or negative - check the rate.');
+
+  return {
+    clsKey:clsKey, cls:cls, svcKey:svcKey, svc:svc, vid:vid, invoicing:invoicing, guard:guard,
+    rate:rate, customerMonthly:r2(rate + (guard ? CV.guard.add : 0)), svcCharge:svcCharge, fundRate:fundRate,
+    base:base, deductX:deductX, grossX:grossX, netX:netX,
+    grossFunding:grossFunding, holdback:holdback, collected:collected, revenue:revenue,
+    equip:equip, invFee:invFee, invMode:invMode, labor:labor, laborLines:laborLines, dealerFees:dealerFees,
+    payPct:payPct, payLbl:payLbl, payFee:payFee, other:other, total:total,
+    chargeback:grossFunding, reserve:-holdback,
+    lines:lines, cams:cams, autos:autos, tierOk:tierOk, tierMsg:tierMsg, warn:warn
+  };
+}
+
+function calc() {
+  var cEl = document.getElementById('dClass');
+  if (!cEl) return;
+  if (!document.getElementById('dService').options.length) fillServices();
+  var d = computeDeal();
+  function setEl(id, val) { var e = document.getElementById(id); if (e) e.textContent = val; }
+
+  var rg = rateRange();
+  setEl('rateHint', 'Allowed: $' + rg.min.toFixed(2) + ' - $' + rg.max.toFixed(2) + ' in $1 steps' + (d.guard ? ' (customer pays $' + d.customerMonthly.toFixed(2) + ' with Guard)' : ''));
+
+  var rbn = document.getElementById('rBundleName');
+  if (rbn) { rbn.textContent = d.svc.name + (d.vid.add ? ' + ' + d.vid.name : ''); rbn.style.color = d.tierOk ? '#4ade80' : '#fbbf24'; }
+  setEl('rBundleDesc', d.tierOk ? d.cls.label + ' · ' + d.cams + ' camera(s), ' + d.autos + ' automation' : d.tierMsg);
+
+  setEl('rRate', fmt(d.rate) + ' → ' + fmt(d.fundRate));
+  setEl('rBase', d.grossX + 'x → ' + d.netX + 'x');
+  setEl('rGross', fmt(d.grossFunding));
+  setEl('rNet', (d.total < 0 ? '-' : '') + fmt(d.total));
+  setEl('eGross', '+' + fmt(d.grossFunding));
+  setEl('eHold', sfmt(d.holdback));
+  setEl('eRev', sfmt(d.revenue));
+  setEl('eEquip', sfmt(-d.equip));
+  setEl('eInv', d.invMode === 'Company' ? sfmt(-d.invFee) : '$0.00 (dealer stock)');
+  setEl('eLabor', sfmt(-d.labor));
+  setEl('eDps', sfmt(-d.dealerFees));
+  setEl('ePay', d.payPct ? sfmt(-d.payFee) + ' (' + (d.payPct * 100) + '%)' : '$0.00');
+  setEl('eOther', sfmt(-d.other));
+  setEl('eTotal', (d.total < 0 ? '-' : '') + fmt(d.total));
+  setEl('eCb', '-' + fmt(d.chargeback));
+  setEl('eRes', fmt(d.reserve));
+  var ld = document.getElementById('laborDetail');
+  if (ld) ld.innerHTML = d.laborLines.map(function(l) {
+    return '<div style="display:flex;justify-content:space-between;padding:2px 0 2px 8px"><span>&#183; ' + l.n + '</span><span>-$' + l.c.toFixed(2) + '</span></div>';
+  }).join('');
+  var w = document.getElementById('dWarn');
+  if (w) { w.style.display = d.warn.length ? 'block' : 'none'; w.innerHTML = d.warn.map(function(x) { return '&#9888; ' + x; }).join('<br>'); }
+  updateOrderList(d);
+  return d;
+}
+
+function updateOrderList(d) {
+  d = d || computeDeal();
+  var count = 0;
+  d.lines.forEach(function(it) { count += it.q; });
+  document.getElementById('itemCount').textContent = '(' + count + ' item' + (count !== 1 ? 's' : '') + ')';
+  if (d.lines.length) {
+    document.getElementById('orderList').innerHTML = d.lines.map(function(it) {
+      return '<div class="ord-line"><div><div class="o-name">' + it.n + '</div><div class="o-sub">' + it.m + ' x ' + it.q + (it.l ? ' &middot; $' + it.l + ' labor ea' : '') + '</div></div><div class="o-price">$' + ((it.p + it.l) * it.q).toFixed(2) + '</div></div>';
     }).join('');
   } else {
     document.getElementById('orderList').innerHTML = '<p style="text-align:center;color:var(--muted);padding:18px 0;font-size:13px">No equipment selected</p>';
   }
 }
 
-function copyOrder() {
-  var v = document.getElementById('pkgType').value;
-  var pkgTxt = v === 'custom'
-    ? 'Custom - $' + document.getElementById('customRate').value + '/mo (' + document.getElementById('customPass').value + 'x)'
-    : document.getElementById('pkgType').selectedOptions[0].text;
-
-  var cFirst   = document.getElementById('cFirst').value.trim();
-  var cLast    = document.getElementById('cLast').value.trim();
-  var cDobRaw  = document.getElementById('cDob').value;
-  var cPhone   = document.getElementById('cPhone').value.trim();
-  var cEmail   = document.getElementById('cEmail').value.trim();
-  var cApptRaw = document.getElementById('cAppt').value;
-  var cAddr    = document.getElementById('cAddr').value.trim();
-  var cCross   = document.getElementById('cCross').value.trim();
-
-  var cApptFmt = '(not entered)';
-  if (cApptRaw) {
-    var da = new Date(cApptRaw);
-    cApptFmt = da.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
-             + ' at ' + da.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit', hour12:true });
+// ---- Order text (used by Copy and Email) ----
+function customerInfo() {
+  function v(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
+  var appt = '(not entered)', dob = '(not entered)';
+  if (v('cAppt')) {
+    var da = new Date(v('cAppt'));
+    appt = da.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) + ' at ' + da.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit', hour12:true });
   }
-  var cDobFmt = '(not entered)';
-  if (cDobRaw) {
-    var dd = new Date(cDobRaw + 'T00:00:00');
-    cDobFmt = dd.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-  }
-
-  var NL = '\n';
-  var SEP = '--------------------------------------' + NL;
-  var t = '';
-  t += '======================================' + NL;
-  t += '     DPS DEALER ORDER SUMMARY' + NL;
-  t += '======================================' + NL + NL;
-  t += SEP;
-  t += 'CUSTOMER INFORMATION' + NL;
-  t += SEP;
-  t += 'Name:          ' + ([cFirst, cLast].filter(Boolean).join(' ') || '(not entered)') + NL;
-  t += 'Date of Birth: ' + cDobFmt + NL;
-  t += 'Phone:         ' + (cPhone || '(not entered)') + NL;
-  t += 'Email:         ' + (cEmail || '(not entered)') + NL;
-  t += 'Address:       ' + (cAddr  || '(not entered)') + NL;
-  t += 'Cross Street:  ' + (cCross || '(not entered)') + NL;
-  t += 'Appointment:   ' + cApptFmt + NL + NL;
-  t += SEP;
-  t += 'DEAL DETAILS' + NL;
-  t += SEP;
-  t += 'Package:      ' + document.getElementById('rBundleName').textContent + NL;
-  t += 'Description:  ' + document.getElementById('rBundleDesc').textContent + NL + NL;
-  t += 'Selected Pkg: ' + pkgTxt + NL;
-  t += 'Credit Class: ' + document.getElementById('creditClass').selectedOptions[0].text + NL;
-  t += 'Install Fee:  $' + document.getElementById('installFee').value + NL;
-  t += 'Upsell:       $' + document.getElementById('upsellAmt').value + NL + NL;
-  t += SEP;
-  t += 'EQUIPMENT LIST' + NL;
-  t += SEP + NL;
-  var has = false;
-  Object.keys(qty).forEach(function(id) {
-    var q = qty[id];
-    if (q > 0 && EQUIP[id]) {
-      has = true;
-      var e = EQUIP[id];
-      t += '- ' + e.n + NL;
-      t += '  Model: ' + e.m + '   Qty: ' + q + NL;
-      t += '  Unit: $' + e.p.toFixed(2) + (e.l > 0 ? ' + $' + e.l + ' labor' : '') + NL;
-      t += '  Line Total: $' + ((e.p + e.l) * q).toFixed(2) + NL + NL;
-    }
+  if (v('cDob')) dob = new Date(v('cDob') + 'T00:00:00').toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  return { name: [v('cFirst'), v('cLast')].filter(Boolean).join(' '), dob:dob, phone:v('cPhone'), email:v('cEmail'), addr:v('cAddr'), cross:v('cCross'), appt:appt };
+}
+function buildOrderText(includeDob) {
+  var d = computeDeal(), c = customerInfo();
+  var NL = '\n', SEP = '--------------------------------------' + NL, t = '';
+  function row(l, val) { t += (l + ':                    ').slice(0, 20) + val + NL; }
+  t += '======================================' + NL + '     DPS DEALER ORDER SUMMARY' + NL + '======================================' + NL + NL;
+  t += SEP + 'CUSTOMER INFORMATION' + NL + SEP;
+  row('Name', c.name || '(not entered)');
+  if (includeDob) row('Date of Birth', c.dob);
+  row('Phone', c.phone || '(not entered)');
+  row('Email', c.email || '(not entered)');
+  row('Address', c.addr || '(not entered)');
+  row('Cross Street', c.cross || '(not entered)');
+  row('Appointment', c.appt);
+  t += NL + SEP + 'DEAL DETAILS' + NL + SEP;
+  row('Credit Class', d.cls.label + ' (' + d.base + 'x)');
+  row('Service', d.svc.name + (d.vid.add ? ' + ' + d.vid.name : '') + (d.invoicing ? ' + Invoicing' : '') + (d.guard ? ' + Guard Response' : ''));
+  row('Monthly Rate', fmt(d.rate) + (d.guard ? ' (+$8 Guard = ' + fmt(d.customerMonthly) + ')' : ''));
+  row('Revenue Collected', fmt(d.collected));
+  row('Pay Transfer', d.payLbl);
+  t += NL + SEP + 'EQUIPMENT' + NL + SEP;
+  if (d.lines.length) d.lines.forEach(function(it) {
+    t += '- ' + it.n + '  x' + it.q + '  @ $' + it.p.toFixed(2) + (it.l ? ' + $' + it.l + ' labor' : '') + NL;
   });
-  if (!has) { t += '(No equipment selected)' + NL + NL; }
+  else t += '(No equipment selected)' + NL;
+  t += NL + SEP + 'PAY CALCULATION (Corview ' + CV.version + ')' + NL + SEP;
+  row('Fund Rate', fmt(d.rate) + ' - ' + fmt(d.svcCharge) + (d.vid.chg ? ' - ' + fmt(d.vid.chg) : '') + ' = ' + fmt(d.fundRate));
+  row('Multiple', d.base + 'x - ' + d.deductX + 'x = ' + d.grossX + 'x gross / ' + d.netX + 'x net');
+  row('Gross Funding', '+' + fmt(d.grossFunding));
+  row('Holdback', sfmt(d.holdback));
+  row('Revenue (95%)', sfmt(d.revenue));
+  row('Equipment', sfmt(-d.equip));
+  row('Inventory Fee', sfmt(-d.invFee));
+  row('Labor', sfmt(-d.labor));
+  row('Dealer+Acct Fee', sfmt(-d.dealerFees));
+  row('Pay Transfer Fee', sfmt(-d.payFee));
+  row('Other Charges', sfmt(-d.other));
   t += SEP;
-  t += 'COMMISSION BREAKDOWN' + NL;
-  t += SEP + NL;
-  t += 'Monthly Rate:     ' + document.getElementById('rRate').textContent + NL;
-  t += 'Pass Through:     ' + document.getElementById('rPass').textContent + NL;
-  t += 'Credit Multiple:  ' + document.getElementById('rBase').textContent + NL;
-  t += 'Gross Commission: ' + document.getElementById('rGross').textContent + NL + NL;
-  t += 'DPS Fee:          ' + document.getElementById('eDps').textContent + NL;
-  t += 'Holdback:         ' + document.getElementById('eHold').textContent + NL;
-  t += 'Equipment:        ' + document.getElementById('eEquip').textContent + NL;
-  t += 'Labor:            ' + document.getElementById('eLabor').textContent + NL;
-  t += 'Total Expenses:   ' + document.getElementById('eTotal').textContent + NL + NL;
-  t += 'NET COMMISSION:   ' + document.getElementById('rNet').textContent + NL;
+  row('TOTAL PAY', (d.total < 0 ? '-' : '') + fmt(d.total));
+  row('Reserve Added', fmt(d.reserve));
+  row('Chargeback Risk', fmt(d.chargeback) + ' for ' + CV.chargebackMonths + ' mo');
+  if (d.warn.length) { t += NL + 'NOTES:' + NL; d.warn.forEach(function(x) { t += '! ' + x + NL; }); }
   t += '======================================' + NL;
+  return t;
+}
 
-  navigator.clipboard.writeText(t).then(function() {
-    var btn = document.getElementById('copyBtn');
+function copyOrder() {
+  var t = buildOrderText(true);
+  var btn = document.getElementById('copyBtn');
+  function done() {
     btn.textContent = 'Copied!';
     btn.classList.add('btn-copied');
-    setTimeout(function() {
-      btn.textContent = 'Copy Order Details';
-      btn.classList.remove('btn-copied');
-    }, 2500);
-  }).catch(function() {
-    alert('Clipboard unavailable. Please copy manually.');
+    setTimeout(function() { btn.textContent = 'Copy Order Details'; btn.classList.remove('btn-copied'); }, 2500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(done).catch(function() { alert('Clipboard unavailable. Please copy manually.'); });
+  } else { alert('Clipboard unavailable. Please copy manually.'); }
+}
+
+// ---- Deal log: saves each calculated deal on this device ----
+var DEAL_KEY = 'chtDealLog.v1';
+function loadDeals() { try { return JSON.parse(localStorage.getItem(DEAL_KEY) || '[]') || []; } catch (e) { return []; } }
+function storeDeals(a) { try { localStorage.setItem(DEAL_KEY, JSON.stringify(a)); return true; } catch (e) { return false; } }
+function saveDeal() {
+  var d = computeDeal(), c = customerInfo();
+  var deals = loadDeals();
+  deals.unshift({
+    ts: new Date().toISOString(), customer: c.name || '(no name)', addr: c.addr,
+    cls: d.clsKey, service: d.svc.name + (d.vid.add ? ' + GP' : ''), rate: d.rate, fundRate: d.fundRate,
+    grossX: d.grossX, grossFunding: d.grossFunding, holdback: d.holdback, revenue: d.revenue,
+    equip: d.equip, invFee: d.invFee, labor: d.labor, fees: d.dealerFees, payFee: d.payFee, other: d.other,
+    total: d.total, reserve: d.reserve, items: d.lines.map(function(l) { return l.n + ' x' + l.q; }).join('; ')
   });
+  var ok = storeDeals(deals);
+  renderDeals(ok ? '' : 'Could not save on this device (private browsing?). Use Export or Copy instead.');
+}
+function deleteDeal(i) { var a = loadDeals(); a.splice(i, 1); storeDeals(a); renderDeals(); }
+function renderDeals(msg) {
+  var body = document.getElementById('dealLogBody');
+  if (!body) return;
+  var a = loadDeals(), tp = 0, tg = 0, tr = 0;
+  var td = 'padding:8px 6px;border-top:1px solid rgba(255,255,255,.08)';
+  body.innerHTML = a.length ? a.map(function(x, i) {
+    tp += x.total; tg += x.grossFunding; tr += x.reserve;
+    return '<tr><td style="' + td + '">' + new Date(x.ts).toLocaleDateString('en-US') + '</td><td style="' + td + '">' + String(x.customer).replace(/</g, '&lt;') + '</td><td style="' + td + '">' + x.cls + '</td><td style="' + td + '">' + x.service + '</td><td style="' + td + ';text-align:right">' + fmt(x.rate) + '</td><td style="' + td + ';text-align:right">' + fmt(x.grossFunding) + '</td><td style="' + td + ';text-align:right;color:#4ade80;font-weight:700">' + (x.total < 0 ? '-' : '') + fmt(x.total) + '</td><td style="' + td + ';text-align:right">' + fmt(x.reserve) + '</td><td style="' + td + ';text-align:right"><button onclick="deleteDeal(' + i + ')" style="background:none;border:1px solid rgba(255,255,255,.2);color:#fca5a5;border-radius:4px;padding:2px 8px;cursor:pointer" title="Remove">&times;</button></td></tr>';
+  }).join('') : '<tr><td colspan="9" style="padding:14px 6px;color:var(--muted);text-align:center">No deals saved yet. Configure a deal above and tap Save This Deal.</td></tr>';
+  document.getElementById('dealLogFoot').innerHTML = a.length ? '<tr style="font-weight:800"><td colspan="5" style="padding:10px 6px;border-top:1.5px solid rgba(255,255,255,.25)">Totals (' + a.length + ' deals)</td><td style="padding:10px 6px;text-align:right;border-top:1.5px solid rgba(255,255,255,.25)">' + fmt(tg) + '</td><td style="padding:10px 6px;text-align:right;color:#4ade80;border-top:1.5px solid rgba(255,255,255,.25)">' + (tp < 0 ? '-' : '') + fmt(tp) + '</td><td style="padding:10px 6px;text-align:right;border-top:1.5px solid rgba(255,255,255,.25)">' + fmt(tr) + '</td><td style="border-top:1.5px solid rgba(255,255,255,.25)"></td></tr>' : '';
+  document.getElementById('logCount').textContent = a.length ? '(' + a.length + ')' : '';
+  document.getElementById('logNote').textContent = msg || 'Saved on this device only. Export CSV to keep a permanent copy.';
+}
+function exportDeals() {
+  var a = loadDeals();
+  if (!a.length) { renderDeals('Nothing to export yet.'); return; }
+  var cols = ['ts','customer','addr','cls','service','rate','fundRate','grossX','grossFunding','holdback','revenue','equip','invFee','labor','fees','payFee','other','total','reserve','items'];
+  var csv = cols.join(',') + '\n' + a.map(function(x) {
+    return cols.map(function(k) { var s = x[k] == null ? '' : String(x[k]); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',');
+  }).join('\n');
+  var blob = new Blob([csv], { type: 'text/csv' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url; link.download = 'cht-deal-log-' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
 }
 
 // ---- Build the equipment catalog & run the calculator NOW ----
@@ -2351,9 +2574,12 @@ function copyOrder() {
 // and EQUIP is defined, so this runs synchronously and cannot be blocked
 // by anything in the animation block below.
 try {
+  var jsOff = document.getElementById('jsOffBanner'); if (jsOff) jsOff.style.display = 'none';
   buildCatalog();
+  fillServices();
   portalReady = true;
   calc();
+  renderDeals();
 } catch (e) {
   console.error('Portal calculator init failed:', e);
 }
@@ -2896,69 +3122,14 @@ var ORDER_EMAIL_TO = 'darrell@completehomellc.com';
 function emailOrder() {
   var repNote = document.getElementById('sendToEmail').value.trim();
   var statusEl = document.getElementById('emailStatus');
-  // Build order text (reuse copyOrder logic)
-  var v = document.getElementById('pkgType').value;
-  var pkgTxt = v === 'custom'
-    ? 'Custom - $' + document.getElementById('customRate').value + '/mo (' + document.getElementById('customPass').value + 'x)'
-    : document.getElementById('pkgType').selectedOptions[0].text;
-  var cFirst = document.getElementById('cFirst').value.trim();
-  var cLast  = document.getElementById('cLast').value.trim();
-  var cPhone = document.getElementById('cPhone').value.trim();
-  var cEmail = document.getElementById('cEmail').value.trim();
-  var cAddr  = document.getElementById('cAddr').value.trim();
-  var cCross = document.getElementById('cCross').value.trim();
-  var cApptRaw = document.getElementById('cAppt').value;
-  var cApptFmt = '(not entered)';
-  if (cApptRaw) {
-    var da = new Date(cApptRaw);
-    cApptFmt = da.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' at ' + da.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-  }
-  var NL = '\n', SEP = '--------------------------------------' + NL;
-  var body = '======================================' + NL + '     DPS DEALER ORDER SUMMARY' + NL + '======================================' + NL + NL;
-  body += SEP + 'CUSTOMER INFORMATION' + NL + SEP;
-  body += 'Name:         ' + ([cFirst,cLast].filter(Boolean).join(' ') || '(not entered)') + NL;
-  body += 'Phone:        ' + (cPhone || '(not entered)') + NL;
-  body += 'Email:        ' + (cEmail || '(not entered)') + NL;
-  body += 'Address:      ' + (cAddr  || '(not entered)') + NL;
-  body += 'Cross Street: ' + (cCross || '(not entered)') + NL;
-  body += 'Appointment:  ' + cApptFmt + NL + NL;
-  body += SEP + 'DEAL DETAILS' + NL + SEP;
-  body += 'Package:       ' + document.getElementById('rBundleName').textContent + NL;
-  body += 'Selected Pkg:  ' + pkgTxt + NL;
-  body += 'Credit Class:  ' + document.getElementById('creditClass').selectedOptions[0].text + NL;
-  body += 'Install Fee:   $' + document.getElementById('installFee').value + NL;
-  body += 'Upsell:        $' + document.getElementById('upsellAmt').value + NL + NL;
-  body += SEP + 'COMMISSION BREAKDOWN' + NL + SEP;
-  body += 'Monthly Rate:      ' + document.getElementById('rRate').textContent + NL;
-  body += 'Credit Multiple:   ' + document.getElementById('rBase').textContent + NL;
-  body += 'Gross Commission:  ' + document.getElementById('rGross').textContent + NL;
-  body += 'DPS Fee:           ' + document.getElementById('eDps').textContent + NL;
-  body += 'Holdback:          ' + document.getElementById('eHold').textContent + NL;
-  body += 'Equipment:         ' + document.getElementById('eEquip').textContent + NL;
-  body += 'Labor:             ' + document.getElementById('eLabor').textContent + NL;
-  body += 'Total Expenses:    ' + document.getElementById('eTotal').textContent + NL;
-  body += 'NET COMMISSION:    ' + document.getElementById('rNet').textContent + NL;
-  body += '======================================' + NL;
-  // Equipment list
-  var equipLines = [];
-  Object.keys(qty).forEach(function(id) {
-    var q = qty[id];
-    if (q > 0 && EQUIP[id]) {
-      var e = EQUIP[id];
-      equipLines.push(e.n + ' x' + q + ' [$' + (e.p * q).toFixed(2) + ']');
-    }
-  });
-  if (equipLines.length) body += NL + SEP + 'EQUIPMENT' + NL + SEP + equipLines.join(NL) + NL;
-
-  var subject = 'DPS Order Summary — ' + ([cFirst,cLast].filter(Boolean).join(' ') || 'New Order');
-  var fullBody = (repNote ? 'Submitted by: ' + repNote + NL + NL : '') + body;
+  var c = customerInfo();
+  var subject = 'DPS Order Summary - ' + (c.name || 'New Order');
+  var fullBody = (repNote ? 'Submitted by: ' + repNote + '\n\n' : '') + buildOrderText(false);
   // Opens the rep's mail app with the order pre-filled, addressed to the office inbox.
-  window.location.href = 'mailto:' + ORDER_EMAIL_TO +
-    '?subject=' + encodeURIComponent(subject) +
-    '&body=' + encodeURIComponent(fullBody);
+  window.location.href = 'mailto:' + ORDER_EMAIL_TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(fullBody);
   statusEl.style.color = '#4ade80';
   statusEl.style.display = 'block';
-  statusEl.textContent = '✓ Opening your email app — tap Send to submit.';
+  statusEl.textContent = '\u2713 Opening your email app - tap Send to submit.';
 }
 </script>
 
