@@ -2498,7 +2498,8 @@ function calc() {
 
 // ---- Live recalculation: any keystroke or change anywhere in the calculator updates everything ----
 var liveRaf = 0;
-function liveCalc() { if (liveRaf) return; liveRaf = (window.requestAnimationFrame || setTimeout)(function() { liveRaf = 0; calc(); }); }
+function liveCalc() { if (liveRaf) return; liveRaf = setTimeout(function() { liveRaf = 0; try { calc(); } catch (e) { showCalcError(e); } }, 0); }
+function showCalcError(e) { var b = document.getElementById('jsErrBanner'); if (b) { b.style.display = 'block'; b.textContent = 'Calculator error: ' + (e && e.message ? e.message : e); } }
 (function() {
   var box = document.getElementById('pTab-calc');
   if (box) { box.addEventListener('input', liveCalc); box.addEventListener('change', liveCalc); }
