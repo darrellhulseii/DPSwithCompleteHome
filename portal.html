@@ -1264,12 +1264,36 @@ img,iframe,video,canvas,svg{max-width:100%}
               </select>
             </div>
             <div class="pfg">
-              <label>Other Deductions (&times; multiple) <span style="text-transform:none;font-weight:400">e.g. resale</span></label>
+              <label>Resale / Other Deductions (&times; multiple) <span style="text-transform:none;font-weight:400">resale is &minus;1&times; or more</span></label>
               <input type="number" id="dDeduct" step="0.5" min="0" value="0" oninput="calc()">
             </div>
             <div class="pfg">
-              <label>Other Charges ($) <span style="text-transform:none;font-weight:400">credit check, dispute fee</span></label>
+              <label>Other Charges ($) <span style="text-transform:none;font-weight:400">anything not listed</span></label>
               <input type="number" id="dOther" step="1" min="0" value="0" oninput="calc()">
+            </div>
+            <div class="pfg" id="ccBox">
+              <label>Commercial Credit Check <span style="text-transform:none;font-weight:400">charged pass or fail</span></label>
+              <select id="dCredit">
+                <option value="0" selected>None</option>
+                <option value="10">Equifax (&minus;$10)</option>
+                <option value="20">Experian (&minus;$20)</option>
+                <option value="30">Both (&minus;$30)</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Dealer Dispute Fee</label>
+              <select id="dDispute">
+                <option value="0" selected>None</option>
+                <option value="500">Unsigned (&minus;$500)</option>
+                <option value="1000">Signed (&minus;$1,000)</option>
+              </select>
+            </div>
+            <div class="pfg">
+              <label>Install State <span style="text-transform:none;font-weight:400">sets contract term</span></label>
+              <select id="dState">
+                <option value="CA" selected>California (2-year term)</option>
+                <option value="X">Outside CA (3-year term)</option>
+              </select>
             </div>
             <div class="pfg" style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 24px">
               <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;margin:0">
@@ -1281,6 +1305,16 @@ img,iframe,video,canvas,svg{max-width:100%}
                 Guard Response (+$8 to customer, not funded)
               </label>
             </div>
+          </div>
+          <div class="p-sec-t" style="margin-top:6px">&#9989; Funding Checklist <span id="chkCount" style="font-size:12px;color:var(--muted);text-transform:none;letter-spacing:0"></span></div>
+          <div id="fundChecklist" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 18px;margin-bottom:20px;font-size:13px;color:#dbe7f3">
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="owner" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> <span id="chkOwnerTxt">Customer is the homeowner (renters: Prepaid only)</span></label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="autopay" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> Auto-Pay set up</label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="econtract" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> <span id="chkTermTxt">Electronic contract signed (2-year term, CA)</span></label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="cell" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> Cellular interactive service</label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="qa" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> Quality Assurance passed</label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="cutin" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> Installed &amp; complete with Cut-In Date</label>
+            <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer"><input type="checkbox" class="fchk" data-k="nochannel" style="width:17px;height:17px;flex:0 0 auto;accent-color:#22c55e"> No other ADT channel working this customer</label>
           </div>
           <button onclick="clearEquip()" class="btn btn-clr" style="padding:10px 16px;margin-bottom:4px">&#128465; Clear All Equipment</button>
           <div class="p-sec-t" style="margin-top:26px">&#128295; Equipment Selection</div>
@@ -1361,6 +1395,41 @@ img,iframe,video,canvas,svg{max-width:100%}
       </div>
       <div id="logNote" style="font-size:11px;color:var(--muted);margin-top:8px">Saved on this device only. Export CSV to keep a permanent copy.</div>
     </div>
+    <details class="p-glass" style="margin-top:18px;color:#dbe7f3;font-size:13px;line-height:1.6">
+      <summary class="p-sec-t" style="cursor:pointer;margin:0">&#128214; Corview Funding Rules (Oct 2026)</summary>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:14px">
+        <div><strong style="color:#fff">How pay is figured</strong><br>
+          Fund Rate = Rate &minus; Service Charges<br>
+          Gross Multiple = Base Multiple &minus; Account Deductions<br>
+          Net Multiple = Gross Multiple &minus; 2&times; Holdback<br>
+          Gross Funding = Net Multiple &times; Fund Rate<br>
+          Revenue = Collected &times; 0.95<br>
+          Net Funding = Gross Funding + Revenue &minus; Equipment &minus; Labor &minus; Other Charges &minus; Dealer Fees<br>
+          Total Funding = Net Funding &minus; Pay Transfer Fee<br>
+          Inventory Fee = 20% of Equipment or 1&times; Fund Rate, whichever is greater</div>
+        <div><strong style="color:#fff">Fees &amp; deductions</strong><br>
+          Dealer Fee &minus;$300 and Account Fee &minus;$5 per account<br>
+          Secure service &minus;1&times; &middot; Invoicing &minus;1&times; (+$1 rate, quarterly billing, eligible credit)<br>
+          Resale &minus;1&times; or more &middot; Dispute &minus;$500 unsigned / &minus;$1,000 signed<br>
+          Commercial credit check &minus;$10 Equifax / &minus;$20 Experian (pass or fail)<br>
+          Google Premium +$7 rate, &minus;$1.50 &middot; Guard Response +$8 / &minus;$8, not funded<br>
+          Rates move in $1.00 steps inside each service's range</div>
+        <div><strong style="color:#fff">Holdback &amp; chargebacks</strong><br>
+          Holdback &minus;2&times; goes to your reserve (may change with reserve target or aging accounts)<br>
+          Chargeback period: 13 months from Funded Date<br>
+          Chargeback = Gross Multiple &times; Fund Rate<br>
+          Taken from reserve only if the account made 3 payments, cleared 90 days, and reserve is at least $5,000 &mdash; otherwise due immediately<br>
+          Fraud or unqualified accounts are never taken from reserve<br>
+          Order applied: Reserve, then Funding, then Payback</div>
+        <div><strong style="color:#fff">Who qualifies</strong><br>
+          New homeowner / business owner accounts; renters only as Prepaid<br>
+          Commercial: personal 650+, Equifax business 430+ or Experian business 60+<br>
+          Prepaid: full 36 months paid upfront, not in all areas<br>
+          Minimum revenue $99 ($299 Bulk) &middot; Auto-Pay &middot; electronic contract<br>
+          Term: 2 years in CA, 3 years outside CA and Prepaid<br>
+          Paid once installed with a Cut-In Date, cleared by the provider, per Corview's pay calendar</div>
+      </div>
+    </details>
   </div>
 </div><!-- end pTab-calc -->
 
@@ -2295,7 +2364,16 @@ function computeDeal() {
   var rate = parseFloat(document.getElementById('dRate').value) || 0;
   var collected = parseFloat(document.getElementById('dRev').value) || 0;
   var extraDed = parseFloat(document.getElementById('dDeduct').value) || 0;
-  var other = parseFloat(document.getElementById('dOther').value) || 0;
+  var otherIn = parseFloat(document.getElementById('dOther').value) || 0;
+  var creditFee = cls.kind === 'C' ? (parseFloat(document.getElementById('dCredit').value) || 0) : 0;
+  var disputeFee = parseFloat(document.getElementById('dDispute').value) || 0;
+  var other = otherIn + creditFee + disputeFee;
+  var inCA = document.getElementById('dState').value === 'CA';
+  var termTxt = (clsKey === 'P' || !inCA) ? '3-year term' : '2-year term';
+  var chk = {};
+  document.querySelectorAll('.fchk').forEach(function(c) { chk[c.getAttribute('data-k')] = c.checked; });
+  var chkLabels = { owner: clsKey === 'C' ? 'business owner' : 'homeowner (or Prepaid)', autopay:'Auto-Pay', econtract:'electronic contract', cell:'cellular interactive', qa:'QA pass', cutin:'Cut-In Date', nochannel:'no channel conflict' };
+  var missing = Object.keys(chkLabels).filter(function(k) { return !chk[k]; }).map(function(k) { return chkLabels[k]; });
   var payPct = parseFloat(document.getElementById('dPay').value) || 0;
   var payLbl = document.getElementById('dPay').selectedOptions[0].text;
   var invMode = document.getElementById('dInv').value;
@@ -2349,9 +2427,11 @@ function computeDeal() {
   if (svc.needs === 'camOrAuto' && autos + cams < 1) { tierOk = false; tierMsg = 'Complete needs at least 1 camera and/or automation device.'; }
   if (!tierOk) warn.push(tierMsg);
   if (clsKey === 'P') warn.push('Prepaid: full 36-month term paid upfront; not available in all areas.');
-  if (clsKey === 'C') warn.push('Commercial credit check fee ($10 Equifax / $20 Experian) goes in Other Charges.');
+  if (clsKey === 'C' && !creditFee) warn.push('Commercial: pick the credit check that was pulled ($10 Equifax / $20 Experian) - charged pass or fail.');
   if (invoicing) warn.push('Invoicing requires an eligible credit score and quarterly billing.');
   if (fundRate <= 0) warn.push('Fund rate is zero or negative - check the rate.');
+  if (missing.length) warn.push('Not fundable yet - still need: ' + missing.join(', ') + '.');
+  if (disputeFee) warn.push('Dispute fee applied: another ADT channel was working this customer.');
 
   return {
     clsKey:clsKey, cls:cls, svcKey:svcKey, svc:svc, vid:vid, invoicing:invoicing, guard:guard,
@@ -2359,7 +2439,8 @@ function computeDeal() {
     base:base, deductX:deductX, grossX:grossX, netX:netX,
     grossFunding:grossFunding, holdback:holdback, collected:collected, revenue:revenue,
     equip:equip, invFee:invFee, invMode:invMode, labor:labor, laborLines:laborLines, dealerFees:dealerFees,
-    payPct:payPct, payLbl:payLbl, payFee:payFee, other:other, total:total,
+    payPct:payPct, payLbl:payLbl, payFee:payFee, other:other, otherIn:otherIn, creditFee:creditFee, disputeFee:disputeFee,
+    termTxt:termTxt, inCA:inCA, missing:missing, total:total,
     chargeback:grossFunding, reserve:-holdback,
     lines:lines, cams:cams, autos:autos, tierOk:tierOk, tierMsg:tierMsg, warn:warn
   };
@@ -2391,7 +2472,11 @@ function calc() {
   setEl('eLabor', sfmt(-d.labor));
   setEl('eDps', sfmt(-d.dealerFees));
   setEl('ePay', d.payPct ? sfmt(-d.payFee) + ' (' + (d.payPct * 100) + '%)' : '$0.00');
-  setEl('eOther', sfmt(-d.other));
+  setEl('eOther', sfmt(-d.other) + (d.creditFee || d.disputeFee ? ' (' + [d.creditFee ? 'credit $' + d.creditFee : '', d.disputeFee ? 'dispute $' + d.disputeFee : '', d.otherIn ? 'other $' + d.otherIn : ''].filter(Boolean).join(', ') + ')' : ''));
+  var cc = document.getElementById('ccBox'); if (cc) cc.style.opacity = d.cls.kind === 'C' ? '1' : '.45';
+  setEl('chkOwnerTxt', d.cls.kind === 'C' ? 'Customer is the business owner' : d.clsKey === 'P' ? 'Prepaid: renter or owner, 36 months paid upfront' : 'Customer is the homeowner (renters: Prepaid only)');
+  setEl('chkTermTxt', 'Electronic contract signed (' + d.termTxt + (d.inCA && d.clsKey !== 'P' ? ', CA' : '') + ')');
+  setEl('chkCount', d.missing.length ? '(' + (7 - d.missing.length) + ' of 7)' : '(ready to fund)');
   setEl('eTotal', (d.total < 0 ? '-' : '') + fmt(d.total));
   setEl('eCb', '-' + fmt(d.chargeback));
   setEl('eRes', fmt(d.reserve));
@@ -2463,6 +2548,8 @@ function buildOrderText(includeDob) {
   row('Monthly Rate', fmt(d.rate) + (d.guard ? ' (+$8 Guard = ' + fmt(d.customerMonthly) + ')' : ''));
   row('Revenue Collected', fmt(d.collected));
   row('Pay Transfer', d.payLbl);
+  row('Contract Term', d.termTxt);
+  row('Funding Checklist', d.missing.length ? 'Missing: ' + d.missing.join(', ') : 'Complete');
   t += NL + SEP + 'EQUIPMENT' + NL + SEP;
   if (d.lines.length) d.lines.forEach(function(it) {
     t += '- ' + it.n + '  x' + it.q + '  @ $' + it.p.toFixed(2) + (it.l ? ' + $' + it.l + ' labor' : '') + NL;
@@ -2479,7 +2566,9 @@ function buildOrderText(includeDob) {
   row('Labor', sfmt(-d.labor));
   row('Dealer+Acct Fee', sfmt(-d.dealerFees));
   row('Pay Transfer Fee', sfmt(-d.payFee));
-  row('Other Charges', sfmt(-d.other));
+  if (d.creditFee) row('Credit Check', sfmt(-d.creditFee));
+  if (d.disputeFee) row('Dispute Fee', sfmt(-d.disputeFee));
+  row('Other Charges', sfmt(-d.otherIn));
   t += SEP;
   row('TOTAL PAY', (d.total < 0 ? '-' : '') + fmt(d.total));
   row('Reserve Added', fmt(d.reserve));
