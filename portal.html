@@ -2630,6 +2630,9 @@ function exportDeals() {
   var csv = cols.join(',') + '\n' + a.map(function(x) {
     return cols.map(function(k) { var s = x[k] == null ? '' : String(x[k]); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',');
   }).join('\n');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(csv).then(function() { renderDeals('CSV copied - paste it into Sheets or Excel.'); }).catch(function() {});
+  }
   var blob = new Blob([csv], { type: 'text/csv' });
   var url = URL.createObjectURL(blob);
   var link = document.createElement('a');
